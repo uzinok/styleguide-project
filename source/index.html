@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Styleguide</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+  <header class="page-header">
+    <div class="container">
+      <h1 class="page-header__title">Styleguide</h1>
+    </div>
+  </header>
+
+  <main class="page-main">
+    <div class="container">
+      <p class="text-content">Styleguide для проекта. Все элементы сайта с разными модификаторами. В URL указан путь к
+        папке со стилями и документацией. </p>
+      <p class="text-content">Для использования элемента необходимо скопировать и подключить файл .less/js/img к
+        проекту. Все модификаторы в одном файле. </p>
+    </div>
+
+    <section class="section-demo section">
+      <fieldset class="container">
+        <legend class="title-text-content">Формы</legend>
+        <label for="one" class="section-demo__label">button</label>
+        <input type="radio" class="hidden" id="one" name="demo">
+        <div class="section-demo__content">
+          <button class="button">Кликни меня</button>
+        </div>
+        <label for="two" class="section-demo__label">input text</label>
+        <input type="radio" class="hidden section-demo__input" id="two" name="demo">
+        <div class="section-demo__content">
+          <input type="text">
+        </div>
+      </fieldset>
+    </section>
+  </main>
+</body>
+
+</html>
