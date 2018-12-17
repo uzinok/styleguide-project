@@ -34,9 +34,14 @@ body {
 
 .text-content {
   margin: 0;
-  padding: 0.5em 0 0;
+  padding: 0.7em 0 0;
   font-size: 16px;
+  line-height: 1.5;
   font-family: "Roboto", Arial, sans-serif;
+
+  &--italic {
+    font-style: italic;
+  }
 }
 
 .section {
@@ -54,7 +59,7 @@ body {
   display: none;
 }
 
-.title-text-content {  
+.title-text-content {
   margin: 0;
   padding: 10px 0;
   color: darken(@color-theme, 90%);
@@ -68,4 +73,10 @@ fieldset {
   border: none;
   margin: 0;
   padding: 0;
+}
+
+button,
+input,
+select {
+  appearance: none;
 }

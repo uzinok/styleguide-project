@@ -1,0 +1,1 @@
+// $('.child').parent().addClass('someclass')

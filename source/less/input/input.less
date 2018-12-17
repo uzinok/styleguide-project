@@ -1,0 +1,55 @@
+.input-text {
+  position: relative;
+  display: inline-block;
+
+  & input {
+    background-color: #fff;
+    box-shadow: none;
+    border: none;
+    border: 1px solid #ffffff;
+    border-bottom: 2px solid @color-theme;
+    padding: 10px 15px 8px;
+    box-sizing: border-box;
+    color: @color-theme;
+    font-family: "Roboto Condensed", Arial, sans-serif;
+    font-size: 14px;
+    line-height: 1;
+    cursor: pointer;
+
+    &:focus, 
+    &:active {
+      border-color: 1px solid #8080f5;
+      outline: none;
+    }
+
+    &::placeholder {
+      color: fadeout(@color-theme, 50%)
+    }
+  }
+
+  &--warning input {
+    border-color: darken(@color-theme-warning, 20%);
+    background-color: lighten(@color-theme-warning, 45%);
+    color: darken(@color-theme-warning, 30%);
+
+        &::placeholder {
+      color: fadeout(darken(@color-theme-warning, 10%), 20%)
+    }
+  }
+
+  &--error input {
+    border-color: darken(@color-theme-error, 20%);
+    background-color: lighten(@color-theme-error, 45%);
+    color: darken(@color-theme-error, 30%);
+
+        &::placeholder {
+      color: fadeout(darken(@color-theme-error, 10%), 50%)
+    }
+  }
+
+  input:disabled {
+    border-color: fadeout(@color-theme, 50%);
+    background-color: #f2f2f2;
+    cursor: default;
+  }
+}
