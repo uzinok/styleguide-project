@@ -3,8 +3,7 @@
   background-color: #ffffff;
   border: 1px solid @color-theme;
   padding: 10px 15px 8px;
-  box-shadow: 1px 1px 1px 0 darken(@color-theme, 35%);
-  border-radius: 3px;
+  border-radius: 0;
   color: @color-theme;
   text-transform: uppercase;
   font-family: "Roboto Condensed", Arial, sans-serif;
@@ -39,7 +38,6 @@
   &--darken {
     background-color: @color-theme;
     color: #ffffff;
-    box-shadow: 1px 1px 1px 0 darken(@color-theme, 35%);
 
     &:hover {
       box-shadow: 3px 3px 3px 0 darken(@color-theme, 35%);
@@ -50,7 +48,6 @@
     background-color: lighten(@color-theme-warning, 30%);
     border-color: darken(@color-theme-warning, 10%);
     color: darken(@color-theme-warning, 35%);
-    box-shadow: 1px 1px 1px 0 darken(@color-theme-warning, 35%);
 
     &:hover {
       box-shadow: 3px 3px 3px 0 darken(@color-theme-warning, 35%);
@@ -61,7 +58,6 @@
     background-color: lighten(@color-theme-error, 30%);
     border-color: darken(@color-theme-error, 10%);
     color: darken(@color-theme-error, 35%);
-    box-shadow: 1px 1px 1px 0 darken(@color-theme-error, 35%);
 
     &:hover {
       box-shadow: 3px 3px 3px 0 darken(@color-theme-error, 35%);

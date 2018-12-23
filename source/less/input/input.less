@@ -8,6 +8,7 @@
     border: none;
     border: 1px solid #ffffff;
     border-bottom: 2px solid @color-theme;
+    border-radius: 0;
     padding: 10px 15px 8px;
     box-sizing: border-box;
     color: @color-theme;
@@ -15,42 +16,153 @@
     font-size: 14px;
     line-height: 1;
     cursor: pointer;
-
-    &:focus, 
-    &:active {
-      border-color: 1px solid #8080f5;
-      outline: none;
-    }
+    transition: all 0.3s ease-in-out;
+    outline: none;
 
     &::placeholder {
-      color: fadeout(@color-theme, 50%)
+      color: fadeout(@color-theme, 50%);
     }
   }
 
-  &--warning input {
-    border-color: darken(@color-theme-warning, 20%);
-    background-color: lighten(@color-theme-warning, 45%);
-    color: darken(@color-theme-warning, 30%);
+  .button-number-minus,
+  .button-number-plus {
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    background-color: transparent;
+    border: none;
+    box-shadow: none;
+    height: calc(100% - 2px);
+    width: 20px;
+    cursor: pointer;
+  }
 
-        &::placeholder {
-      color: fadeout(darken(@color-theme-warning, 10%), 20%)
+  &--disabled {
+    .button-number-minus,
+    .button-number-plus {
+      display: none;
     }
   }
 
-  &--error input {
-    border-color: darken(@color-theme-error, 20%);
-    background-color: lighten(@color-theme-error, 45%);
-    color: darken(@color-theme-error, 30%);
+  & .button-number-minus {
+    left: 0;
 
-        &::placeholder {
-      color: fadeout(darken(@color-theme-error, 10%), 50%)
+    &::after,
+    &::before {
+      content: "";
+      display: block;
+      width: 10px;
+      height: 2px;
+      position: absolute;
+      left: 3px;
+      background-color: @color-theme;
     }
+
+    &::before {
+      top: 39%;
+      transform: rotate(-45deg);
+    }
+
+    &::after {
+      bottom: 39%;
+      transform: rotate(45deg);
+    }
+  }
+
+  .button-number-plus {
+    right: 0;
+
+    &::after,
+    &::before {
+      content: "";
+      display: block;
+      width: 10px;
+      height: 2px;
+      position: absolute;
+      right: 3px;
+      background-color: @color-theme;
+    }
+
+    &::before {
+      top: 39%;
+      transform: rotate(45deg);
+    }
+
+    &::after {
+      bottom: 39%;
+      transform: rotate(-45deg);
+    }
+  }
+
+  .js-input-number {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  &--warning {
+    & .button-number-minus,
+    & .button-number-plus {
+      &::after,
+      &::before {
+        background-color: darken(@color-theme-warning, 30%);
+      }
+    }
+
+    input {
+      border-color: darken(@color-theme-warning, 20%);
+      background-color: lighten(@color-theme-warning, 45%);
+      color: darken(@color-theme-warning, 30%);
+
+      &::placeholder {
+        color: fadeout(darken(@color-theme-warning, 10%), 20%);
+      }
+    }
+  }
+
+  &--error {
+    & .button-number-minus,
+    & .button-number-plus {
+      &::after,
+      &::before {
+        background-color: darken(@color-theme-error, 20%);
+      }
+    }
+
+    input {
+      border-color: darken(@color-theme-error, 20%);
+      background-color: lighten(@color-theme-error, 45%);
+      color: darken(@color-theme-error, 30%);
+
+      &::placeholder {
+        color: fadeout(darken(@color-theme-error, 10%), 50%);
+      }
+    }
+  }
+
+
+  & input:hover {
+    box-shadow: 3px 3px 3px 0 darken(@color-theme, 35%);
+  }
+
+  & input:active,
+  & input:focus {
+    border-color: #8080f5;
+    outline: none;
+    box-shadow: 3px 3px 3px 0 darken(@color-theme, 35%);
   }
 
   input:disabled {
     border-color: fadeout(@color-theme, 50%);
     background-color: #f2f2f2;
     cursor: default;
+
+    &:active,
+    &:focus,
+    &:hover {
+      border-color: fadeout(@color-theme, 50%);
+      background-color: #f2f2f2;
+      box-shadow: none;
+    }
   }
 }
 
@@ -61,36 +173,7 @@ input[type="number"]::-webkit-outer-spin-button {
   appearance: none;
   margin: 0;
 }
+
 input[type="number"] {
   -moz-appearance: textfield;
-}
-
-/* not necessary*/
-* {
-  margin: 0;
-  padding: 0;
-}
-body {
-  display: flex;
-  min-height: 100vh;
-}
-.quantity-block {
-  margin: auto;
-  font-size: 20px;
-}
-.quantity-arrow-minus,
-.quantity-arrow-plus {
-  cursor: pointer;
-  font-size: 20px;
-  padding: 5px 12px;
-  width: 40px;
-  box-sizing: border-box;
-  border-radius: 4px;
-  outline: none;
-}
-.quantity-num {
-  font-size: 20px;
-  padding: 5px 10px;
-  border-radius: 4px;
-  outline: none;
 }

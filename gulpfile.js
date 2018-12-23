@@ -32,7 +32,7 @@ gulp.task("copy", function() {
     .pipe(gulp.dest("build"));
 });
 
-gulp.task("js", function () {
+gulp.task("js", function() {
   return gulp.src("source/js/*.js")
     .pipe(gulp.dest("build/js"))
     .pipe(server.stream());

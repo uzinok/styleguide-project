@@ -178,31 +178,39 @@
 
               <div class="section-demo__text-content text-content">
                 <p class="section-demo__text-elem">input-text input:disabled</p>
-                <div class="input-text input-text--dizabled">
+                <div class="input-text">
                   <input type="text" placeholder="text" disabled>
                 </div>
               </div>
 
               <div class="section-demo__text-content text-content">
-                <p class="section-demo__text-elem">input-text input[type="number"]</p>
-                <div class="input-text">
-                  <input type="number" placeholder="12345">
+                <p class="section-demo__text-elem ">input-text input[type="number"]</p>
+                <div class="input-text js-input-number-block">
+                  <input type="number" placeholder="12345" min="-10" class="js-input-number">
                 </div>
+              </div>
 
+              <div class="section-demo__text-content text-content">
+                <p class="section-demo__text-elem">input-text input-text--error input[type="number"]</p>
+                <div class="input-text js-input-number-block input-text--error">
+                  <input type="number" placeholder="12345" min="-10" max="10" class="js-input-number">
+                </div>
+              </div>
+
+              <div class="section-demo__text-content text-content">
+                <p class="section-demo__text-elem">input-text input[type="number"]:disabled</p>
+                <div class="input-text js-input-number-block">
+                  <input type="number" placeholder="12345" min="-10" class="js-input-number" disabled>
+                </div>
               </div>
               <p class="text-content text-content--italic">source/less/input/</p>
             </div>
-            
+
           </div>
-          
+
         </div>
       </div>
-      
-      <div class="input-text quantity-block">
-        <button class="quantity-arrow-minus"> - </button>
-        <input class="quantity-num" min="-10" max="10" type="number" value="1" />
-        <button class="quantity-arrow-plus"> + </button>
-      </div>
+
     </section>
   </main>
   <script src="js/jquery.min.js"></script>

@@ -1,0 +1,209 @@
+<meta charset="UTF-8">
+<style media="screen">
+
+  .visually-hidden {
+    position: absolute;
+    z-index: -1;
+    width: 0;
+    height: 0;
+    padding: 0;
+    margin: 0;
+    border: none;
+    overflow: hidden;
+  }
+  .input-text {
+    position: relative;
+    display: inline-block;
+  }
+  .input-text input {
+    background-color: #fff;
+    -webkit-box-shadow: none;
+            box-shadow: none;
+    border: none;
+    border: 1px solid #ffffff;
+    border-bottom: 2px solid #013e01;
+    border-radius: 0;
+    padding: 10px 15px 8px;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    color: #013e01;
+    font-family: "Roboto Condensed", Arial, sans-serif;
+    font-size: 14px;
+    line-height: 1;
+    cursor: pointer;
+    -webkit-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    outline: none;
+  }
+  .input-text input::-webkit-input-placeholder {
+    color: rgba(1, 62, 1, 0.5);
+  }
+  .input-text input::-ms-input-placeholder {
+    color: rgba(1, 62, 1, 0.5);
+  }
+  .input-text input::placeholder {
+    color: rgba(1, 62, 1, 0.5);
+  }
+  .input-text .button-number-minus,
+  .input-text .button-number-plus {
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    background-color: transparent;
+    border: none;
+    -webkit-box-shadow: none;
+            box-shadow: none;
+    height: calc(100% - 2px);
+    width: 20px;
+    cursor: pointer;
+  }
+  .input-text--disabled .button-number-minus,
+  .input-text--disabled .button-number-plus {
+    display: none;
+  }
+  .input-text .button-number-minus {
+    left: 0;
+  }
+  .input-text .button-number-minus::after,
+  .input-text .button-number-minus::before {
+    content: "";
+    display: block;
+    width: 10px;
+    height: 2px;
+    position: absolute;
+    left: 3px;
+    background-color: #013e01;
+  }
+  .input-text .button-number-minus::before {
+    top: 39%;
+    -webkit-transform: rotate(-45deg);
+            transform: rotate(-45deg);
+  }
+  .input-text .button-number-minus::after {
+    bottom: 39%;
+    -webkit-transform: rotate(45deg);
+            transform: rotate(45deg);
+  }
+  .input-text .button-number-plus {
+    right: 0;
+  }
+  .input-text .button-number-plus::after,
+  .input-text .button-number-plus::before {
+    content: "";
+    display: block;
+    width: 10px;
+    height: 2px;
+    position: absolute;
+    right: 3px;
+    background-color: #013e01;
+  }
+  .input-text .button-number-plus::before {
+    top: 39%;
+    -webkit-transform: rotate(45deg);
+            transform: rotate(45deg);
+  }
+  .input-text .button-number-plus::after {
+    bottom: 39%;
+    -webkit-transform: rotate(-45deg);
+            transform: rotate(-45deg);
+  }
+  .input-text .js-input-number {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  .input-text--warning .button-number-minus::after,
+  .input-text--warning .button-number-plus::after,
+  .input-text--warning .button-number-minus::before,
+  .input-text--warning .button-number-plus::before {
+    background-color: #666600;
+  }
+  .input-text--warning input {
+    border-color: #999900;
+    background-color: #ffffe5;
+    color: #666600;
+  }
+  .input-text--warning input::-webkit-input-placeholder {
+    color: rgba(204, 204, 0, 0.8);
+  }
+  .input-text--warning input::-ms-input-placeholder {
+    color: rgba(204, 204, 0, 0.8);
+  }
+  .input-text--warning input::placeholder {
+    color: rgba(204, 204, 0, 0.8);
+  }
+  .input-text--error .button-number-minus::after,
+  .input-text--error .button-number-plus::after,
+  .input-text--error .button-number-minus::before,
+  .input-text--error .button-number-plus::before {
+    background-color: #990000;
+  }
+  .input-text--error input {
+    border-color: #990000;
+    background-color: #ffe5e5;
+    color: #660000;
+  }
+  .input-text--error input::-webkit-input-placeholder {
+    color: rgba(204, 0, 0, 0.5);
+  }
+  .input-text--error input::-ms-input-placeholder {
+    color: rgba(204, 0, 0, 0.5);
+  }
+  .input-text--error input::placeholder {
+    color: rgba(204, 0, 0, 0.5);
+  }
+  .input-text input:hover {
+    -webkit-box-shadow: 3px 3px 3px 0 #000000;
+            box-shadow: 3px 3px 3px 0 #000000;
+  }
+  .input-text input:active,
+  .input-text input:focus {
+    border-color: #8080f5;
+    outline: none;
+    -webkit-box-shadow: 3px 3px 3px 0 #000000;
+            box-shadow: 3px 3px 3px 0 #000000;
+  }
+  .input-text input:disabled {
+    border-color: rgba(1, 62, 1, 0.5);
+    background-color: #f2f2f2;
+    cursor: default;
+  }
+  .input-text input:disabled:active,
+  .input-text input:disabled:focus,
+  .input-text input:disabled:hover {
+    border-color: rgba(1, 62, 1, 0.5);
+    background-color: #f2f2f2;
+    -webkit-box-shadow: none;
+            box-shadow: none;
+  }
+  input[type="number"]::-webkit-inner-spin-button,
+  input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin: 0;
+  }
+  input[type="number"] {
+    -moz-appearance: textfield;
+  }
+
+</style>
+<div class="input-text js-input-number-block">
+  <input type="number" placeholder="12345" class="js-input-number">
+</div>
+<hr />
+<p>
+  min="-10" max="10"
+</p>
+<div class="input-text js-input-number-block input-text--error">
+  <input type="number" placeholder="12345" min="-10" max="10" class="js-input-number">
+</div>
+<hr />
+<p>
+  disabled
+</p>
+<div class="input-text js-input-number-block">
+  <input type="number" placeholder="12345" class="js-input-number" disabled>
+</div>
+<hr />
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js" charset="utf-8"></script>
+<script src="./js.js"></script>

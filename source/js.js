@@ -1,22 +1,16 @@
 $(document).ready(function() {
   $('.js-input-number').parent(".js-input-number-block").append('<button class="js-button-number-minus button-number-minus"><span class="visually-hidden">меньше</span></button>');
   $('.js-input-number').parent(".js-input-number-block").append('<button class="js-button-number-plus button-number-plus"><span class="visually-hidden">больше</span></button>');
-
-  $(".js-button-number-minus").hover(function() {
-    var input_number = $(this).siblings(".js-input-number").hover();
-  });
 });
-
 $(document).ready(function() {
-  var input_disabled = $("input:disabled");
+var input_disabled = $("input:disabled");
   console.log(input_disabled);
   var block_input_disabled = input_disabled.parent();
   console.log(block_input_disabled);
-  for (var i = 0, len = block_input_disabled.length; i < len; i++) {
+  for (var i=0, len=block_input_disabled.length; i<len; i++) {
     block_input_disabled[i].classList.add("input-text--disabled");
-  }
+}
 });
-
 $(document).ready(function() {
   $(".js-button-number-minus").click(function() {
     var input_number = $(this).siblings(".js-input-number");
