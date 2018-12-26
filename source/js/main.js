@@ -1,13 +1,13 @@
-$(document).ready(function() {
+$(document).ready(function () {
   $('.js-input-number').parent(".js-input-number-block").append('<button class="js-button-number-minus button-number-minus"><span class="visually-hidden">меньше</span></button>');
   $('.js-input-number').parent(".js-input-number-block").append('<button class="js-button-number-plus button-number-plus"><span class="visually-hidden">больше</span></button>');
 
-  $(".js-button-number-minus").hover(function() {
+  $(".js-button-number-minus").hover(function () {
     var input_number = $(this).siblings(".js-input-number").hover();
   });
 });
 
-$(document).ready(function() {
+$(document).ready(function () {
   var input_disabled = $("input:disabled");
   console.log(input_disabled);
   var block_input_disabled = input_disabled.parent();
@@ -15,10 +15,18 @@ $(document).ready(function() {
   for (var i = 0, len = block_input_disabled.length; i < len; i++) {
     block_input_disabled[i].classList.add("input-text--disabled");
   }
+
+  var select_disabled = $("select:disabled");
+  console.log(select_disabled);
+  var block_select = select_disabled.parent();
+  console.log(block_select);
+  for (var i = 0, len = block_select.length; i < len; i++) {
+    block_select[i].classList.add("select--disabled");
+  }
 });
 
-$(document).ready(function() {
-  $(".js-button-number-minus").click(function() {
+$(document).ready(function () {
+  $(".js-button-number-minus").click(function () {
     var input_number = $(this).siblings(".js-input-number");
     var attr_max = input_number.attr("max") || null;
     var attr_min = input_number.attr("min") || null;
@@ -34,8 +42,16 @@ $(document).ready(function() {
       return input_number.val(attr_min);
     }
   });
+  $(".js-button-number-minus").mouseenter(function () {
+    var input_number = $(this).siblings(".js-input-number");
+    input_number[0].classList.add("hover");
+  });
+  $(".js-button-number-minus").mouseleave(function () {
+    var input_number = $(this).siblings(".js-input-number");
+    input_number[0].classList.remove("hover");
+  });
 
-  $(".js-button-number-plus").click(function() {
+  $(".js-button-number-plus").click(function () {
     var input_number = $(this).siblings(".js-input-number");
     var attr_max = input_number.attr("max") || null;
     var attr_min = input_number.attr("min") || null;
@@ -51,4 +67,13 @@ $(document).ready(function() {
       return input_number.val(attr_max);
     }
   });
-})
+  $(".js-button-number-plus").mouseenter(function () {
+    var input_number = $(this).siblings(".js-input-number");
+    input_number[0].classList.add("hover");
+  });
+  $(".js-button-number-plus").mouseleave(function () {
+    var input_number = $(this).siblings(".js-input-number");
+    input_number[0].classList.remove("hover");
+  });
+});
+

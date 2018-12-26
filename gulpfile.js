@@ -15,6 +15,7 @@ var imagemin = require('gulp-imagemin');
 var webp = require('gulp-webp');
 var del = require('del');
 var htmlmin = require('gulp-htmlmin');
+var concat = require('gulp-concat');
 
 gulp.task("clean", function() {
   return del("build");
@@ -25,7 +26,7 @@ gulp.task("copy", function() {
       "source/fonts/*.{woff, woff2}*",
       "source/img/*.+(png|jpg|svg|webp)*",
       "source/img/**/**",
-      "source/js/**",
+      "source/js/**"
     ], {
       base: "source"
     })
@@ -33,7 +34,8 @@ gulp.task("copy", function() {
 });
 
 gulp.task("js", function() {
-  return gulp.src("source/js/*.js")
+  return gulp.src(['source/js/jquery.min.js', 'source/js/main.js'])
+    .pipe(concat('main.js', { newLine: ';' }))
     .pipe(gulp.dest("build/js"))
     .pipe(server.stream());
 });
