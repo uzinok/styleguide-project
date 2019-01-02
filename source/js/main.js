@@ -1,4 +1,10 @@
 $(document).ready(function () {
+  var page_header_container = document.querySelector('.page-header__container');
+  console.log(page_header_container);
+  page_header_container.classList.remove('page-header__container--nojs');
+});
+
+$(document).ready(function () {
   $('.js-input-number').parent(".js-input-number-block").append('<button class="js-button-number-minus button-number-minus"><span class="visually-hidden">меньше</span></button>');
   $('.js-input-number').parent(".js-input-number-block").append('<button class="js-button-number-plus button-number-plus"><span class="visually-hidden">больше</span></button>');
 
@@ -9,17 +15,13 @@ $(document).ready(function () {
 
 $(document).ready(function () {
   var input_disabled = $("input:disabled");
-  console.log(input_disabled);
   var block_input_disabled = input_disabled.parent();
-  console.log(block_input_disabled);
   for (var i = 0, len = block_input_disabled.length; i < len; i++) {
     block_input_disabled[i].classList.add("input-text--disabled");
   }
 
   var select_disabled = $("select:disabled");
-  console.log(select_disabled);
   var block_select = select_disabled.parent();
-  console.log(block_select);
   for (var i = 0, len = block_select.length; i < len; i++) {
     block_select[i].classList.add("select--disabled");
   }
