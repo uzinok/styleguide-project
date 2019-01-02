@@ -5,220 +5,66 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Styleguide</title>
+  <title>home</title>
   <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
 
   <header class="page-header">
-    <div class="page-header__container container">
-      <h1 class="page-header__title">Styleguide</h1>
-      <form class="page-header__lang">
-        <div class="select">
-          <select class="select-select" name="">
-            <option value="lang_ru">Ru</option>
-            <option value="lang_en">En</option>
-          </select>
-        </div>
-      </form>
+    <div class="page-header__container container  page-header__container--nojs">
+      <a href="index.html" class="page-header__link">
+        <h1 class="page-header__title">Styleguide</h1>
+      </a>
+      <nav class="page-header__nav page-header__nav">
+        <button class="page-header__toggle"><span class="visually-hidden">открыть меню</span></button>
+        <ul class="page-header__nav-list list-rezet">
+          <li class="page-header__nav-item"><a href="styleguide.html" class="page-header__nav-link">Styleguide</a></li>
+          <li class="page-header__nav-item"><a href="demo-html-css-js.html" class="page-header__nav-link" title="Разные штуки написанные с помощью HTML-CSS-JS">Демки</a></li>
+          <li class="page-header__nav-item"><a href="styleguide.html" class="page-header__nav-link">Styleguide</a></li>
+          <li class="page-header__nav-item"><a href="demo-html-css-js.html" class="page-header__nav-link" title="Разные штуки написанные с помощью HTML-CSS-JS">Демки</a></li>
+          <li class="page-header__nav-item"><a href="styleguide.html" class="page-header__nav-link">Styleguide</a></li>
+          <li class="page-header__nav-item"><a href="demo-html-css-js.html" class="page-header__nav-link" title="Разные штуки написанные с помощью HTML-CSS-JS">Демки</a></li>
+          <li class="page-header__nav-item"><a href="styleguide.html" class="page-header__nav-link">Styleguide</a></li>
+          <li class="page-header__nav-item"><a href="demo-html-css-js.html" class="page-header__nav-link" title="Разные штуки написанные с помощью HTML-CSS-JS">Демки</a></li>
+        </ul>
+      </nav>
     </div>
   </header>
 
   <main class="page-main">
-    <div class="container">
-      <p class="text-content">Styleguide для проекта. Все элементы сайта с разными модификаторами. В URL указан путь к
-        папке со стилями и документацией. </p>
-      <p class="text-content">Для использования элемента необходимо скопировать и подключить файл .less/js/img к
-        проекту. Все модификаторы в одном файле. </p>
-    </div>
-
-    <section class="section-demo section">
-      <div class="container">
-        <div class="section-demo__map">
-          <label class="section-demo__label section-demo__button button button--small" for="demo-form">Формы</label>
-          <input type="checkbox" name="demo" class="hidden section-demo__input" id="demo-form">
-
-          <div class="section-demo__container section-demo__content-map">
-
-            <label for="one" class="section-demo__label section-demo__button button button--darken">button</label>
-            <input type="checkbox" class="hidden section-demo__input" id="one" name="demo">
-            <div class="section-demo__content">
-              <p class="section-demo__text-content text-content">
-                <span class="section-demo__text-elem">button</span>
-                <button class="button">Кликни меня</button>
-              </p>
-              <p class="section-demo__text-content text-content">
-                <span class="section-demo__text-elem">button--big</span>
-                <button class="button button--big">Кликни меня</button>
-              </p>
-              <p class="section-demo__text-content text-content">
-                <span class="section-demo__text-elem">button--small</span>
-                <button class="button button--small">Кликни меня</button>
-              </p>
-              <p class="section-demo__text-content text-content">
-                <span class="section-demo__text-elem">button--darken</span>
-                <button class="button button--darken">Я другой</button>
-              </p>
-              <p class="section-demo__text-content text-content">
-                <span class="section-demo__text-elem">button--warning</span>
-                <button class="button button--warning">Желательно кликни по мне</button>
-              </p>
-              <p class="section-demo__text-content text-content">
-                <span class="section-demo__text-elem">button--error</span>
-                <button class="button button--error">Обязательно кликни по мне!</button>
-              </p>
-              <p class="section-demo__text-content text-content">
-                <span class="section-demo__text-elem">button:disabled</span>
-                <button class="button" disabled>Не кликай меня</button>
-              </p>
-              <p class="text-content text-content--italic">source/less/button/</p>
-            </div>
-
-            <label for="tree" class="section-demo__label section-demo__button button button--darken">select</label>
-            <input type="checkbox" class="hidden section-demo__input" id="tree" name="demo">
-            <div class="section-demo__content">
-              <div class="section-demo__text-content text-content">
-                <p class="section-demo__text-elem">select</p>
-                <div class="select">
-                  <select name="" class="select-select">
-                    <option value="">Первый</option>
-                    <option value="">Второй</option>
-                  </select>
-                </div>
-              </div>
-
-
-              <div class="section-demo__text-content text-content">
-                <p class="section-demo__text-elem">select--big</p>
-                <div class="select select--big">
-                  <select name="" class="select-select">
-                    <option value="">Первый</option>
-                    <option value="">Второй</option>
-                  </select>
-                </div>
-              </div>
-
-              <div class="section-demo__text-content text-content">
-                <p class="section-demo__text-elem">select--small</p>
-                <div class="select select--small">
-                  <select name="" class="select-select">
-                    <option value="">Первый</option>
-                    <option value="">Второй</option>
-                  </select>
-                </div>
-              </div>
-
-              <div class="section-demo__text-content text-content">
-                <p class="section-demo__text-elem">select--darken</p>
-                <div class="select select--darken">
-                  <select name="" class="select-select">
-                    <option value="">Первый</option>
-                    <option value="">Второй</option>
-                  </select>
-                </div>
-              </div>
-
-              <div class="section-demo__text-content text-content">
-                <p class="section-demo__text-elem">select--warning</p>
-                <div class="select select--warning">
-                  <select name="" class="select-select">
-                    <option value="">Первый</option>
-                    <option value="">Второй</option>
-                  </select>
-                </div>
-              </div>
-
-              <div class="section-demo__text-content text-content">
-                <p class="section-demo__text-elem">select--error</p>
-                <div class="select select--error">
-                  <select name="" class="select-select">
-                    <option value="">Первый</option>
-                    <option value="">Второй</option>
-                  </select>
-                </div>
-              </div>
-
-              <div class="section-demo__text-content text-content">
-                <p class="section-demo__text-elem"> select:disabled</p>
-                <div class="select">
-                  <select name="" class="select-select" disabled>
-                    <option value="">Первый</option>
-                    <option value="">Второй</option>
-                  </select>
-                </div>
-              </div>
-
-              <p class="text-content text-content--italic">source/less/select/</p>
-            </div>
-
-            <label for="two" class="section-demo__label section-demo__button button button--darken">input text</label>
-            <input type="checkbox" class="hidden section-demo__input" id="two" name="demo">
-            <div class="section-demo__content">
-
-              <div class="section-demo__text-content text-content">
-                <p class="section-demo__text-elem">input-text</p>
-                <div class="input-text">
-                  <input type="text" placeholder="text">
-                </div>
-              </div>
-
-              <div class="section-demo__text-content text-content">
-                <p class="section-demo__text-elem">input-text--warning</p>
-                <div class="input-text input-text--warning">
-                  <input type="text" placeholder="text">
-                </div>
-              </div>
-
-              <div class="section-demo__text-content text-content">
-                <p class="section-demo__text-elem">input-text--error</p>
-                <div class="input-text input-text--error">
-                  <input type="text" placeholder="text">
-                </div>
-              </div>
-
-              <div class="section-demo__text-content text-content">
-                <p class="section-demo__text-elem">input-text input:disabled</p>
-                <div class="input-text">
-                  <input type="text" placeholder="text" disabled>
-                </div>
-              </div>
-
-              <div class="section-demo__text-content text-content">
-                <p class="section-demo__text-elem">defautl</p>
-                <div>
-                  <input type="number" placeholder="12345" min="-10">
-                </div>
-              </div>
-
-              <div class="section-demo__text-content text-content">
-                <p class="section-demo__text-elem ">input-text input[type="number"]</p>
-                <div class="input-text js-input-number-block">
-                  <input type="number" placeholder="12345" min="-10" class="js-input-number">
-                </div>
-              </div>
-
-              <div class="section-demo__text-content text-content">
-                <p class="section-demo__text-elem">input-text input-text--error input[type="number"] min="-10" max="10"</p>
-                <div class="input-text js-input-number-block input-text--error">
-                  <input type="number" placeholder="12345" min="-10" max="10" class="js-input-number">
-                </div>
-              </div>
-
-              <div class="section-demo__text-content text-content">
-                <p class="section-demo__text-elem">input-text input[type="number"]:disabled</p>
-                <div class="input-text js-input-number-block">
-                  <input type="number" placeholder="12345" min="-10" class="js-input-number" disabled>
-                </div>
-              </div>
-              <p class="text-content text-content--italic">source/less/input/</p>
-            </div>
-
-          </div>
-
-        </div>
-      </div>
-
+    <section class="container">
+      <h2 class="title-text-content">Кто я?</h2>
+      <p class="text-content">Обычный человек которому интересна вэб разработка.</p>
+      <p class="text-content">Не судите строго, все что делаю - все для себя, для того что бы самому лучше знать и
+        понимать технологии HTML-CSS-JS, ну и без PHP не обойтись... Все странички пишу сам, учась на реальном примере.
+        Мне просто все это дело интересно.</p>
+    </section>
+    <section class="container">
+      <h2 class="title-text-content">Что мне нужно?</h2>
+      <p class="text-content">От вас ничего, но от адекватных, имеющих место советов не откажусь советовне откажусь. От
+        этого сайтика мне нужна тренировка, получение навыков в верске... ну и в вэб разработке...</p>
+    </section>
+    <section class="container">
+      <h2 class="title-text-content">Для чего этот сайт?</h2>
+      <p class="text-content">Выше все написано.</p>
+    </section>
+    <section class="container">
+      <h2 class="title-text-content">Как вы суда попали?</h2>
+      <p class="text-content">Скорее всего я сам дал вам ссылку на какую либо страничку, но вас заинтересовал весь сайт
+        и вы решили посмотреть что тут вообще есть.</p>
+    </section>
+    <section class="container">
+      <h2 class="title-text-content">Как написан сайт?</h2>
+      <p class="text-content">Руками))) HTML-CSS-JS, ну и без PHP не обойтись... И пока что NPM + GULP в VSCode. Позже
+        выложу
+        ссылку
+        на github.com</p>
+    </section>
+    <section class="container">
+      <h2 class="title-text-content">Что тут вообще есть?</h2>
+      <p class="text-content">На сайте есть демки и шпаргалки, а так же напоминалки)) Все в меню в шапке сайта, позже
+        будет ниже небольшой слайдер...</p>
     </section>
   </main>
   <script src="js/jquery.min.js"></script>

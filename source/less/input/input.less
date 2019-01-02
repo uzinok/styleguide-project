@@ -1,31 +1,27 @@
 .input-text {
-& input[type="number"]::-webkit-inner-spin-button,
-& input[type="number"]::-webkit-outer-spin-button {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  margin: 0;
-}
+  & input[type="number"]::-webkit-inner-spin-button,
+  & input[type="number"]::-webkit-outer-spin-button {
+    appearance: none;
+    margin: 0;
+  }
 
-& input[type="number"] {
-  -moz-appearance: textfield;
-}
-
+  & input[type="number"] {
+    -moz-appearance: textfield;
+  }
 
   position: relative;
   display: inline-block;
 
   & input {
-    background-color: #fff;
+    background-color: #ffffff;
     box-shadow: none;
-    border: none;
     border: 1px solid #ffffff;
     border-bottom: 2px solid @color-theme;
     border-radius: 0;
     padding: 10px 15px 8px;
     box-sizing: border-box;
     color: @color-theme;
-    font-family: "Roboto Condensed", Arial, sans-serif;
+    font-family: "Roboto Condensed", "Arial", sans-serif;
     font-size: 14px;
     line-height: 1;
     cursor: pointer;
@@ -152,8 +148,8 @@
     }
   }
 
-
-  & input:hover, & input.hover {
+  & input.hover,
+  & input:hover {
     box-shadow: 3px 3px 3px 0 darken(@color-theme, 35%);
   }
 

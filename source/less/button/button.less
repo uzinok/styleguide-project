@@ -6,7 +6,7 @@
   border-radius: 0;
   color: @color-theme;
   text-transform: uppercase;
-  font-family: "Roboto Condensed", Arial, sans-serif;
+  font-family: "Roboto Condensed", "Arial", sans-serif;
   font-size: 14px;
   line-height: 1;
   letter-spacing: 1px;
@@ -70,7 +70,9 @@
     color: spin(@color-theme, -75%);
     box-shadow: none;
 
-    &:hover, &:active, &:focus {
+    &:hover,
+    &:active,
+    &:focus {
       cursor: default;
       box-shadow: none;
     }

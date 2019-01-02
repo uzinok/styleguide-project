@@ -76,4 +76,3 @@ $(document).ready(function () {
     input_number[0].classList.remove("hover");
   });
 });
-
