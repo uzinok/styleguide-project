@@ -17,11 +17,11 @@ var del = require('del');
 var htmlmin = require('gulp-htmlmin');
 var concat = require('gulp-concat');
 
-gulp.task("clean", function() {
+gulp.task("clean", function () {
   return del("build");
 });
 
-gulp.task("copy", function() {
+gulp.task("copy", function () {
   return gulp.src([
       "source/fonts/*.{woff, woff2}*",
       "source/img/*.+(png|jpg|svg|webp)*",
@@ -33,14 +33,16 @@ gulp.task("copy", function() {
     .pipe(gulp.dest("build"));
 });
 
-gulp.task("js", function() {
+gulp.task("js", function () {
   return gulp.src(['source/js/jquery.min.js', 'source/js/main.js'])
-    .pipe(concat('main.js', { newLine: ';' }))
+    .pipe(concat('main.js', {
+      newLine: ';'
+    }))
     .pipe(gulp.dest("build/js"))
     .pipe(server.stream());
 });
 
-gulp.task("css", function() {
+gulp.task("css", function () {
   return gulp.src("source/less/style.less")
     .pipe(plumber())
     .pipe(less())
@@ -55,7 +57,7 @@ gulp.task("css", function() {
     .pipe(server.stream());
 });
 
-gulp.task("sprite", function() {
+gulp.task("sprite", function () {
   return gulp.src(["source/img/for_sprite/*.svg"])
     .pipe(svgstore({
       inlineSvg: true
@@ -64,7 +66,7 @@ gulp.task("sprite", function() {
     .pipe(gulp.dest("source/img/"));
 });
 
-gulp.task("html", function() {
+gulp.task("html", function () {
   return gulp.src("source/*.html")
     .pipe(posthtml([
       include()
@@ -75,7 +77,7 @@ gulp.task("html", function() {
     .pipe(gulp.dest("build"));
 });
 
-gulp.task("opti_img", function() {
+gulp.task("opti_img", function () {
   return gulp.src(["source/img/**/**"])
     // return gulp.src(["source/img/*.+(svg|png|jpg)"])
     .pipe(imagemin([
@@ -101,7 +103,7 @@ gulp.task("opti_img", function() {
     .pipe(gulp.dest("source/img/"));
 });
 
-gulp.task("webp_convert", function() {
+gulp.task("webp_convert", function () {
   return gulp.src(["source/img/*.+(png|jpg)"])
     .pipe(webp({
       quality: 95
@@ -109,7 +111,7 @@ gulp.task("webp_convert", function() {
     .pipe(gulp.dest("source/img/"));
 });
 
-gulp.task("server", function() {
+gulp.task("server", function () {
   server.init({
     server: "build/",
     injectChanges: true,

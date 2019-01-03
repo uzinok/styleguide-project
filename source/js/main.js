@@ -1,7 +1,18 @@
 $(document).ready(function () {
-  var page_header_container = document.querySelector('.page-header__container');
-  console.log(page_header_container);
+  var page_header_container = document.querySelector('.page-header__container'),
+      page_header__toggle = document.querySelector('.page-header__toggle');
+
   page_header_container.classList.remove('page-header__container--nojs');
+
+  page_header__toggle.addEventListener('click', function () {
+    if (page_header_container.classList.contains('page-header__container--closed')) {
+      page_header_container.classList.remove('page-header__container--closed');
+      page_header_container.classList.add('page-header__container--opened');
+    } else {
+      page_header_container.classList.add('page-header__container--closed');
+      page_header_container.classList.remove('page-header__container--opened');
+    }
+  });
 });
 
 $(document).ready(function () {
