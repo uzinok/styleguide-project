@@ -127,5 +127,5 @@ gulp.task("server", function () {
   gulp.watch("source/*.html", gulp.series("html")).on("change", server.reload);
 });
 
-gulp.task("build", gulp.series("clean", "copy", "css", "html"));
+gulp.task("build", gulp.series("clean", "copy", "css", "js", "html"));
 gulp.task("start", gulp.series("build", "server"));

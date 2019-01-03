@@ -1,4 +1,13 @@
 $(document).ready(function () {
+  for (var i = 0, len = $(".spoiler__content").length; i < len; i++) {
+    $(".spoiler__content")[i].classList.remove("spoiler__content--nojs");
+  }
+  $(".spoiler__title").click(function(){
+    $(this).parent().children(".spoiler__content").toggle("fast");
+  })
+});
+
+$(document).ready(function () {
   var page_header_container = document.querySelector('.page-header__container'),
       page_header__toggle = document.querySelector('.page-header__toggle');
 

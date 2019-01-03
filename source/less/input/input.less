@@ -161,7 +161,10 @@
   input:disabled {
     border-color: fadeout(@color-theme, 50%);
     background-color: #f2f2f2;
-    cursor: default;
+
+    &::placeholder {
+      color: fadeout(@color-theme, 50%);
+    }
 
     &:active,
     &:focus,
