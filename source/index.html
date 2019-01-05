@@ -11,57 +11,30 @@
 
 <body>
 
-  <header class="page-header">
-    <div class="page-header__container container  page-header__container--nojs page-header__container--closed">
-      <a href="index.html" class="page-header__link">
-        <h1 class="page-header__title">Styleguide</h1>
-      </a>
-      <nav class="page-header__nav">
-        <button class="page-header__toggle button"><span class="visually-hidden">открыть меню</span></button>
-        <ul class="page-header__nav-list list-rezet">
-          <li class="page-header__nav-item"><a href="styleguide.html" class="page-header__nav-link">Styleguide</a></li>
-          <li class="page-header__nav-item"><a href="demo-html-css-js.html" class="page-header__nav-link" title="Разные штуки написанные с помощью HTML-CSS-JS">Демки</a></li>
-        </ul>
-      </nav>
+  <header class="page-header container page-header--nojs">
+    <div class="page-header__block-logo">
+      <a href="index.html"><img src="img/logo.png" alt="Логотип сайта"></a>
     </div>
+    <nav class="page-header__block-nav page-header__block-nav--closed">
+      <ul class="page-header__nav-list list-rezet">
+        <li class="page-header__nav-item"><a href="demo-html-css-js.html" class="page-header__nav-link">Демки</a></li>
+        <li class="page-header__nav-item"><a href="shortcodes.html" class="page-header__nav-link">Shortcodes</a></li>
+      </ul>
+    </nav>
+    <button class="page-header__button-nav-toggle">
+      <span class="visually-hidden">открыть меню</span>
+    </button>
   </header>
 
   <main class="page-main">
-    <section class="container">
-      <h2 class="title-text-content">Кто я?</h2>
-      <p class="text-content">Обычный человек которому интересна вэб разработка.</p>
-      <p class="text-content">Не судите строго, все что делаю - все для себя, для того что бы самому лучше знать и
-        понимать технологии HTML-CSS-JS, ну и без PHP не обойтись... Все странички пишу сам, учась на реальном примере.
-        Мне просто все это дело интересно.</p>
-    </section>
-    <section class="container">
-      <h2 class="title-text-content">Что мне нужно?</h2>
-      <p class="text-content">От вас ничего, но от адекватных, имеющих место советов не откажусь советовне откажусь. От
-        этого сайтика мне нужна тренировка, получение навыков в верске... ну и в вэб разработке...</p>
-    </section>
-    <section class="container">
-      <h2 class="title-text-content">Для чего этот сайт?</h2>
-      <p class="text-content">Выше все написано.</p>
-    </section>
-    <section class="container">
-      <h2 class="title-text-content">Как вы суда попали?</h2>
-      <p class="text-content">Скорее всего я сам дал вам ссылку на какую либо страничку, но вас заинтересовал весь сайт
-        и вы решили посмотреть что тут вообще есть.</p>
-    </section>
-    <section class="container">
-      <h2 class="title-text-content">Как написан сайт?</h2>
-      <p class="text-content">Руками))) HTML-CSS-JS, ну и без PHP не обойтись... И пока что NPM + GULP в VSCode. Позже
-        выложу
-        ссылку
-        на github.com</p>
-    </section>
-    <section class="container">
-      <h2 class="title-text-content">Что тут вообще есть?</h2>
-      <p class="text-content">На сайте есть демки и шпаргалки, а так же напоминалки)) Все в меню в шапке сайта, позже
-        будет ниже небольшой слайдер...</p>
-    </section>
+    <div class="page-title">
+      <div class="container">
+        <h1 class="page-title__text">Привет мир!</h1>
+        <p class="page-title__subtitle">Эй, цирюльникъ, ёжик выстриги, да щетину ряхи сбрей, феном вошь за печь гони!</p>
+      </div>
+    </div>
   </main>
-  <!-- <script src="js/jquery.min.js"></script> -->
+
   <script src="js/main.js" charset="utf-8"></script>
 </body>
 

@@ -1,5 +1,4 @@
 body {
-  background-color: #f2f2f2;
   margin: 0;
   padding: 0;
 }
@@ -24,15 +23,10 @@ body {
 .container {
   display: block;
   box-sizing: border-box;
-  max-width: 1024px;
   margin: 0 auto;
   padding: 0 15px;
   position: relative;
-}
-
-.page-main {
-  margin-top: 57px;
-  width: 100%;
+  max-width: @min-width-desktop;
 }
 
 .text-content {
@@ -95,4 +89,8 @@ select {
 
 .spoiler__content--nojs {
   display: block;
+}
+
+a {
+  transition: 200ms;
 }
