@@ -1,0 +1,45 @@
+.features__list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.features__item {
+  position: relative;
+  width: 290px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 110px 15px 0;
+  box-sizing: border-box;
+
+  &::before {
+    content: "icon";
+    display: block;
+    width: 77px;
+    height: 77px;
+    position: absolute;
+    top: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #00aeef;
+    border-radius: 49%;
+    border: 3px solid darken(#00aeef, 20%);
+  }
+}
+
+.features__title {
+  font-size: 20px;
+  line-height: 1.1;
+  color: #686868;
+  margin: 0 0 15px;
+}
+
+.features__text {
+  margin: 0 0 10px;
+}
+// FOR TABLET DESCTOP
+@media (min-width: @min-width-tablet) {
+  .features__title {
+    font-size: 24px;
+  }
+}
