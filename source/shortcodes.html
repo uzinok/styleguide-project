@@ -11,19 +11,27 @@
 
 <body>
 
+  <div style="display: none;">
+    <include src="build/img/sprite.svg"></include>
+  </div>
+
   <header class="page-header container page-header--nojs">
     <div class="page-header__block-logo">
-      <a href="index.html"><img src="img/logo.png" alt="Логотип сайта"></a>
+      <a href="index.html">
+        <svg width="208" height="60" class="page-header__logo-svg">
+          <use xlink:href="#cat-logo"></use>
+        </svg>
+      </a>
     </div>
+    <button class="page-header__button-nav-toggle page-header__button-nav-toggle--closed">
+      <span class="visually-hidden">открыть/закрыть меню</span>
+    </button>
     <nav class="page-header__block-nav page-header__block-nav--closed">
       <ul class="page-header__nav-list list-rezet">
         <li class="page-header__nav-item"><a href="demo-html-css-js.html" class="page-header__nav-link">Демки</a></li>
         <li class="page-header__nav-item"><a href="shortcodes.html" class="page-header__nav-link page-header__nav-link--active">Shortcodes</a></li>
       </ul>
     </nav>
-    <button class="page-header__button-nav-toggle">
-      <span class="visually-hidden">открыть меню</span>
-    </button>
   </header>
 
   <main class="page-main">
@@ -95,10 +103,89 @@
 
     <section class="container tabs">
       <h2 class="section-header">Tab</h2>
+      <div class="tabs__row">
+        <input type="radio" class="tabs__radio" name="tabs-radio" checked id="tabs-label-1">
+        <button class="btn tabs_btn">
+          <label for="tabs-label-1" class="tabs__label">
+            Любя
+          </label>
+        </button>
+
+        <input type="radio" class="tabs__radio" name="tabs-radio" checked id="tabs-label-2">
+        <button class="btn tabs_btn">
+          <label for="tabs-label-2" class="tabs__label">
+            Южно
+          </label>
+        </button>
+
+        <input type="radio" class="tabs__radio" name="tabs-radio" checked id="tabs-label-3">
+        <button class="btn tabs_btn">
+          <label for="tabs-label-3" class="tabs__label">
+            Подъём
+          </label>
+        </button>
+
+        <div class="tabs__content">— Любя, съешь щипцы, — вздохнёт мэр, — кайф жгуч.
+          33 буквы. Прислал Аркадий Чубрик</div>
+
+        <div class="tabs__content">Южно-эфиопский грач увёл мышь за хобот на съезд ящериц.
+          Присутствуют все буквы. Автор — Александр Маленков</div>
+
+        <div class="tabs__content">Подъём с затонувшего эсминца легкобьющейся древнегреческой амфоры сопряжён с
+          техническими
+          трудностями.
+          Присутствуют все буквы. Автор — Андрей Николаев (Легостаев)</div>
+      </div>
     </section>
+
+    <section class="container spoiler">
+      <h2 class="section-header">spoiler HTML</h2>
+      <div class="spoiler__row">
+        <details class="spoiler__detalis" open>
+          <summary class="spoiler__summary btn btn--default">Чтобы</summary>
+          <div class="spoiler__content">Чтобы понять всю прелесть того или иного шрифта, необходимо иметь представление
+            обо всех
+            знаках, которые в этом шрифте содержатся. Скажем, почти все русские шрифты страдают от чудовищных форм букв
+            Ф, Д, Л.
+            Другие знаки тоже кривые, но это не так заметно с первого взгляда.</div>
+        </details>
+        <details class="spoiler__detalis">
+          <summary class="spoiler__summary btn btn--default">Юный</summary>
+          <div class="spoiler__content">Юный директор целиком сжевал весь объём продукции фундука (товара дефицитного и
+            деликатесного), идя энергично через хрустящий камыш.</div>
+        </details>
+        <details class="spoiler__detalis">
+          <summary class="spoiler__summary btn btn--default">Обдав</summary>
+          <div class="spoiler__content">Обдав его удушающей пылью, множество ярких фаэтонов исчезло из цирка.
+            Присутствуют все буквы алфавита, кроме ё и ъ</div>
+        </details>
+      </div>
+    </section>
+
+    <section class="container slider">
+      <h2 class="section-header">Slider</h2>
+      <div class="slider">
+        <ul class="slider__list">
+          <li class="sleder__item">
+            <p class="slider__title"></p>
+            <p class="slider__text"></p>
+          </li>
+          <li class="sleder__item">
+            <p class="slider__title"></p>
+            <p class="slider__text"></p>
+          </li>
+          <li class="sleder__item">
+            <p class="slider__title"></p>
+            <p class="slider__text"></p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
   </main>
 
-  <script src="js/main.js" charset="utf-8"></script>
+  <script src="js/main.js"></script>
 </body>
 
 </html>

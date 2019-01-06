@@ -1,0 +1,38 @@
+.tabs__radio,
+.tabs__content {
+  display: none;
+}
+
+.tabs__radio:checked + .btn .tabs__label {
+  border-bottom-color: #ffffff;
+}
+
+.tabs__label {
+  display: inline-block;
+  padding: 5px;
+  margin: 0;
+  border: 1px solid #686868;
+  background-color: #fff;
+  border-radius: 4px 4px 0 0;
+  transform: translateY(2px);
+  
+  &:hover {
+    background-color: darken(#ffffff, 10%);
+  }
+}
+
+.tabs__radio:nth-of-type(1):checked ~ .tabs__content:nth-of-type(1),
+.tabs__radio:nth-of-type(2):checked ~ .tabs__content:nth-of-type(2),
+.tabs__radio:nth-of-type(3):checked ~ .tabs__content:nth-of-type(3) {
+  display: block;
+  padding: 20px 10px 0;
+  border-top: 1px solid #686868;
+}
+
+.tabs_btn {
+  margin: 0;
+  padding: 0;
+  background-color: transparent;
+  box-shadow: none;
+  display: inline;
+}

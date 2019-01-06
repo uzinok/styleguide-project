@@ -5,6 +5,34 @@
   background-color: #ffffff;
 }
 
+.page-header__logo-text {
+  font-family: "Roboto Condensed", "Arial", sans-serif;
+  text-transform: lowercase;
+  font-weight: 300;
+  text-decoration: underline;
+}
+
+.page-header__logo-svg {
+  fill: #303030;
+  
+  &:hover,
+  &:focus,
+  &:active {
+    color: #00aeef;
+    fill: #00aeef;
+  }
+}
+
+.page-header__logo-cat,
+.page-header__logo-pupils,
+.page-header__logo-ear {
+  fill: #404040;
+}
+
+.page-header__logo-moustache {
+  stroke: #404040;
+}
+
 .page-header__button-nav-toggle {
   display: none;
 }
@@ -50,7 +78,7 @@
 
   }
 
-  .page-header__block-nav--closed + .page-header__button-nav-toggle {
+  .page-header__button-nav-toggle--closed {
 
     &::before,
     &::after {
@@ -74,7 +102,7 @@
   }
 
   
-  .page-header__block-nav--opened + .page-header__button-nav-toggle {
+  .page-header__button-nav-toggle--opened {
 
     &::before,
     &::after {

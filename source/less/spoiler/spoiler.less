@@ -1,0 +1,58 @@
+.spoiler__detalis {
+  display: block;
+  margin: 0;
+  padding: 0;
+}
+.spoiler__summary::-webkit-details-marker {
+    display: none
+}
+
+.spoiler__summary {
+  margin:0 0 15px;
+  padding-right: 45px;
+  position: relative;
+  width: 100%;
+  box-sizing: border-box;
+  text-align: left;
+
+  &::before,
+  &::after {
+    content: "";
+    display: block;
+    width: 32px;
+    height: 1px;
+    position: absolute;
+    right: 5px;
+    background-color: #00aeef;
+  }
+
+  &::before {
+    top: 9px;
+    box-shadow: 0 8px 0 #00aeef;
+  }
+
+  &::after {
+    bottom: 7px;
+  }
+}
+
+.spoiler__detalis[open] {
+    .spoiler__summary {
+    &::before {
+      top: 17px;
+      transform: rotate(45deg);
+      box-shadow: none;
+    }
+
+    &::after {
+      top: 17px;
+      transform: rotate(-45deg);
+    }
+  }
+}
+
+.spoiler__content {
+  display: block;
+  margin: 0 0 10px;
+  padding: 0 10px;
+}

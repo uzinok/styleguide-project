@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><symbol id="cat-logo" viewBox="0 0 50 10">
+  <path class="page-header__logo-cat" d="M12.9 6.9c0 2.5-2.6 4.7-5.7 4.7S1.4 9.4 1.4 6.9c0-1 .3-1.9 1-2.7.6-.7 1.5-1.3 2.5-1.6.7-.2 1.5-.3 2.3-.3 3.1-.1 5.7 2 5.7 4.6z"/>
+  <path class="page-header__logo-ear" d="M11.6.8c.4 1.1.3 2.3 0 3.4L9.1 2.8c1.1-1.1 2-1.9 2.5-2zM2.5 1c.9.4 1.7 1.1 2.4 1.9L2.5 4.4C2 3.2 1.9 2 2.5 1z"/>
+  <ellipse class="page-header__logo-eye" fill="#FFF" cx="9.2" cy="6.6" rx="1.1" ry=".8"/>
+  <ellipse class="page-header__logo-eye" fill="#FFF" cx="4.8" cy="6.6" rx="1.1" ry=".8"/>
+  <ellipse class="page-header__logo-pupils" cx="4.8" cy="6.8" rx=".2" ry=".5"/>
+  <ellipse class="page-header__logo-pupils" cx="9.2" cy="6.8" rx=".2" ry=".5"/>
+  <path class="page-header__logo-moustache" stroke-width=".25" stroke-miterlimit="10" d="M13.8 8.1l-1.1-.2m1.2 2l-1.8-.8m1.1 2.5L11 10.1M.3 8.1l1.3-.2M.1 9.8l2-.8M.9 11.5l2.3-1.4"/>
+  <text class="page-header__logo-text" transform="matrix(.8479 0 0 1 15.404 9.669)" font-size="10.025">uzinok.ru</text>
+</symbol></svg>
