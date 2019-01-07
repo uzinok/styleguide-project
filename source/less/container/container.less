@@ -1,0 +1,26 @@
+.container {
+  display: block;
+  box-sizing: border-box;
+  margin: 0 auto;
+  padding: 0 15px;
+  position: relative;
+  max-width: @min-width-desktop;
+
+  &--column {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    // FOR TABLET DESKTOP
+    @media (min-width: @min-width-tablet) {
+      flex-direction: row;
+    }
+  }
+
+  &--two-column {
+    width: 100%;
+    // FOR TABLET DESKTOP
+    @media (min-width: @min-width-tablet) {
+      width: 50%;
+    }
+  }
+}
