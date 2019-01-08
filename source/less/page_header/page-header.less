@@ -9,18 +9,19 @@
   font-family: "Roboto Condensed", "Arial", sans-serif;
   text-transform: lowercase;
   font-weight: 300;
+  font-size: 40px;
   text-decoration: underline;
+  color: #404040;
+  display: inline-flex;
+
+  &:hover {
+    color: #00aeef;
+  }
 }
 
 .page-header__logo-svg {
   fill: #303030;
-  
-  &:hover,
-  &:focus,
-  &:active {
-    color: #00aeef;
-    fill: #00aeef;
-  }
+  margin-right: 15px;
 }
 
 .page-header__logo-cat,
@@ -149,10 +150,22 @@
   }
 
   .page-header--footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
 
-    .page-header__block-nav,
-    .page-header__logo-text {
-      display: none;
+    .page-header__block-nav {
+      display: inline-block;
+    }
+
+    .page-header__nav-item {
+      display: inline;
+    }
+
+    .page-header__nav-link {
+      display: inline-block;
+      padding: 10px;
     }
   }
 }
