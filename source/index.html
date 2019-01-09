@@ -11,31 +11,315 @@
 
 <body>
 
+  <div style="display: none;">
+    <include src="build/img/sprite.svg"></include>
+  </div>
+
   <header class="page-header container page-header--nojs">
     <div class="page-header__block-logo">
-      <a href="index.html"><img src="img/logo.png" alt="Логотип сайта"></a>
+      <a href="index.html" class="page-header__logo-text">
+        <svg width="60" height="60" class="page-header__logo-svg">
+          <use xlink:href="#cat-logo"></use>
+        </svg>
+        uzinok.ru
+      </a>
     </div>
+    <button class="page-header__button-nav-toggle page-header__button-nav-toggle--closed">
+      <span class="visually-hidden">открыть/закрыть меню</span>
+    </button>
     <nav class="page-header__block-nav page-header__block-nav--closed">
       <ul class="page-header__nav-list list-rezet">
-        <li class="page-header__nav-item"><a href="demo-html-css-js.html" class="page-header__nav-link">Демки</a></li>
+        <li class="page-header__nav-item"><a href="demo-html-css-js.html" class="page-header__nav-link">Демки CSS </a></li>
         <li class="page-header__nav-item"><a href="shortcodes.html" class="page-header__nav-link">Shortcodes</a></li>
       </ul>
     </nav>
-    <button class="page-header__button-nav-toggle">
-      <span class="visually-hidden">открыть меню</span>
-    </button>
   </header>
 
   <main class="page-main">
     <div class="page-title">
       <div class="container">
-        <h1 class="page-title__text">Привет мир!</h1>
-        <p class="page-title__subtitle">Эй, цирюльникъ, ёжик выстриги, да щетину ряхи сбрей, феном вошь за печь гони!</p>
+        <h1 class="page-title__text">UZINOK.RU</h1>
+        <p class="page-title__subtitle">Личный сайт. Сборка чего нибудь.</p>
       </div>
     </div>
+
+    <section class="container section">
+      <h2 class="section-header">Slider</h2>
+      <div class="slider" style="height: 99px;">
+        <ul class="slider__list list-rezet">
+          <li class="slider__item slider__item--active">
+            <p class="slider__title">Почеши мне пузико</p>
+            <style>
+              .two-demo__parent {
+                width: 290px;
+                height: 330px;
+                position: relative;
+                margin: 0 auto;
+              }
+
+              .two-demo__head {
+                position: absolute;
+                top: 30px;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 150px;
+                height: 100px;
+                border-radius: 50%;
+                border: 1px solid #444444;
+                background-color: #fff;
+              }
+
+              .two-demo__head::before,
+              .two-demo__head::after {
+                content: "";
+                display: block;
+                position: absolute;
+                width: 30px;
+                height: 20px;
+                border-radius: 50%;
+                background-color: #000;
+                z-index: -1;
+                top: 0;
+              }
+
+              .two-demo__head::before {
+                left: 0;
+              }
+
+              .two-demo__head::after {
+                right: 0;
+              }
+
+              .two-demo__eye {
+                position: absolute;
+                top: 30px;
+                background-color: #000;
+                width: 15px;
+                height: 20px;
+                border-radius: 45%;
+              }
+
+              .two-demo__eye::before,
+              .two-demo__eye::after {
+                content: "";
+                display: block;
+                position: absolute;
+                border-radius: 40%;
+              }
+
+              .two-demo__eye::before {
+                width: 8px;
+                height: 8px;
+                background-color: #fff;
+                top: 5px;
+                left: 3px;
+                animation: one-demo-eye 10s;
+                animation-iteration-count: infinite;
+              }
+
+              @keyframes one-demo-eye {
+                0% {
+                  background-color: #fff;
+                }
+
+                10% {
+                  background-color: #000;
+                  height: 0;
+                }
+
+                20% {
+                  background-color: #fff;
+                  height: 8px;
+                }
+              }
+
+              .two-demo__eye::after {
+                width: 5px;
+                height: 5px;
+                background-color: #000;
+                top: 6px;
+                left: 3px;
+              }
+
+              .two-demo__eye--left {
+                left: 30px;
+              }
+
+              .two-demo__eye--right {
+                right: 30px;
+              }
+
+              .two-demo__nose {
+                position: absolute;
+                top: 45px;
+                left: 50%;
+                width: 20px;
+                height: 15px;
+                border-radius: 45%;
+                transform: translateX(-50%);
+                background-color: #000;
+              }
+
+              .two-demo__nose::before,
+              .two-demo__nose::after {
+                content: "";
+                display: block;
+                background-color: #fff;
+                width: 2px;
+                height: 2px;
+                border-radius: 50%;
+                position: absolute;
+                top: 9px;
+              }
+
+              .two-demo__nose::before {
+                left: 4px;
+              }
+
+              .two-demo__nose::after {
+                right: 4px;
+              }
+
+              .two-demo__mouth {
+                position: absolute;
+                bottom: 15px;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 20px;
+                height: 10px;
+                border-radius: 50px;
+                border-bottom: 3px solid #000;
+              }
+
+              .two-demo__body {
+                position: absolute;
+                width: 200px;
+                height: 182px;
+                top: 132px;
+                left: 50%;
+                transform: translateX(-50%);
+                border-top-left-radius: 62%;
+                border-top-right-radius: 62%;
+                border-bottom-right-radius: 50%;
+                border-bottom-left-radius: 50%;
+                border: 1px solid #444444;
+              }
+
+              .two-demo__body::before,
+              .two-demo__body::after {
+                content: "";
+                display: block;
+                position: absolute;
+                width: 30px;
+                height: 20px;
+                border-radius: 50%;
+                background-color: #000;
+                z-index: -1;
+                bottom: 0;
+                border-bottom: 4px dotted #fff;
+              }
+
+              .two-demo__body::before {
+                left: 0;
+              }
+
+              .two-demo__body::after {
+                right: 0;
+              }
+
+              .two-demo__paw {
+                position: absolute;
+                width: 20px;
+                height: 65px;
+                background-color: #000;
+                border-top: 4px dotted #fff;
+                border-radius: 40px;
+                top: -26px;
+              }
+
+              .two-demo__body:hover .two-demo__paw {
+                animation: two-demo-paw 3s;
+                animation-iteration-count: infinite;
+              }
+
+              @keyframes two-demo-paw {
+                0% {
+                  transform: skew(0deg, 0deg);
+                  transform-origin: center bottom;
+                }
+
+                33% {
+                  transform: skew(20deg, -20deg);
+                  transform-origin: center bottom;
+                }
+
+                66% {
+                  transform: skew(-20deg, 20deg);
+                  transform-origin: center bottom;
+                }
+
+                100% {
+                  transform: skew(0deg, 0deg);
+                  transform-origin: center bottom;
+                }
+              }
+
+              .two-demo__paw--left {
+                left: 0;
+              }
+
+              .two-demo__paw--right {
+                right: 0;
+              }
+
+              .two-demo__paw::before {
+                content: "";
+                display: block;
+                width: 8px;
+                height: 7px;
+                border-radius: 50%;
+                position: absolute;
+                top: 4px;
+                left: 50%;
+                transform: translateX(-50%);
+                background-color: #fff;
+                transform: skew(0deg, 0deg);
+              }
+
+              .two-demo__navel {
+                border-radius: 50%;
+                border: 3px solid #000000;
+                position: absolute;
+                bottom: 45px;
+                left: 50%;
+                transform: translateX(-50%);
+              }
+
+            </style>
+            <div class="demo__item">
+              <div class="two-demo">
+                <div class="two-demo__parent">
+                  <div class="two-demo__head">
+                    <div class="two-demo__eye two-demo__eye--left"></div>
+                    <div class="two-demo__eye two-demo__eye--right"></div>
+                    <div class="two-demo__nose"></div>
+                    <div class="two-demo__mouth"></div>
+                  </div>
+                  <div class="two-demo__body">
+                    <div class="two-demo__paw two-demo__paw--left"></div>
+                    <div class="two-demo__paw two-demo__paw--right"></div>
+                    <div class="two-demo__navel"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </li>
+        </ul><button class="slider__btn slider__previous btn btn--default"></button> <button class="slider__btn slider__next btn btn--default"></button>
+      </div>
+    </section>
   </main>
 
-  <script src="js/main.js" charset="utf-8"></script>
+  <script src="js/main.js"></script>
 </body>
 
 </html>
