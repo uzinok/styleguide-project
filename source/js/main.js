@@ -13,36 +13,36 @@ $(document).ready(function () {
     nav_toggle.classList.toggle('page-header__button-nav-toggle--opened');
   });
   // slider
-  $(".slider")[0].classList.remove("slider--nojs");
+  // $(".slider")[0].classList.remove("slider--nojs");
 
-  var slides = document.querySelectorAll('.slider__item');
-  var currentSlide = 0;
-  document.querySelectorAll('.slider')[0].style.height = slides[currentSlide].offsetHeight + "px";
+  // var slides = document.querySelectorAll('.slider__item');
+  // var currentSlide = 0;
+  // document.querySelectorAll('.slider')[0].style.height = slides[currentSlide].offsetHeight + "px";
 
-  function nextSlide() {
-    goToSlide(currentSlide + 1);
-  }
+  // function nextSlide() {
+  //   goToSlide(currentSlide + 1);
+  // }
 
-  function previousSlide() {
-    goToSlide(currentSlide - 1);
-  }
+  // function previousSlide() {
+  //   goToSlide(currentSlide - 1);
+  // }
 
-  function goToSlide(n) {
-    slides[currentSlide].classList.toggle('slider__item--active');
-    currentSlide = (n + slides.length) % slides.length;
-    document.querySelectorAll('.slider')[0].style.height = slides[currentSlide].offsetHeight + "px";
-    slides[currentSlide].classList.toggle('slider__item--active');
-  }
+  // function goToSlide(n) {
+  //   slides[currentSlide].classList.toggle('slider__item--active');
+  //   currentSlide = (n + slides.length) % slides.length;
+  //   document.querySelectorAll('.slider')[0].style.height = slides[currentSlide].offsetHeight + "px";
+  //   slides[currentSlide].classList.toggle('slider__item--active');
+  // }
 
-  var next = document.querySelectorAll('.slider__next')[0];
-  var previous = document.querySelectorAll('.slider__previous')[0];
+  // var next = document.querySelectorAll('.slider__next')[0];
+  // var previous = document.querySelectorAll('.slider__previous')[0];
 
-  next.onclick = function () {
-    nextSlide();
-  };
-  previous.onclick = function () {
-    previousSlide();
-  };
+  // next.onclick = function () {
+  //   nextSlide();
+  // };
+  // previous.onclick = function () {
+  //   previousSlide();
+  // };
 // ALERT
   $(".alert__btn--js").click(function () {
     this.parentNode.style.display = "none";
