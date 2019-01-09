@@ -8,77 +8,52 @@
   <title>home</title>
   <link rel="stylesheet" href="css/style.css">
   <style>
-    body {
-      background-color: #fff;
-    }
-
-    .container .container {
-      position: initial;
-      display: flex;
-      flex-direction: column-reverse;
-      background-color: #fff;
-    }
-
-    .demo {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      padding: 30px 15px;
-      border-top: 1px solid rgb(44, 44, 44);
-    }
-
-    .demo:last-child {
-      border-bottom: 1px solid rgb(44, 44, 44);
-    }
-
-    .demo__title {
-      margin: 0;
-      padding: 0 0 20px;
-      font-size: 25px;
-      text-align: center;
-      font-family: 'Roboto Condensed', 'Roboto', Arial, Helvetica, sans-serif;
-    }
-
     .demo__item {
-      width: 200px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .demo__text {
-      margin: 0;
-      padding: 15px 0;
-      font-size: 20px;
-      font-family: 'Roboto', Arial, Helvetica, sans-serif;
-      text-align: center;
+      position: relative;
+      max-width: 290px;
+      margin: 0 auto;
     }
 
   </style>
 </head>
 
 <body>
-  <header class="page-header">
-    <div class="page-header__container container  page-header__container--nojs page-header__container--closed"> <a href="index.html"
-        class="page-header__link">
-        <h1 class="page-header__title">Styleguide</h1>
-      </a>
-      <nav class="page-header__nav"> <button class="page-header__toggle"><span class="visually-hidden">открыть меню</span></button>
-        <ul class="page-header__nav-list list-rezet">
-          <li class="page-header__nav-item"><a href="styleguide.html" class="page-header__nav-link">Styleguide</a></li>
-          <li class="page-header__nav-item"><span class="page-header__nav-link page-header__nav-link--disabled" title="Разные штуки написанные с помощью HTML-CSS-JS">Демки</span></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
-  <div class="page-main container">
-    <h2 class="title-text-content">Мои демки...</h2>
+
+  <div style="display: none;">
+    <include src="build/img/sprite.svg"></include>
   </div>
-  <main class="page-main content container">
-    <div class="container">
-      <section class="one-demo demo">
+
+  <header class="page-header container page-header--nojs">
+    <div class="page-header__block-logo">
+      <a href="index.html" class="page-header__logo-text">
+        <svg width="60" height="60" class="page-header__logo-svg">
+          <use xlink:href="#cat-logo"></use>
+        </svg>
+        uzinok.ru
+      </a>
+    </div>
+    <button class="page-header__button-nav-toggle page-header__button-nav-toggle--closed">
+      <span class="visually-hidden">открыть/закрыть меню</span>
+    </button>
+    <nav class="page-header__block-nav page-header__block-nav--closed">
+      <ul class="page-header__nav-list list-rezet">
+        <li class="page-header__nav-item"><a href="demo-html-css-js.html" class="page-header__nav-link page-header__nav-link--active">Демки</a></li>
+        <li class="page-header__nav-item"><a href="shortcodes.html" class="page-header__nav-link">Shortcodes</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="page-main">
+
+    <div class="page-title">
+      <div class="container">
+        <h1 class="page-title__text">Демки</h1>
+        <p class="page-title__subtitle">HTML CSS демки... </p>
+      </div>
+    </div>
+
+    <section class="container container--column">
+      <div class="container container--two-column one-demo">
         <style>
           .one-demo__parent {
             width: 150px;
@@ -175,7 +150,7 @@
           }
 
         </style>
-        <h2 class="demo__title">Первая демка</h2>
+        <h2 class="section-header">Первая демка</h2>
         <div class="demo__item">
           <div class="one-demo__parent">
             <div class="one-demo__item"></div>
@@ -186,8 +161,9 @@
             <div class="one-demo__item"></div>
           </div>
         </div>
-      </section>
-      <section class="two-demo demo">
+      </div>
+
+      <div class="container container--two-column two-demo">
         <style>
           .two-demo__parent {
             width: 290px;
@@ -428,7 +404,7 @@
           }
 
         </style>
-        <h2 class="demo__title">Вторая демка</h2>
+        <h2 class="section-header">Вторая демка</h2>
         <div class="demo__item">
           <div class="two-demo">
             <div class="two-demo__parent">
@@ -447,8 +423,9 @@
           </div>
           <p class="demo__text">Почеши мне пузико мышкой))</p>
         </div>
-      </section>
-      <section class="tree-demo demo">
+      </div>
+
+      <div class="container container--two-column tree-demo">
         <style>
           .small-trangle {
             position: absolute;
@@ -701,64 +678,39 @@
             bottom: 0;
             left: 0;
             width: 100%;
+            margin: 0;
             text-align: center;
-            font-size: 36px;
+            font-size: 30px;
             animation: color 2s;
             animation-iteration-count: infinite;
           }
 
           .tree-demo__parent {
-            width: 300px;
+            width: 240px;
             height: 350px;
             padding: 10px;
             position: relative;
           }
 
         </style>
-        <h2 class="demo__title">третья</h2>
+        <h2 class="section-header">третья</h2>
         <div class="demo__item">
           <div class="tree-demo__parent">
-            <div class="container">
-              <div class="stump"></div>
-              <div class="big-trangle"></div>
-              <div class="middle-trangle"></div>
-              <div class="small-trangle"></div>
-              <div class="garland"></div>
-              <p class="tree-demo__text">C наступающим новым годом!!!</p>
-            </div>
+            <div class="stump"></div>
+            <div class="big-trangle"></div>
+            <div class="middle-trangle"></div>
+            <div class="small-trangle"></div>
+            <div class="garland"></div>
+            <p class="tree-demo__text">C наступающим новым годом!!!</p>
           </div>
         </div>
-      </section>
-      <section class="four-demo demo">
-        <style>
-          .four-demo__img {
-            position: relative;
-          }
+      </div>
 
-          .four-demo__img::before {
-            position: absolute;
-            content: "тут битый картинк";
-            display: block;
-            width: 145px;
-            height: 20px;
-            border: 1px solid rgb(117, 69, 69);
-            background-color: #fff;
-            top: 0;
-            left: 0;
-            text-align: center;
-            font-size: 15px;
-            line-height: 18px;
-          }
-
-        </style>
-        <h2 class="demo__title">Что как пердупердить битую картинку?</h2>
-        <div class="four-demo__parent"> <img src="" alt="нема картинки" class="four-demo__img"> </div>
-      </section>
-      <section class="cloud-demo demo">
+      <div class="container container--two-column cloud-demo">
         <style>
           .cloud-demo__parent {
             position: relative;
-            width: 300px;
+            width: 260px;
             height: 300px;
             background-color: rgb(228, 229, 255);
             border: 1px solid #ccc;
@@ -925,7 +877,7 @@
           }
 
         </style>
-        <h2 class="demo__title">Еще демка</h2>
+        <h2 class="section-header">Еще демка</h2>
         <div class="cloud-demo__parent">
           <div class="cloud-demo__cloud-rain"></div>
           <div class="cloud-demo__cloud-rain"></div>
@@ -940,13 +892,57 @@
           <div class="cloud-demo__cloud-one"></div>
           <div class="cloud-demo__cloud-two"></div>
         </div>
-      </section>
-    </div>
-    <aside>
-      <p class="text-content">Некоторые штуки которые где то увидел и решил повторить. Все сделано на HTML-CSS-JS...</p>
-    </aside>
+      </div>
+
+      <div class="container container--two-column four-demo">
+        <style>
+          .four-demo__img {
+            position: relative;
+          }
+
+          .four-demo__img::before {
+            position: absolute;
+            content: "тут битый картинк";
+            display: block;
+            width: 145px;
+            height: 20px;
+            border: 1px solid rgb(117, 69, 69);
+            background-color: #fff;
+            top: 0;
+            left: 0;
+            text-align: center;
+            font-size: 15px;
+            line-height: 18px;
+          }
+
+        </style>
+        <h2 class="section-header">Что как пердупердить битую картинку?</h2>
+        <div class="four-demo__parent"> <img src="" alt="нема картинки" class="four-demo__img"> </div>
+      </div>
+
+      <div class="container container--two-column four-demo"></div>
+
+    </section>
+
   </main>
-  <script src="js/main.js" charset="utf-8"></script>
+
+  <footer class="page-header container  page-header--footer">
+    <nav class="page-header__block-nav">
+      <ul class="page-header__nav-list list-rezet">
+        <li class="page-header__nav-item"><a href="demo-html-css-js.html" class="page-header__nav-link page-header__nav-link--active">Демки</a></li>
+        <li class="page-header__nav-item"><a href="shortcodes.html" class="page-header__nav-link">Shortcodes</a></li>
+      </ul>
+    </nav>
+    <div class="page-header__block-logo">
+      <a href="index.html">
+        <svg width="60" height="60" class="page-header__logo-svg">
+          <use xlink:href="#cat-logo"></use>
+        </svg>
+      </a>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
 </body>
 
 </html>
