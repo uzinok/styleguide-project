@@ -125,6 +125,7 @@ gulp.task("server", function () {
   // gulp.watch("source/less/**/*.less", gulp.series("css")).on("change", server.reload);
   gulp.watch("source/js/*.js", gulp.series("js")).on("change", server.reload);
   gulp.watch("source/*.html", gulp.series("html")).on("change", server.reload);
+  gulp.watch("source/templates/*.html", gulp.series("html")).on("change", server.reload);
 });
 
 gulp.task("build", gulp.series("clean", "copy", "css", "js", "html"));

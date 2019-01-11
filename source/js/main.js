@@ -9,6 +9,8 @@ $(document).ready(function () {
     nav_toggle.classList.toggle('page-header__button-nav-toggle--closed');
     nav_toggle.classList.toggle('page-header__button-nav-toggle--opened');
   });
+  $("a[href^='" + document.location.pathname + "']").css({color:"#00aeef"});
+
   // END PAGE-HEADER
   // ALERT
   $(".alert__btn--js").click(function () {
@@ -50,6 +52,6 @@ $(document).ready(function () {
       slider_item[currentSlide].classList.toggle('slider__item--active');
     }
   };
-});
+  // END SLIDER
 
-// END SLIDER
+});
