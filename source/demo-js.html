@@ -21,27 +21,7 @@
     <include src="build/img/sprite.svg"></include>
   </div>
 
-  <header class="page-header container page-header--nojs">
-    <div class="page-header__block-logo">
-      <a href="index.html" class="page-header__logo-text">
-        <svg width="60" height="60" class="page-header__logo-svg">
-          <use xlink:href="#cat-logo"></use>
-        </svg>
-        uzinok.ru
-      </a>
-    </div>
-    <button class="page-header__button-nav-toggle page-header__button-nav-toggle--closed">
-      <span class="visually-hidden">открыть/закрыть меню</span>
-    </button>
-    <nav class="page-header__block-nav page-header__block-nav--closed">
-      <ul class="page-header__nav-list list-rezet">
-        <li class="page-header__nav-item"><a href="demo-js.html" class="page-header__nav-link page-header__nav-link--active">Демки
-            JS </a></li>
-        <li class="page-header__nav-item"><a href="demo-html-css-js.html" class="page-header__nav-link">Демки CSS </a></li>
-        <li class="page-header__nav-item"><a href="shortcodes.html" class="page-header__nav-link">Shortcodes</a></li>
-      </ul>
-    </nav>
-  </header>
+<include src="source/templates/header.html"></include>
 
   <main class="page-main">
     <div class="page-title">
@@ -64,23 +44,7 @@
     </section>
   </main>
 
-  <footer class="page-header container  page-header--footer">
-    <nav class="page-header__block-nav">
-      <ul class="page-header__nav-list list-rezet">
-        <li class="page-header__nav-item"><a href="demo-js.html" class="page-header__nav-link page-header__nav-link--active">Демки
-            JS </a></li>
-        <li class="page-header__nav-item"><a href="demo-html-css-js.html" class="page-header__nav-link">Демки CSS </a></li>
-        <li class="page-header__nav-item"><a href="shortcodes.html" class="page-header__nav-link">Shortcodes</a></li>
-      </ul>
-    </nav>
-    <div class="page-header__block-logo">
-      <a href="index.html">
-        <svg width="60" height="60" class="page-header__logo-svg">
-          <use xlink:href="#cat-logo"></use>
-        </svg>
-      </a>
-    </div>
-  </footer>
+<include src="source/templates/footer.html"></include>
 
 </body>
 
