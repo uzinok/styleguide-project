@@ -82,20 +82,19 @@
         transform: scale(1, 1);
       }
     }
-
+    
     body {
-      background-image: url(../img/hero.jpg);
-      background-attachment: fixed;
-    }
+background-image: url(../img/hero.jpg);
+background-attachment: fixed;
+}
 
-    .page-header__blick {
-      background-color: rgba(255,255,255, 0.5);
-      position: fixed;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      left: 0;
-    }
+.page-header {
+background-color: rgba(255,255,255, 0.5);
+}
+
+.page-header--footer .page-header__nav-link {
+font-weight: bold;
+}
 
     section.container {
       display: -webkit-box;
@@ -162,21 +161,19 @@
     <include src="build/img/sprite.svg"></include>
   </div>
 
-  <div class="page-header__blick"></div>
+
 
   <header class="page-header container page-header--nojs page-header--lending">
     <nav class="page-header__block-nav page-header__block-nav--closed">
       <ul class="page-header__nav-list list-rezet">
-        <li class="page-header__nav-item"><a href="#interesting" class="page-header__nav-link btn btn--default">Интересное
-          </a></li>
-        <li class="page-header__nav-item"><a href="#order-form" class="page-header__nav-link btn btn--default">Написать
-          </a></li>
-        <li class="page-header__nav-item"><a href="#link" class="page-header__nav-link btn btn--default">Ссылки</a></li>
+        <li class="page-header__nav-item"><a href="#interesting" class="page-header__nav-link" data-goto="#interesting">Интересное </a></li>
+        <li class="page-header__nav-item"><a href="#order-form" class="page-header__nav-link" data-goto="#order-form">Написать </a></li>
+        <li class="page-header__nav-item"><a href="#link" class="page-header__nav-link" data-goto="#link">Ссылки</a></li>
       </ul>
     </nav>
     <div class="page-header__block-logo">
       <a href="index.html" class="page-header__logo-text">
-        <svg viewBox="0 0 14 13" width="60" height="60" class="page-header__logo-svg">
+        <svg viewBox="0 0 14 13" width="60" height="60" class="page-header__logo-svg" id="my_cat">
           <path class="cat" fill="#303030" d="M12.9 6.9c0 2.5-2.6 4.7-5.7 4.7S1.4 9.4 1.4 6.9c0-1 .3-1.9 1-2.7.6-.7 1.5-1.3 2.5-1.6.7-.2 1.5-.3 2.3-.3 3.1-.1 5.7 2 5.7 4.6z" />
 
           <path class="ear1" fill="#303030" d="M11.6,0.8c0.4,1.1,0.3,2.3,0,3.4L9.1,2.8C10.2,1.7,11.1,0.9,11.6,0.8z" />
@@ -203,7 +200,7 @@
       </div>
     </div>
 
-    <a class="page-title__btn btn btn--default" href="#order-form">Контакты</a>
+    <a class="page-title__btn btn btn--default" href="#order-form" data-goto="#order-form">Контакты</a>
 
   </header>
 
@@ -497,13 +494,12 @@
   </main>
 
   <footer class="page-header container  page-header--footer page-header--lending" id="link">
-    <nav class="page-header__block-nav">
+    <div class="page-header__block-nav">
       <ul class="page-header__nav-list list-rezet">
         <li class="page-header__nav-item"><a href="/demo-js.html" class="page-header__nav-link">Демки JS </a></li>
         <li class="page-header__nav-item"><a href="/demo-html-css-js.html" class="page-header__nav-link">Демки CSS </a></li>
-        <li class="page-header__nav-item"><a href="/shortcodes.html" class="page-header__nav-link">Shortcodes</a></li>
       </ul>
-    </nav>
+    </div>
     <div class="page-header__block-logo">
       <a href="index.html" class="page-header__logo-text">
         <svg viewBox="0 0 14 13" width="60" height="60" class="page-header__logo-svg">
@@ -521,6 +517,11 @@
         </svg>
         uzinok.ru
       </a>
+    </div>
+    <div class="page-header__block-nav">
+      <ul class="page-header__nav-list list-rezet">
+        <li class="page-header__nav-item"><a href="/shortcodes.html" class="page-header__nav-link">Shortcodes</a></li>
+      </ul>
     </div>
   </footer>
 
