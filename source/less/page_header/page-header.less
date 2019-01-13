@@ -3,17 +3,95 @@
   display: flex;
   justify-content: space-between;
   background-color: #ffffff;
+
+  &--lending {
+    height: 100vh;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;    
+    background-color: transparent;
+    & * {
+      z-index: 2;
+    }
+
+    @media (max-width: @max-width-mobile){
+
+    & .page-header__button-nav-toggle {
+      top: 15px;
+      right: 15px;
+    }
+
+    & .page-header__block-nav--opened {
+      position: absolute;
+      top: 0;
+    }
+  }
+
+  & .page-header__nav-link {
+    font-weight: normal;
+    text-align: center;
+
+    &:hover {
+      opacity: 0.8;
+      color: #000000;
+    }
+  }
+
+    & .page-header__logo-text:hover {
+      opacity: 0.8;
+      color: #ffffff;
+    }
+
+    & .page-title {
+      background-image: none;
+      min-height: auto;
+      text-align: center;
+    }
+
+    
+    @media (min-width: @min-width-tablet) {
+      & .page-header__block-nav {
+        position: absolute;
+        top: 15px;
+        right: 15px;
+      }
+    }
+  }
+}
+
+& .page-header__paralax {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100vh;
+  background-image: url(../img/hero_mob.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  
+  &::before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100vh;
+    background-color: rgba(255, 255, 255, 0.5);
+  }
 }
 
 .page-header__logo-text {
   font-family: "Roboto Condensed", "Arial", sans-serif;
   text-transform: lowercase;
-  // font-weight: 300;
   font-size: 40px;
   text-decoration: underline;
   color: #404040;
   display: inline-flex;
-
+  
   &:hover {
     color: #00aeef;
   }
@@ -101,7 +179,6 @@
     }
   }
 
-  
   .page-header__button-nav-toggle--opened {
 
     &::before,
@@ -181,5 +258,17 @@
 
   .page-header__nav-link {
     padding: 10px 20px;
+  }
+}
+// FOR DESKTOP
+@media (min-width: @min-width-desktop) {
+  .page-header__paralax-blick {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-image: url(../img/blik.png);
   }
 }

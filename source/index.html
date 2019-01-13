@@ -8,10 +8,135 @@
   <title>home</title>
   <link rel="stylesheet" href="css/style.css">
   <script src="js/main.js"></script>
-  <!-- <link rel="preload" href="https://fonts.gstatic.com/s/robotocondensed/v16/ieVi2ZhZI2eCN5jzbjEETS9weq8-33mZGCkYag.ttf"
-    as="font"> -->
-<link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300,300i,400,400i,700,700i|Roboto:300,300i,400,400i,700,700i&amp;subset=cyrillic,cyrillic-ext"
-  rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300,300i,400,400i,700,700i|Roboto:300,300i,400,400i,700,700i&amp;subset=cyrillic,cyrillic-ext"
+    rel="stylesheet">
+  <style>
+    .parent__cat {
+      width: 220px;
+      margin: 0 auto;
+    }
+
+    .eye {
+      animation: eye 4s;
+      animation-iteration-count: infinite;
+      transform-origin: center;
+    }
+
+    @keyframes eye {
+      0% {
+        transform: scale(1, 1);
+      }
+
+      36% {
+        transform: scale(1, 1);
+      }
+
+      38% {
+        transform: scale(1, 0);
+      }
+
+      42% {
+        transform: scale(1, 0);
+      }
+
+      44% {
+        transform: scale(1, 1);
+      }
+
+      100% {
+        transform: scale(1, 1);
+      }
+    }
+
+    .ear {
+      animation: ear 7s;
+      animation-iteration-count: infinite;
+      transform-origin: center;
+    }
+
+    .ear1 {
+      animation: ear 7s;
+      animation-delay: 300ms;
+      animation-iteration-count: infinite;
+      transform-origin: center;
+    }
+
+    @keyframes ear {
+      0% {
+        transform: scale(1, 1);
+      }
+
+      37% {
+        transform: scale(1, 1);
+      }
+
+      40% {
+        transform: scale(1, 0);
+      }
+
+      43% {
+        transform: scale(1, 1);
+      }
+
+      100% {
+        transform: scale(1, 1);
+      }
+    }
+
+  </style>
+  <script>
+    $(document).ready(function () {
+
+      window.onmousemove = function (event) {
+        var object = document.getElementById("my_cat"),
+          svgDocument = object.contentDocument,
+          pupils = document.getElementsByClassName("pupils"),
+
+          x = event.pageX,
+          y = event.pageY,
+
+          paralax_blick = $(".page-header__paralax-blick"),
+          paralax_x = x / 50,
+          paralax_y = y / 50;
+
+        // if (paralax_blick !== e.target) {
+        //   paralax_blick = e.target;
+        // };
+
+        for (var n = 0; n < pupils.length; n++) {
+          getCoords(pupils[n], x, y)
+        }
+
+        function getCoords(pupils, x, y) {
+          var box = pupils.getBoundingClientRect();
+          var y_pupils = box.top + pageYOffset,
+            x_pupils = box.left + pageXOffset;
+
+          if (paralax_blick.height() > y) {
+            $(paralax_blick).css({
+              "top": paralax_y,
+              "left": paralax_x
+            });
+          };
+
+          x = (x - x_pupils) / 500;
+          y = (y - y_pupils) / 500;
+          if (x >= 1) x = 0.9;
+          if (y >= 1) y = 0.9;
+          if (x <= -1) x = -0.9;
+          if (y <= -1) y = -0.9;
+          var translate = "translate(" + x + "px," + y + "px)";
+          $(pupils).css({
+            'transform': translate
+          });
+
+        };
+
+      }
+
+    });
+
+  </script>
 </head>
 
 <body>
@@ -20,19 +145,52 @@
     <include src="build/img/sprite.svg"></include>
   </div>
 
-  <include src="source/templates/header.html"></include>
+  <div class="page-header__paralax">
+    <div class="page-header__paralax-blick"></div>
+  </div>
+  <header class="page-header container page-header--nojs page-header--lending">
+    <nav class="page-header__block-nav page-header__block-nav--closed">
+      <ul class="page-header__nav-list list-rezet">
+        <li class="page-header__nav-item"><a href="/demo-js.html" class="page-header__nav-link">Демки JS </a></li>
+        <li class="page-header__nav-item"><a href="/demo-html-css-js.html" class="page-header__nav-link">Демки CSS </a></li>
+      </ul>
+    </nav>
+    <div class="page-header__block-logo">
+      <a href="index.html" class="page-header__logo-text">
+        <svg viewBox="0 0 14 13" width="60" height="60" class="page-header__logo-svg">
+          <path class="cat" fill="#303030" d="M12.9 6.9c0 2.5-2.6 4.7-5.7 4.7S1.4 9.4 1.4 6.9c0-1 .3-1.9 1-2.7.6-.7 1.5-1.3 2.5-1.6.7-.2 1.5-.3 2.3-.3 3.1-.1 5.7 2 5.7 4.6z" />
 
+          <path class="ear1" fill="#303030" d="M11.6,0.8c0.4,1.1,0.3,2.3,0,3.4L9.1,2.8C10.2,1.7,11.1,0.9,11.6,0.8z" />
+          <path class="ear" fill="#303030" d="M2.5,1c0.9,0.4,1.7,1.1,2.4,1.9L2.5,4.4C2,3.2,1.9,2,2.5,1L2.5,1z" />
 
-  <main class="page-main">
+          <ellipse class="eye" id="eye" fill="#FFF" cx="9.2" cy="6.6" rx="1.1" ry=".8" />
+          <ellipse class="eye" fill="#FFF" cx="4.8" cy="6.6" rx="1.1" ry=".8" />
+          <ellipse class="pupils" fill="#303030" cx="4.8" cy="6.65" rx=".2" ry=".5" />
+          <ellipse class="pupils" fill="#303030" cx="9.2" cy="6.65" rx=".2" ry=".5" />
+
+          <path class="moustache" stroke="#303030" stroke-width=".25" stroke-miterlimit="10" d="M13.8 8.1l-1.1-.2m1.2 2l-1.8-.8m1.1 2.5L11 10.1M.3 8.1l1.3-.2M.1 9.8l2-.8M.9 11.5l2.3-1.4" />
+        </svg>
+        uzinok.ru
+      </a>
+    </div>
+    <button class="page-header__button-nav-toggle page-header__button-nav-toggle--closed">
+      <span class="visually-hidden">открыть/закрыть меню</span>
+    </button>
+
     <div class="page-title">
       <div class="container">
-        <h1 class="page-title__text">UZINOK.RU</h1>
-        <p class="page-title__subtitle">Личный сайт. Сборка чего нибудь.</p>
+        <p class="page-title__subtitle">Личный сайт. Сборка чего нибудь и для чего нибудь. по любым вопросам
+          обращайтесь))</p>
       </div>
     </div>
 
-    <section class="container">
-      <h2 class="section-header">Slider</h2>
+    <button class="page-title__btn btn btn--default">Контакты</button>
+
+  </header>
+
+  <main class="page-main">
+    <section class="container container">
+      <h2 class="section-header">Интересное</h2>
       <div class="slider slider--nojs">
         <ul class="slider__list list-rezet">
           <li class="slider__item slider__item--active">
@@ -304,114 +462,7 @@
           </li>
           <li class="slider__item">
             <p class="slider__title">Я смотрю за тобой!!!</p>
-            <style>
-              .parent__cat {
-                width: 220px;
-                margin: 0 auto;
-              }
 
-              .eye {
-                animation: eye 4s;
-                animation-iteration-count: infinite;
-                transform-origin: center;
-              }
-
-              @keyframes eye {
-                0% {
-                  transform: scale(1, 1);
-                }
-
-                36% {
-                  transform: scale(1, 1);
-                }
-
-                38% {
-                  transform: scale(1, 0);
-                }
-
-                42% {
-                  transform: scale(1, 0);
-                }
-
-                44% {
-                  transform: scale(1, 1);
-                }
-
-                100% {
-                  transform: scale(1, 1);
-                }
-              }
-
-              .ear {
-                animation: ear 7s;
-                animation-iteration-count: infinite;
-                transform-origin: center;
-              }
-
-              .ear1 {
-                animation: ear 7s;
-                animation-delay: 300ms;
-                animation-iteration-count: infinite;
-                transform-origin: center;
-              }
-
-              @keyframes ear {
-                0% {
-                  transform: scale(1, 1);
-                }
-
-                37% {
-                  transform: scale(1, 1);
-                }
-
-                40% {
-                  transform: scale(1, 0);
-                }
-
-                43% {
-                  transform: scale(1, 1);
-                }
-
-                100% {
-                  transform: scale(1, 1);
-                }
-              }
-
-            </style>
-            <script>
-              $(document).ready(function () {
-
-                window.onmousemove = function (event) {
-                  var object = document.getElementById("my_cat");
-                  var svgDocument = object.contentDocument;
-                  var pupils = document.getElementsByClassName("pupils");
-
-                  x = event.pageX;
-                  y = event.pageY;
-
-                  for (var n = 0; n < pupils.length; n++) {
-                    getCoords(pupils[n], x, y)
-                  }
-
-                  function getCoords(pupils, x, y) {
-                    var box = pupils.getBoundingClientRect();
-                    var y_pupils = box.top + pageYOffset,
-                      x_pupils = box.left + pageXOffset;
-                    x = (x - x_pupils) / 500;
-                    y = (y - y_pupils) / 500;
-                    if (x >= 1) x = 0.9;
-                    if (y >= 1) y = 0.9;
-                    if (x <= -1) x = -0.9;
-                    if (y <= -1) y = -0.9;
-                    var translate = "translate(" + x + "px," + y + "px)";
-                    $(pupils).css({
-                      'transform': translate
-                    })
-                  };
-                }
-              });
-
-            </script>
             <div class="parent__cat">
               <svg viewBox="0 0 14 13" id="my_cat">
                 <path class="cat" fill="#303030" d="M12.9 6.9c0 2.5-2.6 4.7-5.7 4.7S1.4 9.4 1.4 6.9c0-1 .3-1.9 1-2.7.6-.7 1.5-1.3 2.5-1.6.7-.2 1.5-.3 2.3-.3 3.1-.1 5.7 2 5.7 4.6z" />
@@ -433,6 +484,8 @@
     </section>
 
   </main>
+
+  <include src="source/templates/footer.html"></include>
 
 </body>
 

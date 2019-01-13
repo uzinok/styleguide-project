@@ -5,6 +5,7 @@ body {
   line-height: 1.5;
   font-family: "Roboto", "Arial", sans-serif;
   font-weight: normal;
+  overflow-x: hidden;
 }
 
 .visually-hidden {
@@ -23,6 +24,7 @@ body {
   padding: 0;
   list-style: none;
 }
+
 main {
   position: relative;
 }
@@ -58,11 +60,10 @@ a {
   &:hover {
     color: #686868;
   }
-  
+
   &:active {
     opacity: 0.7;
   }
-
 }
 
 .section-header {
@@ -82,12 +83,13 @@ a {
 }
 
 .page-link {
-  color: #C03035;
+  color: #c03035;
 
   &:hover,
   &:active {
     color: #4fcccd;
   }
+
   &:active {
     opacity: 0.7;
   }
