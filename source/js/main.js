@@ -1,5 +1,8 @@
 $(document).ready(function () {
   // PAGE-HEADER
+
+  $("a[href^='" + document.location.pathname + "']").css({color:"#00aeef"});
+
   $(".page-header")[0].classList.remove("page-header--nojs");
   $(".page-header__button-nav-toggle").click(function () {
     var block_nav = $(".page-header__block-nav")[0],
@@ -9,7 +12,6 @@ $(document).ready(function () {
     nav_toggle.classList.toggle('page-header__button-nav-toggle--closed');
     nav_toggle.classList.toggle('page-header__button-nav-toggle--opened');
   });
-  $("a[href^='" + document.location.pathname + "']").css({color:"#00aeef"});
 
   // END PAGE-HEADER
   // ALERT

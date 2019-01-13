@@ -83,6 +83,38 @@
       }
     }
 
+    body {
+      background-image: url(../img/hero.jpg);
+      background-attachment: fixed;
+    }
+
+    .page-header__blick {
+      background-color: rgba(255,255,255, 0.5);
+      position: fixed;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+    }
+
+    section.container {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+      flex-direction: column;
+      min-height: 100vh;
+      -ms-flex-pack: distribute;
+      justify-content: space-around;
+    }
+
+    main {
+      z-index: 1;
+      background-color: #ffffff;
+    }
+
   </style>
   <script>
     $(document).ready(function () {
@@ -93,15 +125,7 @@
           pupils = document.getElementsByClassName("pupils"),
 
           x = event.pageX,
-          y = event.pageY,
-
-          paralax_blick = $(".page-header__paralax-blick"),
-          paralax_x = x / 50,
-          paralax_y = y / 50;
-
-        // if (paralax_blick !== e.target) {
-        //   paralax_blick = e.target;
-        // };
+          y = event.pageY;
 
         for (var n = 0; n < pupils.length; n++) {
           getCoords(pupils[n], x, y)
@@ -111,13 +135,6 @@
           var box = pupils.getBoundingClientRect();
           var y_pupils = box.top + pageYOffset,
             x_pupils = box.left + pageXOffset;
-
-          if (paralax_blick.height() > y) {
-            $(paralax_blick).css({
-              "top": paralax_y,
-              "left": paralax_x
-            });
-          };
 
           x = (x - x_pupils) / 500;
           y = (y - y_pupils) / 500;
@@ -145,14 +162,16 @@
     <include src="build/img/sprite.svg"></include>
   </div>
 
-  <div class="page-header__paralax">
-    <div class="page-header__paralax-blick"></div>
-  </div>
+  <div class="page-header__blick"></div>
+
   <header class="page-header container page-header--nojs page-header--lending">
     <nav class="page-header__block-nav page-header__block-nav--closed">
       <ul class="page-header__nav-list list-rezet">
-        <li class="page-header__nav-item"><a href="/demo-js.html" class="page-header__nav-link">Демки JS </a></li>
-        <li class="page-header__nav-item"><a href="/demo-html-css-js.html" class="page-header__nav-link">Демки CSS </a></li>
+        <li class="page-header__nav-item"><a href="#interesting" class="page-header__nav-link btn btn--default">Интересное
+          </a></li>
+        <li class="page-header__nav-item"><a href="#order-form" class="page-header__nav-link btn btn--default">Написать
+          </a></li>
+        <li class="page-header__nav-item"><a href="#link" class="page-header__nav-link btn btn--default">Ссылки</a></li>
       </ul>
     </nav>
     <div class="page-header__block-logo">
@@ -184,12 +203,12 @@
       </div>
     </div>
 
-    <button class="page-title__btn btn btn--default">Контакты</button>
+    <a class="page-title__btn btn btn--default" href="#order-form">Контакты</a>
 
   </header>
 
   <main class="page-main">
-    <section class="container container">
+    <section class="container" id="interesting">
       <h2 class="section-header">Интересное</h2>
       <div class="slider slider--nojs">
         <ul class="slider__list list-rezet">
@@ -460,32 +479,50 @@
               </div>
             </div>
           </li>
-          <li class="slider__item">
-            <p class="slider__title">Я смотрю за тобой!!!</p>
-
-            <div class="parent__cat">
-              <svg viewBox="0 0 14 13" id="my_cat">
-                <path class="cat" fill="#303030" d="M12.9 6.9c0 2.5-2.6 4.7-5.7 4.7S1.4 9.4 1.4 6.9c0-1 .3-1.9 1-2.7.6-.7 1.5-1.3 2.5-1.6.7-.2 1.5-.3 2.3-.3 3.1-.1 5.7 2 5.7 4.6z" />
-
-                <path class="ear1" fill="#303030" d="M11.6,0.8c0.4,1.1,0.3,2.3,0,3.4L9.1,2.8C10.2,1.7,11.1,0.9,11.6,0.8z" />
-                <path class="ear" fill="#303030" d="M2.5,1c0.9,0.4,1.7,1.1,2.4,1.9L2.5,4.4C2,3.2,1.9,2,2.5,1L2.5,1z" />
-
-                <ellipse class="eye" id="eye" fill="#FFF" cx="9.2" cy="6.6" rx="1.1" ry=".8" />
-                <ellipse class="eye" fill="#FFF" cx="4.8" cy="6.6" rx="1.1" ry=".8" />
-                <ellipse class="pupils" fill="#303030" cx="4.8" cy="6.65" rx=".2" ry=".5" />
-                <ellipse class="pupils" fill="#303030" cx="9.2" cy="6.65" rx=".2" ry=".5" />
-
-                <path class="moustache" stroke="#303030" stroke-width=".25" stroke-miterlimit="10" d="M13.8 8.1l-1.1-.2m1.2 2l-1.8-.8m1.1 2.5L11 10.1M.3 8.1l1.3-.2M.1 9.8l2-.8M.9 11.5l2.3-1.4" />
-              </svg>
-            </div>
-          </li>
         </ul><button class="slider__btn slider__previous btn btn--default"></button> <button class="slider__btn slider__next btn btn--default"></button>
       </div>
     </section>
 
+    <section class="container" id="order-form">
+      <h2 class="section-header">Контакты</h2>
+      <form action="#" class="order-form">
+        <p class="order-form__title">Оставьте сообщение</p><input name="#" type="text" class="order-form__control order-form__input-text"
+          placeholder="Имя"> <input name="#" type="email" class="order-form__control order-form__input-text"
+          placeholder="E-mail">
+        <textarea name="#" id="#" cols="30" rows="10" placeholder="Введите сообщение" class="order-form__control order-form__textarea"></textarea>
+        <button class="order-form__submit btn">Отправить</button>
+      </form>
+    </section>
+
   </main>
 
-  <include src="source/templates/footer.html"></include>
+  <footer class="page-header container  page-header--footer page-header--lending" id="link">
+    <nav class="page-header__block-nav">
+      <ul class="page-header__nav-list list-rezet">
+        <li class="page-header__nav-item"><a href="/demo-js.html" class="page-header__nav-link">Демки JS </a></li>
+        <li class="page-header__nav-item"><a href="/demo-html-css-js.html" class="page-header__nav-link">Демки CSS </a></li>
+        <li class="page-header__nav-item"><a href="/shortcodes.html" class="page-header__nav-link">Shortcodes</a></li>
+      </ul>
+    </nav>
+    <div class="page-header__block-logo">
+      <a href="index.html" class="page-header__logo-text">
+        <svg viewBox="0 0 14 13" width="60" height="60" class="page-header__logo-svg">
+          <path class="cat" fill="#303030" d="M12.9 6.9c0 2.5-2.6 4.7-5.7 4.7S1.4 9.4 1.4 6.9c0-1 .3-1.9 1-2.7.6-.7 1.5-1.3 2.5-1.6.7-.2 1.5-.3 2.3-.3 3.1-.1 5.7 2 5.7 4.6z" />
+
+          <path class="ear1" fill="#303030" d="M11.6,0.8c0.4,1.1,0.3,2.3,0,3.4L9.1,2.8C10.2,1.7,11.1,0.9,11.6,0.8z" />
+          <path class="ear" fill="#303030" d="M2.5,1c0.9,0.4,1.7,1.1,2.4,1.9L2.5,4.4C2,3.2,1.9,2,2.5,1L2.5,1z" />
+
+          <ellipse class="eye" id="eye" fill="#FFF" cx="9.2" cy="6.6" rx="1.1" ry=".8" />
+          <ellipse class="eye" fill="#FFF" cx="4.8" cy="6.6" rx="1.1" ry=".8" />
+          <ellipse class="pupils" fill="#303030" cx="4.8" cy="6.65" rx=".2" ry=".5" />
+          <ellipse class="pupils" fill="#303030" cx="9.2" cy="6.65" rx=".2" ry=".5" />
+
+          <path class="moustache" stroke="#303030" stroke-width=".25" stroke-miterlimit="10" d="M13.8 8.1l-1.1-.2m1.2 2l-1.8-.8m1.1 2.5L11 10.1M.3 8.1l1.3-.2M.1 9.8l2-.8M.9 11.5l2.3-1.4" />
+        </svg>
+        uzinok.ru
+      </a>
+    </div>
+  </footer>
 
 </body>
 
