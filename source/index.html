@@ -82,29 +82,32 @@
       transform: scale(1, 1);
       }
       }
-
       .body_background {
-      background-image: url(../img/hero.jpg);
-      background-attachment: fixed;
-      position: fixed;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      left: 0;
+        background-image: url(../img/hero_mob.jpg);
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+        background-size: cover;
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
       }
-
+      @media (min-width: 768px) {
+        .body_background {
+          background-image: url(../img/hero.jpg);
+        }
+      }
       .body_background::before {
-      content: "";
-      display: block;position: fixed;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      left: 0;
-      background-color: rgba(255,255,255,0.5);
-
+        content: "";
+        display: block;position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background-color: rgba(255,255,255,0.5);
       }
       .page-header--lending {
-        height: 100vh;
         -webkit-box-orient: vertical;
         -webkit-box-direction: normal;
         -ms-flex-direction: column;
@@ -121,6 +124,10 @@
         z-index: 2;
       }
       @media (max-width: 767px) {
+        .page-header--lending {
+          padding-top: 185px;
+          padding-bottom: 120px;
+        }
         .page-header--lending .page-header__button-nav-toggle {
           top: 15px;
           right: 15px;
@@ -183,18 +190,22 @@
         font-weight: bold;
       }
       section.container {
-      display: -webkit-box;
-      display: -ms-flexbox;
-      display: flex;
-      -webkit-box-orient: vertical;
-      -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-      flex-direction: column;
-      min-height: 100vh;
-      -ms-flex-pack: distribute;
-      justify-content: space-around;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        -ms-flex-pack: distribute;
+        justify-content: space-around;
       }
-
+      @media (min-width: 768px) {
+        section.container,
+        .page-header--lending {
+          min-height: 100vh;
+        }
+      }
       main {
       z-index: 1;
       background-color: #ffffff;
