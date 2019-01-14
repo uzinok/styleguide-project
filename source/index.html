@@ -11,92 +11,178 @@
   <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300,300i,400,400i,700,700i|Roboto:300,300i,400,400i,700,700i&amp;subset=cyrillic,cyrillic-ext"
     rel="stylesheet">
   <style>
-    .parent__cat {
+      .parent__cat {
       width: 220px;
       margin: 0 auto;
-    }
+      }
 
-    .eye {
+      .eye {
       animation: eye 4s;
       animation-iteration-count: infinite;
       transform-origin: center;
-    }
+      }
 
-    @keyframes eye {
+      @keyframes eye {
       0% {
-        transform: scale(1, 1);
+      transform: scale(1, 1);
       }
 
       36% {
-        transform: scale(1, 1);
+      transform: scale(1, 1);
       }
 
       38% {
-        transform: scale(1, 0);
+      transform: scale(1, 0);
       }
 
       42% {
-        transform: scale(1, 0);
+      transform: scale(1, 0);
       }
 
       44% {
-        transform: scale(1, 1);
+      transform: scale(1, 1);
       }
 
       100% {
-        transform: scale(1, 1);
+      transform: scale(1, 1);
       }
-    }
+      }
 
-    .ear {
+      .ear {
       animation: ear 7s;
       animation-iteration-count: infinite;
       transform-origin: center;
-    }
+      }
 
-    .ear1 {
+      .ear1 {
       animation: ear 7s;
       animation-delay: 300ms;
       animation-iteration-count: infinite;
       transform-origin: center;
-    }
+      }
 
-    @keyframes ear {
+      @keyframes ear {
       0% {
-        transform: scale(1, 1);
+      transform: scale(1, 1);
       }
 
       37% {
-        transform: scale(1, 1);
+      transform: scale(1, 1);
       }
 
       40% {
-        transform: scale(1, 0);
+      transform: scale(1, 0);
       }
 
       43% {
-        transform: scale(1, 1);
+      transform: scale(1, 1);
       }
 
       100% {
-        transform: scale(1, 1);
+      transform: scale(1, 1);
       }
-    }
-    
-    body {
-background-image: url(../img/hero.jpg);
-background-attachment: fixed;
-}
+      }
 
-.page-header {
-background-color: rgba(255,255,255, 0.5);
-}
+      .body_background {
+      background-image: url(../img/hero.jpg);
+      background-attachment: fixed;
+      position: fixed;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      }
 
-.page-header--footer .page-header__nav-link {
-font-weight: bold;
-}
+      .body_background::before {
+      content: "";
+      display: block;position: fixed;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background-color: rgba(255,255,255,0.5);
 
-    section.container {
+      }
+      .page-header--lending {
+        height: 100vh;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        background-color: transparent;
+      }
+      .page-header--lending * {
+        z-index: 2;
+      }
+      @media (max-width: 767px) {
+        .page-header--lending .page-header__button-nav-toggle {
+          top: 15px;
+          right: 15px;
+          background-color: transparent;
+        }
+        .page-header--lending .page-header__block-nav--opened {
+          position: absolute;
+          top: 0;
+        }
+      }
+      .page-header--lending .page-header__nav-link {
+        font-weight: normal;
+        text-align: center;
+      }
+      .page-header--lending .page-header__nav-link:hover {
+        opacity: 0.8;
+        color: #000000;
+      }
+      .page-header--lending .page-header__logo-text:hover {
+        color: #ffffff;
+      }
+      .page-header--lending .page-title {
+        background-image: none;
+        min-height: auto;
+        text-align: center;
+      }
+      @media (min-width: 768px) {
+        .page-header--lending .page-header__block-nav {
+          position: absolute;
+          top: 15px;
+          right: 15px;
+        }
+      }
+      .page-header--footer {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        -ms-flex-pack: distribute;
+        justify-content: space-around;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+      }
+      .page-header--footer .page-header__block-nav {
+        display: inline-block;
+        position: inherit;
+      }
+      .page-header--footer .page-header__nav-item {
+        display: inline;
+      }
+      .page-header--footer .page-header__nav-link {
+        display: inline-block;
+        padding: 10px;
+      }
+      .page-header--footer .page-header__nav-link {
+        font-weight: bold;
+      }
+      section.container {
       display: -webkit-box;
       display: -ms-flexbox;
       display: flex;
@@ -107,12 +193,12 @@ font-weight: bold;
       min-height: 100vh;
       -ms-flex-pack: distribute;
       justify-content: space-around;
-    }
+      }
 
-    main {
+      main {
       z-index: 1;
       background-color: #ffffff;
-    }
+      }
 
   </style>
   <script>
@@ -161,13 +247,15 @@ font-weight: bold;
     <include src="build/img/sprite.svg"></include>
   </div>
 
-
+  <div class="body_background"></div>
 
   <header class="page-header container page-header--nojs page-header--lending">
     <nav class="page-header__block-nav page-header__block-nav--closed">
       <ul class="page-header__nav-list list-rezet">
-        <li class="page-header__nav-item"><a href="#interesting" class="page-header__nav-link" data-goto="#interesting">Интересное </a></li>
-        <li class="page-header__nav-item"><a href="#order-form" class="page-header__nav-link" data-goto="#order-form">Написать </a></li>
+        <li class="page-header__nav-item"><a href="#interesting" class="page-header__nav-link" data-goto="#interesting">Интересное
+          </a></li>
+        <li class="page-header__nav-item"><a href="#order-form" class="page-header__nav-link" data-goto="#order-form">Написать
+          </a></li>
         <li class="page-header__nav-item"><a href="#link" class="page-header__nav-link" data-goto="#link">Ссылки</a></li>
       </ul>
     </nav>
