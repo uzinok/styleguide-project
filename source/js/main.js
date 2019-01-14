@@ -52,8 +52,28 @@ $(document).ready(function () {
       slider_item[currentSlide].classList.toggle('slider__item--active');
       currentSlide = (n + slider_item.length) % slider_item.length;
       slider.style.height = slider_item[currentSlide].offsetHeight + "px";
+      slider_progress(currentSlide);
       slider_item[currentSlide].classList.toggle('slider__item--active');
     }
+    // slider_progress
+    function slider_progress(currentSlide) {
+      var slider__progress_block = slider.querySelector('.slider__progres-block');
+      slider__progress_block.innerText = "";
+      var width_progres = 1 / slider_item.length * 100;
+      console.log(width_progres);
+
+      for (var np = 0; np < slider_item.length; np++) {
+        // val_slider_progres = val_slider_progres + "<div class=\"slider_progres\"></div>";
+        var slider_progres = document.createElement("div");
+        slider_progres.classList.add("slider__progres");
+        slider_progres.style.width = width_progres + "%";
+        if (np <= currentSlide) {
+          slider_progres.style.background = "#dad7e8";
+        }
+        slider__progress_block.appendChild(slider_progres);
+      };
+    };
+    slider_progress(currentSlide);
   };
   // END SLIDER
   // SCROLL
