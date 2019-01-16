@@ -25,21 +25,21 @@ $(document).ready(function () {
   for (var n = 0; n < slider.length; n++) {
     my_slider(slider[n]);
   };
-  
+
   function my_slider(slider) {
     slider.classList.remove("slider--nojs");
     var slider_item = slider.querySelectorAll(".slider__item");
     var currentSlide = 0;
-    
+
     var height_slider = 0;
     for (var nsi = 0; nsi < slider_item.length; nsi++) {
       if (height_slider < slider_item[nsi].offsetHeight) {
         height_slider = slider_item[nsi].offsetHeight;
       }
     };
-    
+
     slider.style.height = height_slider + "px";
-    
+
     var next = slider.querySelector('.slider__next');
     var previous = slider.querySelector('.slider__previous');
     next.onclick = function () {

@@ -120,9 +120,6 @@
         justify-content: center;
         background-color: transparent;
       }
-      .page-header--lending * {
-        z-index: 2;
-      }
       @media (max-width: 767px) {
         .page-header--lending {
           padding-top: 185px;
@@ -148,6 +145,9 @@
       }
       .page-header--lending .page-header__logo-text:hover {
         color: #ffffff;
+      }
+      .page-header--lending .page-header__block-logo {
+        margin-right: 30px;
       }
       .page-header--lending .page-title {
         background-image: none;
@@ -262,7 +262,7 @@
   <div class="body_background"></div>
 
   <header class="page-header container page-header--nojs page-header--lending">
-    <nav class="page-header__block-nav page-header__block-nav--closed">
+    <menu class="page-header__block-nav page-header__block-nav--closed">
       <ul class="page-header__nav-list list-rezet">
         <li class="page-header__nav-item"><a href="#interesting" class="page-header__nav-link" data-goto="#interesting">Интересное
           </a></li>
@@ -270,7 +270,7 @@
           </a></li>
         <li class="page-header__nav-item"><a href="#link" class="page-header__nav-link" data-goto="#link">Ссылки</a></li>
       </ul>
-    </nav>
+    </menu>
     <div class="page-header__block-logo">
       <a href="index.html" class="page-header__logo-text">
         <svg viewBox="0 0 14 13" width="60" height="60" class="page-header__logo-svg" id="my_cat">
@@ -609,6 +609,7 @@
       <ul class="page-header__nav-list list-rezet">
         <li class="page-header__nav-item"><a href="/demo-js.html" class="page-header__nav-link">Демки JS </a></li>
         <li class="page-header__nav-item"><a href="/demo-html-css-js.html" class="page-header__nav-link">Демки CSS </a></li>
+        <li class="page-header__nav-item"><a href="/thoughts.html" class="page-header__nav-link">Думки</a></li>
       </ul>
     </div>
     <div class="page-header__block-logo">
@@ -632,7 +633,6 @@
     <div class="page-header__block-nav">
       <ul class="page-header__nav-list list-rezet">
         <li class="page-header__nav-item"><a href="/shortcodes.html" class="page-header__nav-link">Shortcodes</a></li>
-        <li class="page-header__nav-item"><a href="/thoughts.html" class="page-header__nav-link">Думки</a></li>
       </ul>
     </div>
   </footer>
