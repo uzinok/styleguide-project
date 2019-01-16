@@ -279,8 +279,8 @@
           <path class="ear1" fill="#303030" d="M11.6,0.8c0.4,1.1,0.3,2.3,0,3.4L9.1,2.8C10.2,1.7,11.1,0.9,11.6,0.8z" />
           <path class="ear" fill="#303030" d="M2.5,1c0.9,0.4,1.7,1.1,2.4,1.9L2.5,4.4C2,3.2,1.9,2,2.5,1L2.5,1z" />
 
-          <ellipse class="eye" id="eye" fill="#FFF" cx="9.2" cy="6.6" rx="1.1" ry=".8" />
-          <ellipse class="eye" fill="#FFF" cx="4.8" cy="6.6" rx="1.1" ry=".8" />
+          <ellipse class="eye" id="eye" fill="#ffffff" cx="9.2" cy="6.6" rx="1.1" ry=".8" />
+          <ellipse class="eye" fill="#ffffff" cx="4.8" cy="6.6" rx="1.1" ry=".8" />
           <ellipse class="pupils" fill="#303030" cx="4.8" cy="6.65" rx=".2" ry=".5" />
           <ellipse class="pupils" fill="#303030" cx="9.2" cy="6.65" rx=".2" ry=".5" />
 
@@ -328,7 +328,7 @@
                 height: 100px;
                 border-radius: 50%;
                 border: 1px solid #444444;
-                background-color: #fff;
+                background-color: #ffffff;
               }
 
               .two-demo__head::before,
@@ -339,7 +339,7 @@
                 width: 30px;
                 height: 20px;
                 border-radius: 50%;
-                background-color: #000;
+                background-color: #000000;
                 z-index: -1;
                 top: 0;
               }
@@ -355,7 +355,7 @@
               .two-demo__eye {
                 position: absolute;
                 top: 30px;
-                background-color: #000;
+                background-color: #000000;
                 width: 15px;
                 height: 20px;
                 border-radius: 45%;
@@ -372,7 +372,7 @@
               .two-demo__eye::before {
                 width: 8px;
                 height: 8px;
-                background-color: #fff;
+                background-color: #ffffff;
                 top: 5px;
                 left: 3px;
                 animation: one-demo-eye 10s;
@@ -381,16 +381,16 @@
 
               @keyframes one-demo-eye {
                 0% {
-                  background-color: #fff;
+                  background-color: #ffffff;
                 }
 
                 10% {
-                  background-color: #000;
+                  background-color: #000000;
                   height: 0;
                 }
 
                 20% {
-                  background-color: #fff;
+                  background-color: #ffffff;
                   height: 8px;
                 }
               }
@@ -398,7 +398,7 @@
               .two-demo__eye::after {
                 width: 5px;
                 height: 5px;
-                background-color: #000;
+                background-color: #000000;
                 top: 6px;
                 left: 3px;
               }
@@ -419,14 +419,14 @@
                 height: 15px;
                 border-radius: 45%;
                 transform: translateX(-50%);
-                background-color: #000;
+                background-color: #000000;
               }
 
               .two-demo__nose::before,
               .two-demo__nose::after {
                 content: "";
                 display: block;
-                background-color: #fff;
+                background-color: #ffffff;
                 width: 2px;
                 height: 2px;
                 border-radius: 50%;
@@ -450,7 +450,7 @@
                 width: 20px;
                 height: 10px;
                 border-radius: 50px;
-                border-bottom: 3px solid #000;
+                border-bottom: 3px solid #000000;
               }
 
               .two-demo__body {
@@ -475,10 +475,10 @@
                 width: 30px;
                 height: 20px;
                 border-radius: 50%;
-                background-color: #000;
+                background-color: #000000;
                 z-index: -1;
                 bottom: 0;
-                border-bottom: 4px dotted #fff;
+                border-bottom: 4px dotted #ffffff;
               }
 
               .two-demo__body::before {
@@ -493,8 +493,8 @@
                 position: absolute;
                 width: 20px;
                 height: 65px;
-                background-color: #000;
-                border-top: 4px dotted #fff;
+                background-color: #000000;
+                border-top: 4px dotted #ffffff;
                 border-radius: 40px;
                 top: -26px;
               }
@@ -544,7 +544,7 @@
                 top: 4px;
                 left: 50%;
                 transform: translateX(-50%);
-                background-color: #fff;
+                background-color: #ffffff;
                 transform: skew(0deg, 0deg);
               }
 
@@ -593,12 +593,17 @@
 
     <section class="container" id="order-form">
       <h2 class="section-header">Контакты</h2>
-      <form action="#" class="order-form">
-        <p class="order-form__title">Оставьте сообщение</p><input name="#" type="text" class="order-form__control order-form__input-text"
-          placeholder="Имя"> <input name="#" type="email" class="order-form__control order-form__input-text"
-          placeholder="E-mail">
-        <textarea name="#" id="#" cols="30" rows="10" placeholder="Введите сообщение" class="order-form__control order-form__textarea"></textarea>
-        <button class="order-form__submit btn">Отправить</button>
+      <form action="http://demo.uzinok.ru/php/ajax_feedback.php" class="order-form" id="form" method="POST">
+        <p class="order-form__title">Оставьте сообщение</p>
+        <input name="name" type="text" class="order-form__control order-form__input-text" placeholder="Имя">
+        <input name="email" type="email" class="order-form__control order-form__input-text" placeholder="E-mail">
+        <textarea name="text" id="" cols="30" rows="10" placeholder="Введите сообщение" class="order-form__control order-form__textarea"></textarea>
+        <div class="alert alert--danger" id="result_form" style="display: none;">
+          <button class="alert__btn btn alert__btn--js" type="button"><span class="visually-hidden">Закрыть окно</span></button>
+          <p class="alert__title">my server</p>
+          <p class="alert__text"></p>
+        </div>
+        <button class="order-form__submit btn" type="submit">Отправить</button>
       </form>
     </section>
 
@@ -638,5 +643,7 @@
   </footer>
 
 </body>
+
+<script src="js/ajax_feedback.js"></script>
 
 </html>

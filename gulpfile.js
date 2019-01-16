@@ -42,6 +42,17 @@ gulp.task("js", function () {
     .pipe(server.stream());
 });
 
+gulp.task("php", function () {
+  return gulp.src('source/php/*.php')
+    .pipe(gulp.dest("build/php"));
+});
+
+gulp.task("js_copy", function () {
+  return gulp.src('source/js/ajax_feedback.js')
+    .pipe(gulp.dest("build/js"))
+    .pipe(server.stream());
+});
+
 gulp.task("css", function () {
   return gulp.src("source/less/style.less")
     .pipe(plumber())
@@ -123,10 +134,10 @@ gulp.task("server", function () {
 
   gulp.watch("source/less/**/*.less", gulp.series("css"));
   // gulp.watch("source/less/**/*.less", gulp.series("css")).on("change", server.reload);
-  gulp.watch("source/js/*.js", gulp.series("js")).on("change", server.reload);
+  gulp.watch("source/js/*.js", gulp.series(["js", "js_copy"])).on("change", server.reload);
   gulp.watch("source/*.html", gulp.series("html")).on("change", server.reload);
   gulp.watch("source/templates/*.html", gulp.series("html")).on("change", server.reload);
 });
 
-gulp.task("build", gulp.series("clean", "copy", "css", "js", "html"));
+gulp.task("build", gulp.series("clean", "copy", "css", "js", "js_copy", "html", "php"));
 gulp.task("start", gulp.series("build", "server"));
