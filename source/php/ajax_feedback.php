@@ -1,5 +1,8 @@
 ﻿<?php
 if($_POST['name'] == true && $_POST['email'] == true && $_POST['text']) {
+    $name_user = $_POST['name'];
+    $email_user = $_POST['email'];
+    $message = $_POST['text'];
     $error_text = "<span>Сообщение не отправлено.<br> Ошибка, не переданны данные.<br />Отправьте сообщение на email: uzinok@yandex.ru</span>";
     $main_text = "<span>Сообщение отправлено.<br>При первой возможности отвечу.<br />Спасибо.</span>";
 
