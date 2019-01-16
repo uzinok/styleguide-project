@@ -18,6 +18,10 @@ $(document).ready(function () {
   // ALERT
   $(".alert__btn--js").click(function () {
     this.parentNode.style.display = "none";
+    if (this.parentNode.classList.contains("alert--danger")) this.parentNode.classList.remove("alert--danger");
+    if (this.parentNode.classList.contains("alert--warning")) this.parentNode.classList.remove("alert--warning");
+    if (this.parentNode.classList.contains("alert--info")) this.parentNode.classList.remove("alert--info");
+    if (this.parentNode.classList.contains("alert--success")) this.parentNode.classList.remove("alert--success");
   });
   // END ALERT
   // SLIDER

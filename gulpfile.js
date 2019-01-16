@@ -137,6 +137,7 @@ gulp.task("server", function () {
   gulp.watch("source/js/*.js", gulp.series(["js", "js_copy"])).on("change", server.reload);
   gulp.watch("source/*.html", gulp.series("html")).on("change", server.reload);
   gulp.watch("source/templates/*.html", gulp.series("html")).on("change", server.reload);
+  gulp.watch("source/php/*.php", gulp.series("php"));
 });
 
 gulp.task("build", gulp.series("clean", "copy", "css", "js", "js_copy", "html", "php"));
