@@ -97,4 +97,8 @@ $(document).ready(function () {
     });
   });
   // END SCROLL
+  // UP DOWN ARROW
+  var up_down_arrow = $(".up-down-arrow")[0];
+  up_down_arrow.classList.remove("up-down-arrow--nojs");
+  // END UP DOWN ARROW
 });
