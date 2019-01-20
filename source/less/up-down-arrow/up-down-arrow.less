@@ -15,6 +15,10 @@
   z-index: 999;
   display: none;
 
+  &:hover {
+    background-color: fade(darken(@text-color-light, 0.5%), 15%);
+  }
+
   &--up,
   &--down {
     display: block;
