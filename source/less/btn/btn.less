@@ -18,9 +18,9 @@
   }
 
   &--default {
-    color: #333333;
+    color: @text-color-light;
     background-color: #ffffff;
-    border-color: #cccccc;
+    border-color: @border-color-light;
 
     &:hover,
     &:focus {
@@ -30,63 +30,63 @@
 
   &--primary {
     color: #ffffff;
-    background-color: #428bca;
-    border-color: #357ebd;
+    background-color: lighten(@text-border-color, 5%);
+    border-color: @text-border-color;
 
     &:hover,
     &:focus {
-      background-color: darken(#428bca, 10%);
+      background-color: darken(@text-border-color, 2%);
     }
   }
 
   &--success {
     color: #ffffff;
-    background-color: #5cb85c;
-    border-color: #4cae4c;
+    background-color: lighten(@color-success, 15%);
+    border-color: @color-success;
 
     &:hover,
     &:focus {
-      background-color: darken(#5cb85c, 10%);
+      background-color: darken(@color-success, 1%);
     }
   }
 
   &--info {
     color: #ffffff;
-    background-color: #5bc0de;
-    border-color: #46b8da;
+    background-color: lighten(@text-border-color, 15%);
+    border-color: @text-border-color;
 
     &:hover,
     &:focus {
-      background-color: darken(#5bc0de, 10%);
+      background-color: darken(@text-border-color, 1%);
     }
   }
 
   &--warning {
     color: #ffffff;
-    background-color: #f0ad4e;
-    border-color: #eea236;
+    background-color: lighten(@outline-color, 20%);
+    border-color: @outline-color;
 
     &:hover,
     &:focus {
-      background-color: darken(#f0ad4e, 10%);
+      background-color: darken(@outline-color, 1%);
     }
   }
 
   &--danger {
     color: #ffffff;
-    background-color: #d9534f;
-    border-color: #d43f3a;
+    background-color: lighten(@color-red, 15%);
+    border-color: @color-red;
 
     &:hover,
     &:focus {
-      background-color: darken(#d9534f, 10%);
+      background-color: darken(@color-red, 1%);
     }
   }
 
   &:disabled {
-    background-color: #cccccc;
-    border-color: #404040;
-    color: #404040;
+    background-color: lighten(@text-color-light, 50%);
+    border-color: @text-color-light;
+    color: @text-color-light;
   }
 
   &--xs {

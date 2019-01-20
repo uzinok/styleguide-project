@@ -50,15 +50,15 @@ button,
 input,
 svg {
   transition: 200ms;
-  outline-color: #d29948;
+  outline-color: @outline-color;
 }
 
 a {
   font-family: "Roboto Condensed", "Arial", sans-serif;
-  color: #00aeef;
+  color: @text-border-color;
 
   &:hover {
-    color: #686868;
+    color: @text-color-light;
   }
 
   &:active {
@@ -69,9 +69,9 @@ a {
 .section-header {
   margin: 0;
   padding: 40px 0 20px;
-  border-bottom: 1px solid #eeeeee;
+  border-bottom: 1px solid @border-color-light;
   font-size: 24px;
-  color: #686868;
+  color: @text-color-light;
   font-family: "Roboto Condensed", "Arial", sans-serif;
   font-weight: 300;
   margin-bottom: 20px;
@@ -83,11 +83,11 @@ a {
 }
 
 .page-link {
-  color: #c03035;
+  color: @color-red;
 
   &:hover,
   &:active {
-    color: #4fcccd;
+    color: @text-border-color;
   }
 
   &:active {

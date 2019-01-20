@@ -1,7 +1,7 @@
 .slider {
   position: relative;
   padding: 0 35px 20px;
-  border-bottom: 1px solid #eeeeee;
+  border-bottom: 1px solid @border-color-light;
 
   &--nojs {
     padding: 0;
@@ -36,7 +36,7 @@
   top: 50%;
   transform: translateY(-50%);
   cursor: pointer;
-  border-color: #00aeef;
+  border-color: @text-border-color;
 }
 
 .slider__previous {
@@ -49,8 +49,8 @@
     display: block;
     width: 10px;
     height: 10px;
-    border-left: 1px solid #00aeef;
-    border-bottom: 1px solid #00aeef;
+    border-left: 1px solid @text-border-color;
+    border-bottom: 1px solid @text-border-color;
     transform: rotate(45deg);
   }
 }
@@ -65,8 +65,8 @@
     display: block;
     width: 10px;
     height: 10px;
-    border-top: 1px solid #00aeef;
-    border-right: 1px solid #00aeef;
+    border-top: 1px solid @text-border-color;
+    border-right: 1px solid @text-border-color;
     transform: rotate(45deg);
   }
 }
@@ -98,9 +98,9 @@
       top: 15px;
       left: 50%;
       transform: translateX(-50%);
-      background-color: #00aeef;
+      background-color: @text-border-color;
       border-radius: 49%;
-      border: 3px solid darken(#00aeef, 20%);
+      border: 3px solid darken(@text-border-color, 20%);
     }
     // FOR TABLET DESCTOP
     @media (min-width: @min-width-tablet) {
@@ -110,9 +110,9 @@
         left: 15px;
         top: 50%;
         transform: translate(0, -50%);
-        background-color: #00aeef;
+        background-color: @text-border-color;
         border-radius: 49%;
-        border: 3px solid darken(#00aeef, 20%);
+        border: 3px solid darken(@text-border-color, 20%);
       }
     }
   }
@@ -137,7 +137,6 @@
 }
 
 .slider__progres-block {
-  display: block;
   box-sizing: border-box;
   position: absolute;
   bottom: 0;
@@ -149,5 +148,5 @@
 .slider__progres {
   height: 5px;
   box-sizing: border-box;
-  border: 1px solid #cccccc;
+  border: 1px solid @border-color-light;
 }

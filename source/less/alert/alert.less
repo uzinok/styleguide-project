@@ -31,27 +31,27 @@
   }
 
   &--info {
-    color: #31708f;
-    background-color: #d9edf7;
-    border-color: #bce8f1;
+    color: @text-border-color;
+    background-color: lighten(@text-border-color, 50%);
+    border-color: lighten(@text-border-color, 40%);
 
     .alert__btn {
       &::before,
       &::after {
-        background-color: #31708f;
+        background-color: @text-border-color;
       }
     }
   }
 
   &--success {
-    color: #3c763d;
-    background-color: #dff0d8;
-    border-color: #d6e9c6;
+    color: @color-success;
+    background-color: lighten(@color-success, 50%);
+    border-color: lighten(@color-success, 40%);
 
     .alert__btn {
       &::before,
       &::after {
-        background-color: #3c763d;
+        background-color: @color-success;
       }
     }
   }
