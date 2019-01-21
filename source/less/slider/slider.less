@@ -6,13 +6,14 @@
   &--nojs {
     padding: 0;
 
-    .slider__btn {
+    & .slider__btn {
       display: none;
     }
 
-    .slider__list {
+    & .slider__list {
       display: flex;
       flex-direction: column;
+      transform: translate(0, 0);
     }
 
     & .slider__item {
@@ -20,6 +21,7 @@
       position: relative;
       top: inherit;
       left: inherit;
+      transform: translate(0, 0);
     }
   }
 }

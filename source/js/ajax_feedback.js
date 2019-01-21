@@ -16,7 +16,7 @@ $(document).ready(function () {
       error: function (response) {
         document.getElementById("result_form").style.display = "block";
         document.getElementById("result_form").classList.add("alert--danger");
-        document.getElementById("result_form").querySelector(".alert__text").innerHTML = "Извинните! Сообщение не отправлено.";
+        document.getElementById("result_form").querySelector(".alert__text").innerHTML = "Извинните! Сообщение не отправлено. Нет связи с сервером.";
         setTimeout(function () {
           btn_submit.disabled = false;
         }, 5000);
