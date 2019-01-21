@@ -7,7 +7,6 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>home</title>
   <link rel="stylesheet" href="css/style.css" type="text/css">
-  <script src="js/main.js"></script>
   <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300,300i,400,400i,700,700i|Roboto:300,300i,400,400i,700,700i&amp;subset=cyrillic,cyrillic-ext"
     rel="stylesheet">
   <style>
@@ -226,77 +225,9 @@
       }
 
   </style>
-<script>
-  $(document).ready(function () {
+  <script>
 
-    window.onmousemove = function (event) {
-      var object = document.getElementById("my_cat"),
-        svgDocument = object.contentDocument,
-        pupils = document.getElementsByClassName("pupils"),
-
-        x = event.pageX,
-        y = event.pageY;
-
-      for (var n = 0; n < pupils.length; n++) {
-        getCoords(pupils[n], x, y)
-      }
-
-      function getCoords(pupils, x, y) {
-        var box = pupils.getBoundingClientRect();
-        var y_pupils = box.top + pageYOffset,
-          x_pupils = box.left + pageXOffset;
-
-        x = (x - x_pupils) / 500;
-        y = (y - y_pupils) / 500;
-        if (x >= 1) x = 0.9;
-        if (y >= 1) y = 0.9;
-        if (x <= -1) x = -0.9;
-        if (y <= -1) y = -0.9;
-        var translate = "translate(" + x + "px," + y + "px)";
-        $(pupils).css({
-          'transform': translate
-        });
-      };
-    }
-
-    var body_background_paralax = document.getElementById("body_background--paralax");
-
-    var innerHeight = document.documentElement.clientHeight,
-      index_paralax = 2,
-      doc_height = document.documentElement.offsetHeight,
-      height_paralax = doc_height / index_paralax + innerHeight + "px";
-    
-      $("#body_background--paralax").css({
-      'height': height_paralax
-    });
-
-      var up_down_arrow = $(".up-down-arrow__btn")[0];
-
-    $(".up-down-arrow__btn").click(function () {
-      up_down_arrow.classList.remove("up-down-arrow__btn--up");
-      $("html, body").animate({
-        scrollTop: $("body").offset().top
-      }, 500);
-    });
-
-    window.onscroll = function (event) {
-
-      var pageY = window.pageYOffset || document.documentElement.scrollTop,
-        translate = "translate(" + 0 + "px, -" + pageY / index_paralax + "px)";
-      $("#body_background--paralax").css({
-        'transform': translate
-      });
-
-      if (pageY > innerHeight) {
-        if (!up_down_arrow.classList.contains("up-down-arrow__btn--up")) up_down_arrow.classList.add("up-down-arrow__btn--up");
-      } else if (pageY < innerHeight) {
-        if (up_down_arrow.classList.contains("up-down-arrow__btn--up")) up_down_arrow.classList.remove("up-down-arrow__btn--up");
-      }
-
-    };
-
-  });
-</script>
+  </script>
 </head>
 
 <body>
@@ -348,7 +279,10 @@
       </div>
     </div>
 
-    <a class="page-title__btn btn btn--default" href="#order-form" data-goto="#order-form">Написать</a>
+    <div class="page-title__block-btn">
+      <button class="page-title__btn btn btn--default" href="#order-form" data-goto="#order-form" title="перейти к форме обратной связи">Написать</button>
+      <a href="#" class="page-title__btn page-title__btn--user">Авторизоваться</a>
+    </div>
 
   </header>
 
@@ -692,8 +626,8 @@
 
   <div class="up-down-arrow__btn btn"></div>
 </body>
-
-<script src="js/ajax_feedback.js"></script>
+<script src="js/jquery.min.js"></script>
+<script src="js/home_js.js"></script>
 
 
 </html>

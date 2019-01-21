@@ -48,7 +48,7 @@ gulp.task("php", function () {
 });
 
 gulp.task("js_copy", function () {
-  return gulp.src('source/js/ajax_feedback.js')
+  return gulp.src('source/js/home_js.js')
     .pipe(gulp.dest("build/js"))
     .pipe(server.stream());
 });
