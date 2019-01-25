@@ -8,6 +8,7 @@
     "autoprefixer": "9.1.x",
     "browser-sync": "2.24.x",
     "del": "^3.0.0",
+    "eslint": "^5.12.1",
     "gulp": "4.0.x",
     "gulp-concat": "^2.6.1",
     "gulp-csso": "^3.0.1",

@@ -11,11 +11,11 @@ var rename = require("gulp-rename");
 var svgstore = require("gulp-svgstore");
 var posthtml = require("gulp-posthtml");
 var include = require("posthtml-include");
-var imagemin = require('gulp-imagemin');
-var webp = require('gulp-webp');
-var del = require('del');
-var htmlmin = require('gulp-htmlmin');
-var concat = require('gulp-concat');
+var imagemin = require("gulp-imagemin");
+var webp = require("gulp-webp");
+var del = require("del");
+var htmlmin = require("gulp-htmlmin");
+var concat = require("gulp-concat");
 
 gulp.task("clean", function () {
   return del("build");
@@ -34,21 +34,21 @@ gulp.task("copy", function () {
 });
 
 gulp.task("js", function () {
-  return gulp.src(['source/js/jquery.min.js', 'source/js/main.js'])
-    .pipe(concat('main.js', {
-      newLine: ';'
+  return gulp.src(["source/js/jquery.min.js", "source/js/main.js"])
+    .pipe(concat("main.js", {
+      newLine: ";"
     }))
     .pipe(gulp.dest("build/js"))
     .pipe(server.stream());
 });
 
 gulp.task("php", function () {
-  return gulp.src('source/php/*.php')
+  return gulp.src("source/php/*.php")
     .pipe(gulp.dest("build/php"));
 });
 
 gulp.task("js_copy", function () {
-  return gulp.src('source/js/home_js.js')
+  return gulp.src("source/js/home_js.js")
     .pipe(gulp.dest("build/js"))
     .pipe(server.stream());
 });
