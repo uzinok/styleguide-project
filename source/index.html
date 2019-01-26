@@ -217,9 +217,6 @@
       }
 
   </style>
-  <script>
-
-  </script>
 </head>
 
 <body>
@@ -272,7 +269,7 @@
     </div>
 
     <div class="page-title__block-btn">
-      <button class="page-title__btn btn btn--default" href="#order-form" data-goto="#order-form" title="перейти к форме обратной связи">Написать</button>
+      <a class="page-title__btn btn btn--default" href="#order-form" data-goto="#order-form" title="перейти к форме обратной связи">Написать</a>
       <a href="#" class="page-title__btn page-title__btn--user">Авторизоваться</a>
     </div>
 
@@ -567,15 +564,11 @@
 
     <section class="container" id="order-form">
       <h2 class="section-header">Оставьте сообщение</h2>
-      <form action="http://demo.uzinok.ru/php/ajax_feedback.php" class="order-form" id="form" method="POST">
-        <p class="order-form__title">Все поля обязательны для заполнения</p>
-        <input name="name" type="text" class="order-form__control order-form__input-text" placeholder="Имя *">
-        <input name="email" type="email" class="order-form__control order-form__input-text" placeholder="E-mail *">
-        <textarea name="text" id="" cols="30" rows="10" placeholder="Введите сообщение *" class="order-form__control order-form__textarea"></textarea>
-        <div class="order-form__item-input">
-          <label for="" class="order-form__label">Решите пример: <span>4 + 8 =</span></label>
-          <input type="number" class="order-form__control order-form__input-number">
-        </div>
+      <form action="http://demo.uzinok.ru/php/feedback.php" class="order-form" id="form" method="POST">
+        <p class="order-form__title">Все поля обязательны для заполнения на русском! (кроме E-mail)</p>
+        <input name="name" type="text" class="order-form__control order-form__input-text" placeholder="Имя *" required>
+        <input name="email" type="email" class="order-form__control order-form__input-text" placeholder="E-mail *" required>
+        <textarea name="text" id="" cols="30" rows="10" placeholder="Введите сообщение *" class="order-form__control order-form__textarea" required></textarea>
         <div class="alert alert--danger" id="result_form" style="display: none;">
           <button class="alert__btn btn alert__btn--js" type="button"><span class="visually-hidden">Закрыть окно</span></button>
           <p class="alert__title">Ответ сервера</p>

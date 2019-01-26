@@ -1,7 +1,18 @@
 $(document).ready(function () {
   // ajax_feedback
   $("#form").submit(function (e) {
-    var btn_submit = this.querySelector(".order-form__submit");
+    var btn_submit = this.querySelector(".order-form__submit"),
+      valid_name_text = /[a-z]/ig,
+      val_name = $(".order-form__control[name=\"name\"]").val(),
+      val_text = $(".order-form__control[name=\"text\"]").val();
+    if (val_name.match(valid_name_text) || val_text.match(valid_name_text)) {
+      console.log("hello");
+      document.getElementById("result_form").style.display = "block";
+      if (document.getElementById("result_form").classList.contains("alert--success")) document.getElementById("result_form").classList.remove("alert--success");
+      document.getElementById("result_form").classList.add("alert--danger");
+      document.getElementById("result_form").querySelector(".alert__text").innerHTML = "Извинните! Я русский человек и разговариваю на русском языке.";
+      return false;
+    };
     btn_submit.disabled = true;
     e.preventDefault();
     var form_data = $(this).serialize();
@@ -14,9 +25,10 @@ $(document).ready(function () {
 
         return answer_cerver();
       },
-      error: function (response) {
+      error: function () {
         document.getElementById("result_form").style.display = "block";
         document.getElementById("result_form").classList.add("alert--danger");
+        if (document.getElementById("result_form").contains("alert--success")) document.getElementById("result_form").classList.remove("alert--success");
         document.getElementById("result_form").querySelector(".alert__text").innerHTML = "Извинните! Сообщение не отправлено. Нет связи с сервером.";
         setTimeout(function () {
           btn_submit.disabled = false;
@@ -26,6 +38,8 @@ $(document).ready(function () {
 
     function answer_cerver() {
       document.getElementById("result_form").style.display = "block";
+      if (document.getElementById("result_form").classList.contains("alert--danger")) document.getElementById("result_form").classList.remove("alert--danger");
+      if (document.getElementById("result_form").classList.contains("alert--success")) document.getElementById("result_form").classList.remove("alert--success");
       document.getElementById("result_form").classList.add(result.my_class);
       document.getElementById("result_form").querySelector(".alert__text").innerHTML = result.res;
       setTimeout(function () {
@@ -34,12 +48,6 @@ $(document).ready(function () {
       return;
     };
   });
-
-  var num_1 = Math.floor(Math.random() * (15 - 1 + 1)) + 1,
-    num_2 = Math.floor(Math.random() * (15 - 1 + 1)) + 1,
-    total_num = num_1 + num_2;
-
-    console.log(num_1 + "+" + num_2 + "=" + total_num);
 
   // end ajax_feedback
 
