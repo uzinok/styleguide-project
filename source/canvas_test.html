@@ -26,6 +26,68 @@
     <section class="container container--column">
       <div class="container container--two-column">
         <h2 class="section-header">Пробую рисовать звездное небо.</h2>
+        <canvas id="canvas_1" width="900" height="900"></canvas>
+        <style>
+          #canvas_1 {
+            width: 300px;
+            height: 300px;
+            border: 1px solid #404040;
+            display: block;
+            margin: 0 auto;
+            background-color: #000;
+          }
+
+        </style>
+        <script>
+          $(document).ready(function () {
+
+
+            var canvas = document.getElementById('canvas_1');
+
+            if (canvas.getContext) {
+
+
+              var ctx = canvas.getContext('2d'),
+                stars = [];
+              for (var i = 0; i < 50; i++) {
+                stars.push({
+                  x: Math.random() * 900,
+                  y: Math.random() * 900,
+                  r: Math.random() * 3
+                });
+              };
+
+
+              function star_cloud(x, y, radius) {
+                ctx.save();
+                // ctx.beginPatch();
+                ctx.arc(x, y, radius, 0, 2 * Math.PI);
+                ctx.fillStyle = "#ffffff";
+                ctx.fill();
+                ctx.closePath();
+                ctx.restore();
+              };
+
+              function Render() {
+                // window.requestAnimationFrame(Render);
+                ctx.clearRect(0, 0, 600, 600);
+                stars.forEach(star => {
+                  star_cloud(star.x, star.y, star.r);
+                })
+              };
+
+              Render();
+
+
+            } else {
+              alert("нет поддержки canvas");
+            }
+
+
+
+          });
+
+        </script>
       </div>
     </section>
 
