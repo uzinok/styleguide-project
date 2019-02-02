@@ -44,35 +44,51 @@
 
             var canvas = document.getElementById('canvas_1');
 
+
+
             if (canvas.getContext) {
 
-
               var ctx = canvas.getContext('2d'),
-                stars = [];
-              for (var i = 0; i < 50; i++) {
-                stars.push({
-                  x: Math.random() * 900,
-                  y: Math.random() * 900,
-                  r: Math.random() * 3
-                });
-              };
+                stars = [],
+                x = 0,
+                y = 0,
+                r = 0;
 
+              class star_class {
 
-              function star_cloud(x, y, radius) {
-                ctx.save();
-                // ctx.beginPatch();
-                ctx.arc(x, y, radius, 0, 2 * Math.PI);
-                ctx.fillStyle = "#ffffff";
-                ctx.fill();
-                ctx.closePath();
-                ctx.restore();
+                constructor(x, y, r) {
+                  this.x = x || 0;
+                  this.y = x || 0;
+                  this.r = r || Math.random() * 10;
+                }
+
+                draw(ctx) {
+                  ctx.save();
+                  // ctx.beginPatch();
+                  ctx.arc(this.x, this.y, this.r, 0, 2 * Math.PI);
+                  ctx.fillStyle = "#ffffff";
+                  ctx.fill();
+                  ctx.closePath();
+                  ctx.restore();
+                }
+
+              }
+
+              for (var i = 0; i < 10; i++) {
+                stars.push(
+                  new star_class(
+                    Math.random() * 900,
+                    Math.random() * 900
+                  )
+                );
               };
+              console.log(stars);
 
               function Render() {
                 // window.requestAnimationFrame(Render);
-                ctx.clearRect(0, 0, 600, 600);
+                ctx.clearRect(60, 60, 600, 600);
                 stars.forEach(star => {
-                  star_cloud(star.x, star.y, star.r);
+                  star.draw(ctx);
                 })
               };
 
