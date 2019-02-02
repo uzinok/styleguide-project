@@ -58,8 +58,8 @@
 
                 constructor(x, y, r) {
                   this.x = x || 0;
-                  this.y = x || 0;
-                  this.r = r || Math.random() * 10;
+                  this.y = y || 0;
+                  this.r = r || Math.random() * 1;
                 }
 
                 draw(ctx) {
@@ -74,7 +74,7 @@
 
               }
 
-              for (var i = 0; i < 10; i++) {
+              for (var i = 0; i < 200; i++) {
                 stars.push(
                   new star_class(
                     Math.random() * 900,
