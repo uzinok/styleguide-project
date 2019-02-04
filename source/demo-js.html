@@ -32,6 +32,7 @@
           by
           uzinok (<a href="https://codepen.io/uzinok">@uzinok</a>) on <a href="https://codepen.io">CodePen</a>.</p>
       </div>
+
       <div class="container container--two-column">
         <h2 class="section-header">Пробую издеваться над котиком...</h2>
         <p data-height="265" data-theme-id="0" data-slug-hash="aPaxLo" data-default-tab="html,result" data-user="uzinok"
@@ -39,6 +40,110 @@
           by
           uzinok (<a href="https://codepen.io/uzinok">@uzinok</a>) on <a href="https://codepen.io">CodePen</a>.</p>
         <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+      </div>
+
+      <div class="container container--two-column">
+        <h2 class="section-header">04/02/19</h2>
+        <style>
+          .block {
+            width: 100%;
+            min-height: 50vh;
+            padding: 20px;
+            margin-bottom: 15px;
+            box-sizing: border-box;
+            border: 15px solid #580590;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+          }
+
+          .block span,
+          .block svg {
+            font-size: 50px;
+            color: #580590;
+            fill: #580590;
+            display: inline-block;
+            width: inherit;
+          }
+
+          .block.block-active {
+            background-color: #580590;
+          }
+
+          .block.block-active span,
+          .block.block-active svg {
+            color: #ffffff;
+            fill: #ffffff;
+          }
+
+        </style>
+
+        <div class="block">
+
+          <script>
+            $(document).ready(function () {
+              var targets = document.querySelectorAll('.block');
+
+              var options = {
+                rootMargin: '0px',
+                threshold: 1.0
+              }
+
+              var observer = new IntersectionObserver(items => {
+                if (items[0].isIntersecting) {
+                  console.log("yes");
+                } else {
+                  console.log("no");
+                }
+              }, options);
+
+              for (var i = 0; i < 5; i++) {
+                console.log(targets[i]);
+                observer.observe(targets[i]);
+              }
+
+            });
+
+          </script>
+          <svg viewBox="0 0 482.6 487.1">
+            <defs>
+              <!-- width="482.6px" height="487.1px" -->
+              <pattern fill="#9ddea6" x="0" y="0" width="20" height="12" id="svg_u_pattern" patternUnits="userSpaceOnUse">
+                <path d="M9.8 12L0 2.2V.8l10 10 10-10v1.4L10.2 12h-.4zm-4 0L0 6.2V4.8L7.2 12H5.8zm8.4 0L20 6.2V4.8L12.8 12h1.4zM9.8 0l.2.2.2-.2h-.4zm-4 0L10 4.2 14.2 0h-1.4L10 2.8 7.2 0H5.8z">
+              </pattern>
+              <mask maskUnits="userSpaceOnUse" id="svg_u_mask">
+                <g fill="#fff">
+                  <rect x="0" y="0" width="247" height="487.1px"></rect>
+                </g>
+              </mask>
+            </defs>
+
+            <g fill="url(#svg_u_pattern)">
+              <path d="M292.2,273.3v169.4c0,9,1.8,15.9,5.3,20.7c3.5,4.8,9.9,8.8,19,12v11.7H166.1v-11.7c9.1-2.9,15.4-6.7,19-11.5
+  c3.5-4.8,5.3-11.8,5.3-21.1V273.3L64.2,74.7C50,52.4,38.7,37.2,30.2,28.9C21.7,20.7,11.7,15.1,0,12.2V0h191.8v12.2
+  c-16.5,4.9-24.7,13.8-24.7,26.5c0,6.4,6,19.1,17.9,38.2l61.8,98l60.4-98c11.9-19.4,17.9-32.3,17.9-38.7c0-12.2-8.1-20.9-24.3-26.1
+  L300.2,0h182.4v12.2c-11.7,2.9-21.7,8.5-30.2,16.7c-8.5,8.3-19.8,23.5-34,45.8L292.2,273.3z" />
+            </g>
+            <g mask="url(#svg_u_mask)">
+              <path d="M292.2,273.3v169.4c0,9,1.8,15.9,5.3,20.7c3.5,4.8,9.9,8.8,19,12v11.7H166.1v-11.7c9.1-2.9,15.4-6.7,19-11.5
+  c3.5-4.8,5.3-11.8,5.3-21.1V273.3L64.2,74.7C50,52.4,38.7,37.2,30.2,28.9C21.7,20.7,11.7,15.1,0,12.2V0h191.8v12.2
+  c-16.5,4.9-24.7,13.8-24.7,26.5c0,6.4,6,19.1,17.9,38.2l61.8,98l60.4-98c11.9-19.4,17.9-32.3,17.9-38.7c0-12.2-8.1-20.9-24.3-26.1
+  L300.2,0h182.4v12.2c-11.7,2.9-21.7,8.5-30.2,16.7c-8.5,8.3-19.8,23.5-34,45.8L292.2,273.3z" />
+            </g>
+          </svg>
+        </div>
+        <div class="block"><span>2</span></div>
+        <div class="block"><span>3</span></div>
+        <div class="block"><span>4</span></div>
+        <div class="block"><span><svg viewBox="0 0 482.6 487.1">
+              <g>
+                <path d="M292.2,273.3v169.4c0,9,1.8,15.9,5.3,20.7c3.5,4.8,9.9,8.8,19,12v11.7H166.1v-11.7c9.1-2.9,15.4-6.7,19-11.5
+  c3.5-4.8,5.3-11.8,5.3-21.1V273.3L64.2,74.7C50,52.4,38.7,37.2,30.2,28.9C21.7,20.7,11.7,15.1,0,12.2V0h191.8v12.2
+  c-16.5,4.9-24.7,13.8-24.7,26.5c0,6.4,6,19.1,17.9,38.2l61.8,98l60.4-98c11.9-19.4,17.9-32.3,17.9-38.7c0-12.2-8.1-20.9-24.3-26.1
+  L300.2,0h182.4v12.2c-11.7,2.9-21.7,8.5-30.2,16.7c-8.5,8.3-19.8,23.5-34,45.8L292.2,273.3z" />
+              </g>
+            </svg></span></div>
       </div>
 
     </section>
