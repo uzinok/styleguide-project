@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <include src="source/templates/head.html"></include>
+  <title>home</title>
+  <script src="js/main.js"></script>
+</head>
+
+<body>
+
+  <div style="display: none;">
+    <include src="build/img/sprite.svg"></include>
+  </div>
+
+  <include src="source/templates/header.html"></include>
+
+  <main class="page-main">
+    <div class="page-title">
+      <div class="container">
+        <h1 class="page-title__text">Вход/регистрация</h1>
+        <p class="page-title__subtitle">Пока что просто регистрацияи и авторизация... Потом к чему нибудь приду.</p>
+      </div>
+    </div>
+
+    <section class="container">
+      <h2 class="section-header">Или <button class="btn bth--xs btn--default">авторизоваться</button></h2>
+      <form action="" class="order-form" method="POST">
+        <p class="order-form__title">E-mail для восстановления пароля.</p>
+        <input name="name" type="text" class="order-form__control order-form__input-text" placeholder="Имя/логин *"
+          required>
+        <input name="email" type="email" class="order-form__control order-form__input-text" placeholder="E-mail *"
+          required>
+        <input name="password" type="password" class="order-form__control order-form__input-text" placeholder="пароль"
+          required>
+        <div class="alert alert--danger" id="result_form" style="display: none;">
+          <button class="alert__btn btn alert__btn--js" type="button"><span class="visually-hidden">Закрыть окно</span></button>
+          <p class="alert__title">Ответ сервера</p>
+          <p class="alert__text"></p>
+        </div>
+        <button class="order-form__submit btn" type="submit">Отправить</button>
+      </form>
+    </section>
+
+  </main>
+
+  <include src="source/templates/footer.html"></include>
+
+</body>
+
+</html>
