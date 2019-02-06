@@ -3,7 +3,7 @@
 
 <head>
   <include src="source/templates/head.html"></include>
-  <title>home</title>
+  <title>Демки JS</title>
   <script src="js/main.js"></script>
 </head>
 
@@ -20,13 +20,14 @@
       <div class="container">
         <h1 class="page-title__text">Демки</h1>
         <p class="page-title__subtitle">JS демки. Всяко разно)) Все скриты и стили без префиксов и подобной чепухи.
-          Работают в Google chrome в актуальных версиях с 2019года</p>
+          Работают в Google chrome без префиксеров(CSS) в актуальных версиях с 2019года</p>
       </div>
     </div>
 
     <section class="container container--column">
       <div class="container container--two-column">
-        <h2 class="section-header">Анимашка на snap.svg</h2>
+        <h2 class="section-header">Анимашка на snap.svg: JS - SVG <span class="page-text--small">работает ведзде,
+            используется библиотека snap.svg-min.js</span></h2>
         <script src="js/snap.svg-min.js"></script>
         <script>
           $(document).ready(function () {
@@ -51,7 +52,7 @@
           });
 
         </script>
-        <script src="//ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+
         <svg viewBox="0 0 96.8 95.3" id="svg_u" style="cursor: pointer; display:block; margin: 0 auto" width="260"
           height="255">
           <g fill="#580590">
@@ -68,7 +69,8 @@
       </div>
 
       <div class="container container--two-column">
-        <h2 class="section-header">Пробую издеваться над котиком...</h2>
+        <h2 class="section-header">Пробую издеваться над котиком... JS - CSS - SVG <span class="page-text--small">В IE
+            не работает, но можно исправить.</span></h2>
         <p data-height="265" data-theme-id="0" data-slug-hash="aPaxLo" data-default-tab="html,result" data-user="uzinok"
           data-pen-title="my cat" class="codepen">See the Pen <a href="https://codepen.io/uzinok/pen/aPaxLo/">my cat</a>
           by
@@ -77,11 +79,15 @@
       </div>
 
       <div class="container container--two-column">
-        <h2 class="section-header">04/02/19</h2>
+        <h2 class="section-header">04/02/19 : JS - CSS // TweenMax.min.js // snap.svg-min.js<span class="page-text--small">Для
+            работы в
+            браузерах
+            Apple и IE
+            нужно подумать</span></h2>
         <style>
           .block {
             width: 100%;
-            min-height: 50vh;
+            min-height: 70vh;
             padding: 20px;
             margin-bottom: 15px;
             box-sizing: border-box;
@@ -118,9 +124,36 @@
 
         <div class="block">
 
+          <script src="js/TweenMax.min.js"></script>
+          <script src="js/pubsub.js"></script>
+
           <script>
-            $(document).ready(function () {
+            $(document).ready(function (events) {
               var targets = document.querySelectorAll('.block');
+
+              var tl = new TimelineMax();
+
+              tl.to("#y", 0.1, {
+                opacity: 0,
+                yoyo: true,
+                repeat: 3
+              });
+
+              tl.fromTo("#mask_rect_all", 1, {
+                y: 350,
+                height: 40
+              }, {
+                y: 0,
+                height: 487
+              });
+
+              tl.to("#mask_rect", 1, {
+                x: -235,
+              });
+
+              PubSub.subscribe("go-letter-go", function () {
+                alert("go letter go");
+              })
 
               var options = {
                 rootMargin: '0px',
@@ -131,7 +164,8 @@
                 items.forEach(el => {
                   if (el.isIntersecting && el.intersectionRatio > 0.7) {
 
-                    el.target.classList.add("block-active");
+                    // el.target.classList.add("block-active");
+                    PubSub.publish("go-letter-go");
 
                   } else {
                     el.target.classList.remove("block-active");
@@ -139,40 +173,85 @@
                 })
               }, options);
               for (var i = 0; i < targets.length; i++) {
-                observer.observe(targets[i]);
+                observer.observe(targets[1]);
               }
 
             });
 
           </script>
-          <svg viewBox="0 0 482.6 487.1">
+          <svg viewBox="0 0 482.6 487.1" id="y">
             <defs>
               <!-- width="482.6px" height="487.1px" -->
               <pattern fill="#9ddea6" x="0" y="0" width="20" height="12" id="svg_u_pattern" patternUnits="userSpaceOnUse">
                 <path d="M9.8 12L0 2.2V.8l10 10 10-10v1.4L10.2 12h-.4zm-4 0L0 6.2V4.8L7.2 12H5.8zm8.4 0L20 6.2V4.8L12.8 12h1.4zM9.8 0l.2.2.2-.2h-.4zm-4 0L10 4.2 14.2 0h-1.4L10 2.8 7.2 0H5.8z">
               </pattern>
-              <mask maskUnits="userSpaceOnUse" id="svg_u_mask">
+              <mask maskUnits="userSpaceOnUse" id="mask">
                 <g fill="#fff">
-                  <rect x="0" y="0" width="247" height="487.1px"></rect>
+                  <rect x="0" y="0" width="482.6px" height="487" id="mask_rect"></rect>
+                </g>
+              </mask>
+              <mask maskUnits="userSpaceOnUse" id="mask_all">
+                <g fill="#fff">
+                  <rect x="0" y="0" width="482.6px" height="487.1px" id="mask_rect_all"></rect>
                 </g>
               </mask>
             </defs>
-          
-            <g fill="url(#svg_u_pattern)">
-              <path d="M292.2,273.3v169.4c0,9,1.8,15.9,5.3,20.7c3.5,4.8,9.9,8.8,19,12v11.7H166.1v-11.7c9.1-2.9,15.4-6.7,19-11.5
-            c3.5-4.8,5.3-11.8,5.3-21.1V273.3L64.2,74.7C50,52.4,38.7,37.2,30.2,28.9C21.7,20.7,11.7,15.1,0,12.2V0h191.8v12.2
-            c-16.5,4.9-24.7,13.8-24.7,26.5c0,6.4,6,19.1,17.9,38.2l61.8,98l60.4-98c11.9-19.4,17.9-32.3,17.9-38.7c0-12.2-8.1-20.9-24.3-26.1
-            L300.2,0h182.4v12.2c-11.7,2.9-21.7,8.5-30.2,16.7c-8.5,8.3-19.8,23.5-34,45.8L292.2,273.3z" />
-            </g>
-            <g mask="url(#svg_u_mask)">
-              <path d="M292.2,273.3v169.4c0,9,1.8,15.9,5.3,20.7c3.5,4.8,9.9,8.8,19,12v11.7H166.1v-11.7c9.1-2.9,15.4-6.7,19-11.5
-            c3.5-4.8,5.3-11.8,5.3-21.1V273.3L64.2,74.7C50,52.4,38.7,37.2,30.2,28.9C21.7,20.7,11.7,15.1,0,12.2V0h191.8v12.2
-            c-16.5,4.9-24.7,13.8-24.7,26.5c0,6.4,6,19.1,17.9,38.2l61.8,98l60.4-98c11.9-19.4,17.9-32.3,17.9-38.7c0-12.2-8.1-20.9-24.3-26.1
-            L300.2,0h182.4v12.2c-11.7,2.9-21.7,8.5-30.2,16.7c-8.5,8.3-19.8,23.5-34,45.8L292.2,273.3z" />
+
+            <g mask="url(#mask_all)">
+              <g fill="url(#svg_u_pattern)">
+                <path d="M292.2,273.3v169.4c0,9,1.8,15.9,5.3,20.7c3.5,4.8,9.9,8.8,19,12v11.7H166.1v-11.7c9.1-2.9,15.4-6.7,19-11.5
+                          c3.5-4.8,5.3-11.8,5.3-21.1V273.3L64.2,74.7C50,52.4,38.7,37.2,30.2,28.9C21.7,20.7,11.7,15.1,0,12.2V0h191.8v12.2
+                          c-16.5,4.9-24.7,13.8-24.7,26.5c0,6.4,6,19.1,17.9,38.2l61.8,98l60.4-98c11.9-19.4,17.9-32.3,17.9-38.7c0-12.2-8.1-20.9-24.3-26.1
+                          L300.2,0h182.4v12.2c-11.7,2.9-21.7,8.5-30.2,16.7c-8.5,8.3-19.8,23.5-34,45.8L292.2,273.3z" />
+              </g>
+              <g mask="url(#mask)">
+                <path d="M292.2,273.3v169.4c0,9,1.8,15.9,5.3,20.7c3.5,4.8,9.9,8.8,19,12v11.7H166.1v-11.7c9.1-2.9,15.4-6.7,19-11.5
+                          c3.5-4.8,5.3-11.8,5.3-21.1V273.3L64.2,74.7C50,52.4,38.7,37.2,30.2,28.9C21.7,20.7,11.7,15.1,0,12.2V0h191.8v12.2
+                          c-16.5,4.9-24.7,13.8-24.7,26.5c0,6.4,6,19.1,17.9,38.2l61.8,98l60.4-98c11.9-19.4,17.9-32.3,17.9-38.7c0-12.2-8.1-20.9-24.3-26.1
+                          L300.2,0h182.4v12.2c-11.7,2.9-21.7,8.5-30.2,16.7c-8.5,8.3-19.8,23.5-34,45.8L292.2,273.3z" />
+              </g>
             </g>
           </svg>
         </div>
-        <div class="block"><span>2</span></div>
+        <div class="block">
+          <svg viewBox="0 0 482.6 487.1" id="y">
+            <defs>
+              <!-- width="482.6px" height="487.1px" -->
+              <pattern fill="#9ddea6" x="0" y="0" width="20" height="12" id="svg_u_pattern" patternUnits="userSpaceOnUse">
+                <path d="M9.8 12L0 2.2V.8l10 10 10-10v1.4L10.2 12h-.4zm-4 0L0 6.2V4.8L7.2 12H5.8zm8.4 0L20 6.2V4.8L12.8 12h1.4zM9.8 0l.2.2.2-.2h-.4zm-4 0L10 4.2 14.2 0h-1.4L10 2.8 7.2 0H5.8z">
+              </pattern>
+              <mask maskUnits="userSpaceOnUse" id="mask">
+                <g fill="#fff">
+                  <rect x="0" y="0" width="482.6px" height="487" id="mask_rect"></rect>
+                </g>
+              </mask>
+              <mask maskUnits="userSpaceOnUse" id="mask_all">
+                <g fill="#fff">
+                  <rect x="0" y="0" width="482.6px" height="487.1px" id="mask_rect_all"></rect>
+                </g>
+              </mask>
+            </defs>
+
+            <g mask="url(#mask_all)">
+              <g fill="url(#svg_u_pattern)">
+                <path d="M292.2,273.3v169.4c0,9,1.8,15.9,5.3,20.7c3.5,4.8,9.9,8.8,19,12v11.7H166.1v-11.7c9.1-2.9,15.4-6.7,19-11.5
+                                    c3.5-4.8,5.3-11.8,5.3-21.1V273.3L64.2,74.7C50,52.4,38.7,37.2,30.2,28.9C21.7,20.7,11.7,15.1,0,12.2V0h191.8v12.2
+                                    c-16.5,4.9-24.7,13.8-24.7,26.5c0,6.4,6,19.1,17.9,38.2l61.8,98l60.4-98c11.9-19.4,17.9-32.3,17.9-38.7c0-12.2-8.1-20.9-24.3-26.1
+                                    L300.2,0h182.4v12.2c-11.7,2.9-21.7,8.5-30.2,16.7c-8.5,8.3-19.8,23.5-34,45.8L292.2,273.3z" />
+              </g>
+              <g mask="url(#mask)">
+                <path d="M292.2,273.3v169.4c0,9,1.8,15.9,5.3,20.7c3.5,4.8,9.9,8.8,19,12v11.7H166.1v-11.7c9.1-2.9,15.4-6.7,19-11.5
+                                    c3.5-4.8,5.3-11.8,5.3-21.1V273.3L64.2,74.7C50,52.4,38.7,37.2,30.2,28.9C21.7,20.7,11.7,15.1,0,12.2V0h191.8v12.2
+                                    c-16.5,4.9-24.7,13.8-24.7,26.5c0,6.4,6,19.1,17.9,38.2l61.8,98l60.4-98c11.9-19.4,17.9-32.3,17.9-38.7c0-12.2-8.1-20.9-24.3-26.1
+                                    L300.2,0h182.4v12.2c-11.7,2.9-21.7,8.5-30.2,16.7c-8.5,8.3-19.8,23.5-34,45.8L292.2,273.3z" />
+              </g>
+            </g>
+          </svg>
+        </div>
+        <div class="block"><span>3</span></div>
+        <div class="block"><span>4</span></div>
+        <div class="block"><span>5</span></div>
+        <div class="block"><span>6</span></div>
 
     </section>
 
