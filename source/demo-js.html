@@ -121,67 +121,67 @@
           }
 
         </style>
+        <script src="js/TweenMax.min.js"></script>
+        <!-- <script src="js/pubsub.js"></script> -->
+
+        <script>
+          $(document).ready(function (events) {
+            var targets = document.querySelectorAll('.block');
+
+            var tl = new TimelineMax();
+
+            tl.to("#y", 0.1, {
+              opacity: 0,
+              yoyo: true,
+              repeat: 3
+            });
+
+            tl.fromTo("#mask_rect_all", 1, {
+              y: 350,
+              height: 40
+            }, {
+              y: 0,
+              height: 487
+            });
+
+            tl.to("#mask_rect", 1, {
+              x: -235,
+            });
+
+            // PubSub.subscribe("go-letter-go", function () {
+            //   alert("go letter go");
+            // })
+
+            var options = {
+              rootMargin: '0px',
+              threshold: [1.0, 0.3, 0.5, 0.7]
+            }
+
+            var observer = new IntersectionObserver(items => {
+              items.forEach(el => {
+                if (el.isIntersecting && el.intersectionRatio > 0.7) {
+
+                  el.target.classList.add("block-active");
+                  // PubSub.publish("go-letter-go");
+
+                } else {
+                  el.target.classList.remove("block-active");
+                }
+              })
+            }, options);
+            for (var i = 0; i < targets.length; i++) {
+              observer.observe(targets[i]);
+            }
+
+          });
+
+        </script>
 
         <div class="block">
 
-          <script src="js/TweenMax.min.js"></script>
-          <script src="js/pubsub.js"></script>
-
-          <script>
-            $(document).ready(function (events) {
-              var targets = document.querySelectorAll('.block');
-
-              var tl = new TimelineMax();
-
-              tl.to("#y", 0.1, {
-                opacity: 0,
-                yoyo: true,
-                repeat: 3
-              });
-
-              tl.fromTo("#mask_rect_all", 1, {
-                y: 350,
-                height: 40
-              }, {
-                y: 0,
-                height: 487
-              });
-
-              tl.to("#mask_rect", 1, {
-                x: -235,
-              });
-
-              PubSub.subscribe("go-letter-go", function () {
-                alert("go letter go");
-              })
-
-              var options = {
-                rootMargin: '0px',
-                threshold: [1.0, 0.3, 0.5, 0.7]
-              }
-
-              var observer = new IntersectionObserver(items => {
-                items.forEach(el => {
-                  if (el.isIntersecting && el.intersectionRatio > 0.7) {
-
-                    // el.target.classList.add("block-active");
-                    PubSub.publish("go-letter-go");
-
-                  } else {
-                    el.target.classList.remove("block-active");
-                  }
-                })
-              }, options);
-              for (var i = 0; i < targets.length; i++) {
-                observer.observe(targets[1]);
-              }
-
-            });
-
-          </script>
-          <svg viewBox="0 0 482.6 487.1" id="y">
+          <!-- width="482.6px" height="487.1px" -->
+          <!-- <svg viewBox="0 0 482.6 487.1" id="y">
             <defs>
-              <!-- width="482.6px" height="487.1px" -->
               <pattern fill="#9ddea6" x="0" y="0" width="20" height="12" id="svg_u_pattern" patternUnits="userSpaceOnUse">
                 <path d="M9.8 12L0 2.2V.8l10 10 10-10v1.4L10.2 12h-.4zm-4 0L0 6.2V4.8L7.2 12H5.8zm8.4 0L20 6.2V4.8L12.8 12h1.4zM9.8 0l.2.2.2-.2h-.4zm-4 0L10 4.2 14.2 0h-1.4L10 2.8 7.2 0H5.8z">
               </pattern>
@@ -211,7 +211,7 @@
                           L300.2,0h182.4v12.2c-11.7,2.9-21.7,8.5-30.2,16.7c-8.5,8.3-19.8,23.5-34,45.8L292.2,273.3z" />
               </g>
             </g>
-          </svg>
+          </svg> -->
         </div>
         <div class="block">
           <svg viewBox="0 0 482.6 487.1" id="y">
