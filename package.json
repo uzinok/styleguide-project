@@ -4,7 +4,6 @@
   "private": true,
   "description": "Личный проект «cat-energy» от HTML Academy",
   "devDependencies": {
-    "@babel/core": "^7.2.2",
     "@babel/preset-env": "^7.3.1",
     "@htmlacademy/editorconfig-cli": "1.x",
     "autoprefixer": "9.1.x",

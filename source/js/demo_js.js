@@ -1,6 +1,8 @@
 /* <script src="js/TweenMax.min.js"></script>
     <script src="js/pubsub.js"></script> */
-var targets = document.querySelectorAll('.block');
+import {TimelineMax} from "gsap";
+
+let targets = document.querySelectorAll('.block');
 
 var tl = new TimelineMax();
 
