@@ -1,6 +1,7 @@
-/* <script src="js/TweenMax.min.js"></script>
+import {TimelineMax} from "js/TweenMax.min.js";
+$(document).ready(function () {
+      /* <script src="js/TweenMax.min.js"></script>
     <script src="js/pubsub.js"></script> */
-import {TimelineMax} from "gsap";
 
 let targets = document.querySelectorAll('.block');
 
@@ -48,3 +49,4 @@ var observer = new IntersectionObserver(items => {
 for (var i = 0; i < targets.length; i++) {
   observer.observe(targets[i]);
 }
+});
