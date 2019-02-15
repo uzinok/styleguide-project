@@ -5,6 +5,7 @@
   <include src="source/templates/head.html"></include>
   <title>Вход/регистрация</title>
   <script src="js/main.js"></script>
+  <script src="js/authorisation.js"></script>
 </head>
 
 <body>
@@ -23,13 +24,29 @@
       </div>
     </div>
 
-    <section class="container">
-      <h2 class="section-header">Или <button class="btn bth--xs btn--default">авторизоваться</button></h2>
+    <section class="container authorisation-form-block authorisation-form-block--nojs">
+      <h2 class="section-header section-header--authorisation">Регистрация или <button class="btn bth--xs btn--default">авторизация</button></h2>
+      <h2 class="section-header section-header--authorisation--nojs">Регистрация</button></h2>
       <form action="" class="order-form" method="POST">
         <p class="order-form__title">E-mail для восстановления пароля.</p>
         <input name="name" type="text" class="order-form__control order-form__input-text" placeholder="Имя/логин *"
           required>
         <input name="email" type="email" class="order-form__control order-form__input-text" placeholder="E-mail *"
+          required>
+        <input name="password" type="password" class="order-form__control order-form__input-text" placeholder="пароль"
+          required>
+        <div class="alert alert--danger" id="result_form" style="display: none;">
+          <button class="alert__btn btn alert__btn--js" type="button"><span class="visually-hidden">Закрыть окно</span></button>
+          <p class="alert__title">Ответ сервера</p>
+          <p class="alert__text"></p>
+        </div>
+        <button class="order-form__submit btn" type="submit">Отправить</button>
+      </form>
+
+      <h2 class="section-header section-header--nojs">Авторизация</button></h2>
+
+      <form action="" class="order-form" method="POST">
+        <input name="email" type="email" class="order-form__control order-form__input-text" placeholder="E-mail или логин *"
           required>
         <input name="password" type="password" class="order-form__control order-form__input-text" placeholder="пароль"
           required>

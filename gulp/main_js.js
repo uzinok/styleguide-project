@@ -15,11 +15,3 @@ gulp.task("js_copy", function () {
   return gulp.src("source/js/home_js.js")
     .pipe(gulp.dest("build/js"));
 });
-
-gulp.task("js_babel", function () {
-  return gulp.src("source/js/demo_js.js")
-    .pipe(babel({
-      presets: ["@babel/env"]
-    }))
-    .pipe(gulp.dest("build/js"));
-});
