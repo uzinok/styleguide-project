@@ -79,6 +79,184 @@
       </div>
 
       <div class="container container--two-column">
+        <h2 class="section-header">Змека, пока токля на клаве</span></h2>
+        <div id="snake"></div>
+
+        <style>
+          .field-snake {
+            width: 35vw;
+            height: 35vw;
+            border: 1px solid #580590;
+            display: flex;
+            flex-wrap: wrap;
+            background-color: rgb(217, 255, 225);
+            margin: 0 auto;
+          }
+
+          .field-snake__exel {
+            width: 5%;
+            height: 5%;
+            border: 1px solid #eadede38;
+            box-sizing: border-box;
+          }
+
+          .field-snake__body {
+            border: 1px solid #580590;
+            border-radius: 35%;
+            background-color: #b050f0;
+          }
+
+          .field-snake__head {
+            background-color: #580590;
+            border-radius: 45%;
+          }
+
+          .field-snake__mouse {
+            border: 1px solid #580590;
+            background-color: #1bfd07;
+            border-radius: 50%;
+          }
+
+        </style>
+
+        <script>
+          $(document).ready(function () {
+            var field_snake = document.getElementById("snake");
+
+            var field = document.createElement("div");
+            field_snake.appendChild(field);
+            field.classList.add("field-snake");
+
+            for (var i = 1; i < 401; i++) {
+              var exel = document.createElement("div");
+              field.appendChild(exel);
+              exel.classList.add("field-snake__exel");
+            }
+
+            var exel = document.getElementsByClassName("field-snake__exel");
+
+            var x = 1,
+              y = 20;
+
+            for (var i = 0; i < exel.length; i++) {
+              if (x > 20) {
+                x = 1;
+                y--;
+              }
+              exel[i].setAttribute("posX", x);
+              exel[i].setAttribute("posY", y);
+              x++;
+
+            }
+
+            function generate_Snake() {
+              var posX = Math.round(Math.random() * (10 - 3) + 3);
+              var posY = Math.round(Math.random() * (10 - 1) + 1);
+
+              return [posX, posY];
+            }
+
+            var coordinates = generate_Snake();
+            var snake__body = [
+              document.querySelector('[posX = "' + coordinates[0] + '"][posY = "' + coordinates[1] + '"]'),
+              document.querySelector('[posX = "' + (coordinates[0] - 1) + '"][posY = "' + coordinates[1] + '"]'),
+              document.querySelector('[posX = "' + (coordinates[0] - 2) + '"][posY = "' + coordinates[1] + '"]')
+            ];
+
+            for (var i = 0; i < snake__body.length; i++) {
+              snake__body[i].classList.add("field-snake__body");
+            }
+
+            snake__body[0].classList.add("field-snake__head");
+
+            var mouse;
+
+            function create_mouse() {
+
+              function generate_mouse() {
+                var posX = Math.round(Math.random() * (10 - 1) + 1);
+                var posY = Math.round(Math.random() * (10 - 1) + 1);
+                return [posX, posY];
+              };
+
+              var mouse_coordinates = generate_mouse();
+              mouse = document.querySelector('[posX = "' + mouse_coordinates[0] + '"][posY = "' + mouse_coordinates[
+                1] + '"]');
+              mouse.classList.add("field-snake__mouse");
+
+              while (mouse.classList.contains("field-snake__body")) {
+                var mouse_coordinates = generate_mouse();
+                mouse = document.querySelector('[posX = "' + mouse_coordinates[0] + '"][posY = "' +
+                  mouse_coordinates[1] + '"]');
+              }
+            };
+
+            create_mouse();
+
+            var direction = "right";
+
+            function move() {
+              var snake_coordinates = [snake__body[0].getAttribute("posX"), snake__body[0].getAttribute("posY")];
+              snake__body[0].classList.remove("field-snake__head");
+              snake__body[snake__body.length - 1].classList.remove("field-snake__body");
+              snake__body.pop();
+
+              if (direction == "right") {
+                if (snake_coordinates[0] < 20) {
+                  snake__body.unshift(document.querySelector('[posX = "' + (+snake_coordinates[0] + 1) + '"][posY = "' + snake_coordinates[1] + '"]'));
+                } else {
+                  snake__body.unshift(document.querySelector('[posX = "1"][posY = "' + snake_coordinates[1] + '"]'));
+                }
+              } else if (direction == "left") {
+                if (snake_coordinates[0] > 1) {
+                  snake__body.unshift(document.querySelector('[posX = "' + (+snake_coordinates[0] - 1) + '"][posY = "' + snake_coordinates[1] + '"]'));
+                } else {
+                  snake__body.unshift(document.querySelector('[posX = "20"][posY = "' + snake_coordinates[1] + '"]'));
+                }
+              } else if (direction == "up") {
+                if (snake_coordinates[1] < 20) {
+                  snake__body.unshift(document.querySelector('[posX = "' + snake_coordinates[0] + '"][posY = "' + (+snake_coordinates[1] + 1) + '"]'));
+                } else {
+                  snake__body.unshift(document.querySelector('[posX = "' + snake_coordinates[0] + '"][posY = "1"]'));
+                }
+              } else if (direction == "down") {
+                if (snake_coordinates[1] > 1) {
+                  snake__body.unshift(document.querySelector('[posX = "' + snake_coordinates[0] + '"][posY = "' + (+snake_coordinates[1] - 1) + '"]'));
+                } else {
+                  snake__body.unshift(document.querySelector('[posX = "' + snake_coordinates[0] + '"][posY = "20"]'));
+                }
+              }
+
+              snake__body[0].classList.add("field-snake__head");
+              for (var i = 0; i < snake__body.length; i++) {
+                snake__body[i].classList.add("field-snake__body");
+              }
+            }
+
+            var interval = setInterval(move, 250);
+
+            window.addEventListener("keydown", function (e) {
+              if (e.keyCode == 37 && direction != "right") {
+                direction = "left";
+              }
+              if (e.keyCode == 38 && direction != "down") {
+                direction = "up";
+              }
+              if (e.keyCode == 39 && direction != "left") {
+                direction = "right";
+              }
+              if (e.keyCode == 40 && direction != "up") {
+                direction = "down";
+              }
+            });
+
+          });
+
+        </script>
+
+      </div>
+
+      <div class="container container--two-column">
         <h2 class="section-header">04/02/19 : JS - CSS // TweenMax.min.js // snap.svg-min.js<span class="page-text--small">Для
             работы в
             браузерах
@@ -87,7 +265,8 @@
         <style>
           .block {
             width: 100%;
-            min-height: 70vh;
+            max-width: 40vh;
+            min-height: 40vh;
             padding: 20px;
             margin-bottom: 15px;
             box-sizing: border-box;
@@ -101,7 +280,7 @@
 
           .block span,
           .block svg {
-            font-size: 200px;
+            font-size: 105px;
             font-weight: bold;
             color: #580590;
             fill: #580590;
@@ -122,7 +301,6 @@
 
         </style>
         <script src="js/TweenMax.min.js"></script>
-        <script src="js/demo_js.js"></script>
 
         <script>
           $(document).ready(function (events) {
@@ -178,40 +356,7 @@
         </script>
 
         <div class="block">
-
-          <!-- width="482.6px" height="487.1px" -->
-          <!-- <svg viewBox="0 0 482.6 487.1" id="y">
-            <defs>
-              <pattern fill="#9ddea6" x="0" y="0" width="20" height="12" id="svg_u_pattern" patternUnits="userSpaceOnUse">
-                <path d="M9.8 12L0 2.2V.8l10 10 10-10v1.4L10.2 12h-.4zm-4 0L0 6.2V4.8L7.2 12H5.8zm8.4 0L20 6.2V4.8L12.8 12h1.4zM9.8 0l.2.2.2-.2h-.4zm-4 0L10 4.2 14.2 0h-1.4L10 2.8 7.2 0H5.8z">
-              </pattern>
-              <mask maskUnits="userSpaceOnUse" id="mask">
-                <g fill="#fff">
-                  <rect x="0" y="0" width="482.6px" height="487" id="mask_rect"></rect>
-                </g>
-              </mask>
-              <mask maskUnits="userSpaceOnUse" id="mask_all">
-                <g fill="#fff">
-                  <rect x="0" y="0" width="482.6px" height="487.1px" id="mask_rect_all"></rect>
-                </g>
-              </mask>
-            </defs>
-
-            <g mask="url(#mask_all)">
-              <g fill="url(#svg_u_pattern)">
-                <path d="M292.2,273.3v169.4c0,9,1.8,15.9,5.3,20.7c3.5,4.8,9.9,8.8,19,12v11.7H166.1v-11.7c9.1-2.9,15.4-6.7,19-11.5
-                          c3.5-4.8,5.3-11.8,5.3-21.1V273.3L64.2,74.7C50,52.4,38.7,37.2,30.2,28.9C21.7,20.7,11.7,15.1,0,12.2V0h191.8v12.2
-                          c-16.5,4.9-24.7,13.8-24.7,26.5c0,6.4,6,19.1,17.9,38.2l61.8,98l60.4-98c11.9-19.4,17.9-32.3,17.9-38.7c0-12.2-8.1-20.9-24.3-26.1
-                          L300.2,0h182.4v12.2c-11.7,2.9-21.7,8.5-30.2,16.7c-8.5,8.3-19.8,23.5-34,45.8L292.2,273.3z" />
-              </g>
-              <g mask="url(#mask)">
-                <path d="M292.2,273.3v169.4c0,9,1.8,15.9,5.3,20.7c3.5,4.8,9.9,8.8,19,12v11.7H166.1v-11.7c9.1-2.9,15.4-6.7,19-11.5
-                          c3.5-4.8,5.3-11.8,5.3-21.1V273.3L64.2,74.7C50,52.4,38.7,37.2,30.2,28.9C21.7,20.7,11.7,15.1,0,12.2V0h191.8v12.2
-                          c-16.5,4.9-24.7,13.8-24.7,26.5c0,6.4,6,19.1,17.9,38.2l61.8,98l60.4-98c11.9-19.4,17.9-32.3,17.9-38.7c0-12.2-8.1-20.9-24.3-26.1
-                          L300.2,0h182.4v12.2c-11.7,2.9-21.7,8.5-30.2,16.7c-8.5,8.3-19.8,23.5-34,45.8L292.2,273.3z" />
-              </g>
-            </g>
-          </svg> -->
+          <span>1</span>
         </div>
         <div class="block">
           <svg viewBox="0 0 482.6 487.1" id="y">
@@ -248,10 +393,8 @@
             </g>
           </svg>
         </div>
-        <div class="block"><span>3</span></div>
-        <div class="block"><span>4</span></div>
-        <div class="block"><span>5</span></div>
-        <div class="block"><span>6</span></div>
+      </div>
+
 
     </section>
 
