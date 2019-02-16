@@ -12,6 +12,6 @@ gulp.task("js", function () {
 });
 
 gulp.task("js_copy", function () {
-  return gulp.src("source/js/home_js.js")
+  return gulp.src(["source/js/home_js.js", "source/js/authorisation.js"])
     .pipe(gulp.dest("build/js"));
 });
