@@ -30,9 +30,58 @@
           <span id="snake__score"></span>
           <button class="snake__button">заново</button>
         </div>
+        <div class="snake-driver-wrap">
+          <div class="snake-driver">
+            <button class="btn snake-driver__button snake-driver__button--up" id="snake-driver__button--up"></button>
+            <button class="btn snake-driver__button snake-driver__button--right"></button>
+            <button class="btn snake-driver__button snake-driver__button--left"></button>
+            <button class="btn snake-driver__button snake-driver__button--down"></button>
+          </div>
+        </div>
       </div>
 
       <style>
+        .snake-driver-wrap {
+          display: block;
+          width: 120px;
+          height: 120px;
+          margin: 50px auto 0;
+        }
+
+        .snake-driver {
+          transform: rotate(45deg);
+          display: flex;
+          flex-wrap: wrap;
+          width: 100px;
+          height: 100px;
+        }
+
+        .snake-driver__button {
+          width: 50px;
+          height: 50px;
+          box-sizing: border-box;
+          border-radius: 4px;
+          background-color: transparent;
+          box-shadow: none;
+          outline-color: #d29948;
+          padding: 0;
+          background-image: url("../img/arrow.svg");
+          background-size: cover;
+          background-repeat: no-repeat;
+        }
+
+        .snake-driver__button--right {
+          transform: rotate(90deg);
+        }
+
+        .snake-driver__button--down {
+          transform: rotate(180deg);
+        }
+
+        .snake-driver__button--left {
+          transform: rotate(-90deg);
+        }
+
         #snake {
           display: inline-block;
           position: relative;
@@ -53,7 +102,7 @@
         #snake__score.snake__game-over {
           top: 50%;
           left: 50%;
-          transform: translate(-50%, -50%);
+          transform: translate(-50%, 70%);
           background-color: #fff;
           font-size: 1.5em;
           font-weight: bold;
@@ -291,6 +340,38 @@
                   direction = "down";
                   steps = false;
                 }
+              }
+            });
+
+            $(".snake-driver__button--up").click(function () {
+              if(direction != "down") {
+              direction = "up";
+              steps = false;
+              return false;
+              }
+            });
+
+            $(".snake-driver__button--right").click(function () {
+              if(direction != "left") {
+              direction = "right";
+              steps = false;
+              return false;
+              }
+            });
+
+            $(".snake-driver__button--down").click(function () {
+              if(direction != "up") {
+              direction = "down";
+              steps = false;
+              return false;
+              }
+            });
+
+            $(".snake-driver__button--left").click(function () {
+              if(direction != "right") {
+              direction = "left";
+              steps = false;
+              return false;
               }
             });
           };
