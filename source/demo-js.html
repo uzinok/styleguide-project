@@ -79,8 +79,10 @@
       </div>
 
       <div class="container container--two-column">
-        <h2 class="section-header">Змека, пока токля на клаве</span></h2>
-        <div id="snake"></div>
+        <h2 class="section-header">Змейка, пока токля на клаве</span></h2>
+        <div id="snake">
+          <input type="text" id="snake__score">
+        </div>
 
         <style>
           .field-snake {
@@ -174,26 +176,30 @@
             function create_mouse() {
 
               function generate_mouse() {
-                var posX = Math.round(Math.random() * (10 - 1) + 1);
-                var posY = Math.round(Math.random() * (10 - 1) + 1);
+                var posX = Math.round(Math.random() * (20 - 1) + 1);
+                var posY = Math.round(Math.random() * (20 - 1) + 1);
                 return [posX, posY];
               };
 
               var mouse_coordinates = generate_mouse();
               mouse = document.querySelector('[posX = "' + mouse_coordinates[0] + '"][posY = "' + mouse_coordinates[
                 1] + '"]');
-              mouse.classList.add("field-snake__mouse");
 
               while (mouse.classList.contains("field-snake__body")) {
                 var mouse_coordinates = generate_mouse();
-                mouse = document.querySelector('[posX = "' + mouse_coordinates[0] + '"][posY = "' +
-                  mouse_coordinates[1] + '"]');
+                mouse = document.querySelector('[posX = "' + mouse_coordinates[0] + '"][posY = "' + mouse_coordinates[1] + '"]');
               }
+
+              mouse.classList.add("field-snake__mouse");
             };
 
             create_mouse();
 
-            var direction = "right";
+            var direction = "right",
+              steps = false,
+              input = document.getElementById("snake__score"),
+              score = 0;
+              input.value = "Ваши очки: " + score;
 
             function move() {
               var snake_coordinates = [snake__body[0].getAttribute("posX"), snake__body[0].getAttribute("posY")];
@@ -227,27 +233,57 @@
                 }
               }
 
+              if (snake__body[0].getAttribute("posX") == mouse.getAttribute("posX") && snake__body[0].getAttribute("posY") == mouse.getAttribute("posY")) {
+                mouse.classList.remove("field-snake__mouse");
+                var a = snake__body[snake__body.length - 1].getAttribute("posX");
+                var b = snake__body[snake__body.length - 1].getAttribute("posY");
+                snake__body.push(document.querySelector('[posX = "' + a + '"][posY = "' + b + '"]'));
+                create_mouse();
+                score++;
+                input.value = "Ваши очки: " + score;
+
+              }
+
+
+              if (snake__body[0].classList.contains("field-snake__body")) {
+                console.log(snake__body);
+                setTimeout(() => {
+                  alert("Игра окончена!");
+                }, 200);
+                clearInterval(interval);
+                snake__body[0].style.background = "#ff0000";
+              }
+
               snake__body[0].classList.add("field-snake__head");
               for (var i = 0; i < snake__body.length; i++) {
                 snake__body[i].classList.add("field-snake__body");
               }
+
+              steps = true;
+
             }
 
-            var interval = setInterval(move, 250);
+            var interval = setInterval(move, 400);
 
             window.addEventListener("keydown", function (e) {
+              if (steps == true) {
               if (e.keyCode == 37 && direction != "right") {
                 direction = "left";
+                steps = false;
               }
               if (e.keyCode == 38 && direction != "down") {
                 direction = "up";
+                steps = false;
               }
               if (e.keyCode == 39 && direction != "left") {
                 direction = "right";
+                steps = false;
               }
               if (e.keyCode == 40 && direction != "up") {
                 direction = "down";
+                steps = false;
               }
+            }
             });
 
           });
