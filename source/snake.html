@@ -31,55 +31,26 @@
           <button class="snake__button">заново</button>
         </div>
         <div class="snake-driver-wrap">
-          <div class="snake-driver">
-            <button class="btn snake-driver__button snake-driver__button--up" id="snake-driver__button--up"></button>
-            <button class="btn snake-driver__button snake-driver__button--right"></button>
-            <button class="btn snake-driver__button snake-driver__button--left"></button>
-            <button class="btn snake-driver__button snake-driver__button--down"></button>
-          </div>
+          <svg width="260" viewBox="0 0 519.2 520.7">
+            <!-- width="519.2px" height="520.7px" -->
+            <polygon  class="snake-driver__button snake-driver__button--up" fill="#00aeef" stroke-miterlimit="10" points="259.6,0.8 345.8,117.8 285.8,97.2 285.2,229.8 235.2,229.8 235.2,97.8 172.5,115.3 " />
+            <polygon  class="snake-driver__button snake-driver__button--right" fill="#00aeef" stroke-miterlimit="10" points="290.5,235.8 419.8,233.2 401.8,172.5 518.3,260.3 404.4,345.8 423.2,285.8 290.5,285.8 " />
+            <polygon  class="snake-driver__button snake-driver__button--down" fill="#00aeef" stroke-miterlimit="10" points="283.8,291.8 287.2,423.2 345.8,402.5 259.6,519.8 172.5,401.8 233.2,424.5 233.8,291.8 " />
+            <polygon  class="snake-driver__button snake-driver__button--left" fill="#00aeef" stroke-miterlimit="10" points="227.8,284.5 97.8,284.5 116.5,345.8 0.8,260.3 117.2,175.8 97.8,234.5 227.8,235.8 " />
+          </svg>
+
         </div>
       </div>
 
       <style>
         .snake-driver-wrap {
-          display: block;
-          width: 120px;
-          height: 120px;
-          margin: 50px auto 0;
-        }
-
-        .snake-driver {
-          transform: rotate(45deg);
-          display: flex;
-          flex-wrap: wrap;
-          width: 100px;
-          height: 100px;
+          text-align: center;
+          margin: 20px auto 0;
         }
 
         .snake-driver__button {
-          width: 50px;
-          height: 50px;
-          box-sizing: border-box;
-          border-radius: 4px;
-          background-color: transparent;
-          box-shadow: none;
+          cursor: pointer;
           outline-color: #d29948;
-          padding: 0;
-          background-image: url("../img/arrow.svg");
-          background-size: cover;
-          background-repeat: no-repeat;
-        }
-
-        .snake-driver__button--right {
-          transform: rotate(90deg);
-        }
-
-        .snake-driver__button--down {
-          transform: rotate(180deg);
-        }
-
-        .snake-driver__button--left {
-          transform: rotate(-90deg);
         }
 
         #snake {
