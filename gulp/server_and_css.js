@@ -10,7 +10,7 @@ var include = require("posthtml-include");
 var htmlmin = require("gulp-htmlmin");
 
 gulp.task("css", function () {
-  return gulp.src("source/less/style.less")
+  return gulp.src(["source/less/style.less", "source/less/home.less"])
     .pipe(plumber())
     .pipe(less())
     .pipe(postcss([
