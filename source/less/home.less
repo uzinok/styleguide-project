@@ -88,7 +88,6 @@
   top: 0;
   left: 0;
   background-image: url("../img/hero_mob_paralax.png");
-  background-image: url("../img/hero_mob_paralax.webp");
   background-position: center top;
   min-height: 100vh;
   opacity: 0.45;
@@ -97,12 +96,10 @@
 @media (min-width: 768px) {
   .body_background {
     background-image: url("../img/hero.jpg");
-    background-image: url("../img/hero.webp");
   }
 
   .body_background--paralax {
     background-image: url("../img/hero_paralax.png");
-    background-image: url("../img/hero_paralax.webp");
   }
 }
 
@@ -235,4 +232,249 @@ section.container {
 main {
   z-index: 1;
   background-color: #ffffff;
+}
+
+.two-demo__parent {
+  width: 220px;
+  height: 330px;
+  position: relative;
+  margin: 0 auto;
+}
+
+.two-demo__head {
+  position: absolute;
+  top: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 150px;
+  height: 100px;
+  border-radius: 50%;
+  border: 1px solid #444444;
+  background-color: #ffffff;
+}
+
+.two-demo__head::before,
+.two-demo__head::after {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 30px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: #000000;
+  z-index: -1;
+  top: 0;
+}
+
+.two-demo__head::before {
+  left: 0;
+}
+
+.two-demo__head::after {
+  right: 0;
+}
+
+.two-demo__eye {
+  position: absolute;
+  top: 30px;
+  background-color: #000000;
+  width: 15px;
+  height: 20px;
+  border-radius: 45%;
+}
+
+.two-demo__eye::before,
+.two-demo__eye::after {
+  content: "";
+  display: block;
+  position: absolute;
+  border-radius: 40%;
+}
+
+.two-demo__eye::before {
+  width: 8px;
+  height: 8px;
+  background-color: #ffffff;
+  top: 5px;
+  left: 3px;
+  animation: one-demo-eye 10s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes one-demo-eye {
+  0% {
+    background-color: #ffffff;
+  }
+
+  10% {
+    background-color: #000000;
+    height: 0;
+  }
+
+  20% {
+    background-color: #ffffff;
+    height: 8px;
+  }
+}
+
+.two-demo__eye::after {
+  width: 5px;
+  height: 5px;
+  background-color: #000000;
+  top: 6px;
+  left: 3px;
+}
+
+.two-demo__eye--left {
+  left: 30px;
+}
+
+.two-demo__eye--right {
+  right: 30px;
+}
+
+.two-demo__nose {
+  position: absolute;
+  top: 45px;
+  left: 50%;
+  width: 20px;
+  height: 15px;
+  border-radius: 45%;
+  transform: translateX(-50%);
+  background-color: #000000;
+}
+
+.two-demo__nose::before,
+.two-demo__nose::after {
+  content: "";
+  display: block;
+  background-color: #ffffff;
+  width: 2px;
+  height: 2px;
+  border-radius: 50%;
+  position: absolute;
+  top: 9px;
+}
+
+.two-demo__nose::before {
+  left: 4px;
+}
+
+.two-demo__nose::after {
+  right: 4px;
+}
+
+.two-demo__mouth {
+  position: absolute;
+  bottom: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 20px;
+  height: 10px;
+  border-radius: 50px;
+  border-bottom: 3px solid #000000;
+}
+
+.two-demo__body {
+  position: absolute;
+  width: 200px;
+  height: 182px;
+  top: 132px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-top-left-radius: 62%;
+  border-top-right-radius: 62%;
+  border-bottom-right-radius: 50%;
+  border-bottom-left-radius: 50%;
+  border: 1px solid #444444;
+}
+
+.two-demo__body::before,
+.two-demo__body::after {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 30px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: #000000;
+  z-index: -1;
+  bottom: 0;
+  border-bottom: 4px dotted #ffffff;
+}
+
+.two-demo__body::before {
+  left: 0;
+}
+
+.two-demo__body::after {
+  right: 0;
+}
+
+.two-demo__paw {
+  position: absolute;
+  width: 20px;
+  height: 65px;
+  background-color: #000000;
+  border-top: 4px dotted #ffffff;
+  border-radius: 40px;
+  top: -26px;
+}
+
+.two-demo__body:hover .two-demo__paw {
+  animation: two-demo-paw 3s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes two-demo-paw {
+  0% {
+    transform: skew(0deg, 0deg);
+    transform-origin: center bottom;
+  }
+
+  33% {
+    transform: skew(20deg, -20deg);
+    transform-origin: center bottom;
+  }
+
+  66% {
+    transform: skew(-20deg, 20deg);
+    transform-origin: center bottom;
+  }
+
+  100% {
+    transform: skew(0deg, 0deg);
+    transform-origin: center bottom;
+  }
+}
+
+.two-demo__paw--left {
+  left: 0;
+}
+
+.two-demo__paw--right {
+  right: 0;
+}
+
+.two-demo__paw::before {
+  content: "";
+  display: block;
+  width: 8px;
+  height: 7px;
+  border-radius: 50%;
+  position: absolute;
+  top: 4px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #ffffff;
+  transform: skew(0deg, 0deg);
+}
+
+.two-demo__navel {
+  border-radius: 50%;
+  border: 3px solid #000000;
+  position: absolute;
+  bottom: 45px;
+  left: 50%;
+  transform: translateX(-50%);
 }

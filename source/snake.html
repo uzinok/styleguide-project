@@ -33,10 +33,13 @@
         <div class="snake-driver-wrap">
           <svg width="260" viewBox="0 0 519.2 520.7">
             <!-- width="519.2px" height="520.7px" -->
-            <polygon  class="snake-driver__button snake-driver__button--up" fill="#00aeef" stroke-miterlimit="10" points="259.6,0.8 345.8,117.8 285.8,97.2 285.2,229.8 235.2,229.8 235.2,97.8 172.5,115.3 " />
-            <polygon  class="snake-driver__button snake-driver__button--right" fill="#00aeef" stroke-miterlimit="10" points="290.5,235.8 419.8,233.2 401.8,172.5 518.3,260.3 404.4,345.8 423.2,285.8 290.5,285.8 " />
-            <polygon  class="snake-driver__button snake-driver__button--down" fill="#00aeef" stroke-miterlimit="10" points="283.8,291.8 287.2,423.2 345.8,402.5 259.6,519.8 172.5,401.8 233.2,424.5 233.8,291.8 " />
-            <polygon  class="snake-driver__button snake-driver__button--left" fill="#00aeef" stroke-miterlimit="10" points="227.8,284.5 97.8,284.5 116.5,345.8 0.8,260.3 117.2,175.8 97.8,234.5 227.8,235.8 " />
+            <polygon class="snake-driver__button snake-driver__button--up" fill="#00aeef" stroke-miterlimit="10" points="259.6,0.8 345.8,117.8 285.8,97.2 285.2,229.8 235.2,229.8 235.2,97.8 172.5,115.3 " />
+            <polygon class="snake-driver__button snake-driver__button--right" fill="#00aeef" stroke-miterlimit="10"
+              points="290.5,235.8 419.8,233.2 401.8,172.5 518.3,260.3 404.4,345.8 423.2,285.8 290.5,285.8 " />
+            <polygon class="snake-driver__button snake-driver__button--down" fill="#00aeef" stroke-miterlimit="10"
+              points="283.8,291.8 287.2,423.2 345.8,402.5 259.6,519.8 172.5,401.8 233.2,424.5 233.8,291.8 " />
+            <polygon class="snake-driver__button snake-driver__button--left" fill="#00aeef" stroke-miterlimit="10"
+              points="227.8,284.5 97.8,284.5 116.5,345.8 0.8,260.3 117.2,175.8 97.8,234.5 227.8,235.8 " />
           </svg>
 
         </div>
@@ -65,24 +68,26 @@
           top: 0;
           left: 0;
           background-color: transparent;
-          padding: 10px;
-          color: red;
           display: block;
+          padding: 3px 10px;
+          color: #fff;
+          text-shadow: 0 0 1px #000, 0 0 2px #000, 0 0 3px #000;
         }
 
         #snake__score.snake__game-over {
           top: 50%;
           left: 50%;
-          transform: translate(-50%, 70%);
+          transform: translate(-50%, -50%);
           background-color: #fff;
           font-size: 1.5em;
           font-weight: bold;
+          color: red;
+          text-shadow: none;
         }
 
         #snake__img {
           position: absolute;
-          top: 50%;
-          transform: translateY(-50%);
+          top: 0;
           left: 0;
           display: none;
         }
@@ -92,15 +97,16 @@
           border: none;
           box-shadow: none;
           font-size: 12px;
-          color: green;
           position: absolute;
           top: 0;
           right: 0;
-          padding: 10px;
           display: none;
+          padding: 3px 10px;
+          color: #fff;
+          text-shadow: 0 0 1px #000, 0 0 2px #000, 0 0 3px #000;
         }
 
-        .field-snake {
+        .my-snake {
           display: flex;
           flex-wrap: wrap;
           width: 50vh;
@@ -110,25 +116,25 @@
           margin: 0 auto;
         }
 
-        .field-snake__exel {
+        .my-snake__exel {
           width: 5%;
           height: 5%;
           border: 1px solid #eadede38;
           box-sizing: border-box;
         }
 
-        .field-snake__body {
+        .my-snake__body {
           border: 1px solid #580590;
           border-radius: 35%;
           background-color: #b050f0;
         }
 
-        .field-snake__head {
+        .my-snake__head {
           background-color: #580590;
           border-radius: 45%;
         }
 
-        .field-snake__mouse {
+        .my-snake__mouse {
           border: 1px solid #580590;
           background-color: #1bfd07;
           border-radius: 50%;
@@ -143,15 +149,15 @@
 
             var field = document.createElement("div");
             field_snake.appendChild(field);
-            field.classList.add("field-snake");
+            field.classList.add("my-snake");
 
             for (var i = 1; i < 401; i++) {
               var exel = document.createElement("div");
               field.appendChild(exel);
-              exel.classList.add("field-snake__exel");
+              exel.classList.add("my-snake__exel");
             }
 
-            var exel = document.getElementsByClassName("field-snake__exel");
+            var exel = document.getElementsByClassName("my-snake__exel");
 
             var x = 1,
               y = 20;
@@ -182,10 +188,10 @@
             ];
 
             for (var i = 0; i < snake__body.length; i++) {
-              snake__body[i].classList.add("field-snake__body");
+              snake__body[i].classList.add("my-snake__body");
             }
 
-            snake__body[0].classList.add("field-snake__head");
+            snake__body[0].classList.add("my-snake__head");
 
             var mouse;
 
@@ -201,7 +207,7 @@
               mouse = document.querySelector('[posX = "' + mouse_coordinates[0] + '"][posY = "' + mouse_coordinates[
                 1] + '"]');
 
-              while (mouse.classList.contains("field-snake__body")) {
+              while (mouse.classList.contains("my-snake__body")) {
                 var mouse_coordinates = generate_mouse();
                 mouse = document.querySelector('[posX = "' + mouse_coordinates[0] + '"][posY = "' +
                   mouse_coordinates[
@@ -209,7 +215,7 @@
                   '"]');
               }
 
-              mouse.classList.add("field-snake__mouse");
+              mouse.classList.add("my-snake__mouse");
             };
 
             create_mouse();
@@ -222,8 +228,8 @@
 
             function move() {
               var snake_coordinates = [snake__body[0].getAttribute("posX"), snake__body[0].getAttribute("posY")];
-              snake__body[0].classList.remove("field-snake__head");
-              snake__body[snake__body.length - 1].classList.remove("field-snake__body");
+              snake__body[0].classList.remove("my-snake__head");
+              snake__body[snake__body.length - 1].classList.remove("my-snake__body");
               snake__body.pop();
 
               if (direction == "right") {
@@ -263,7 +269,7 @@
               if (snake__body[0].getAttribute("posX") == mouse.getAttribute("posX") && snake__body[0].getAttribute(
                   "posY") ==
                 mouse.getAttribute("posY")) {
-                mouse.classList.remove("field-snake__mouse");
+                mouse.classList.remove("my-snake__mouse");
                 var a = snake__body[snake__body.length - 1].getAttribute("posX");
                 var b = snake__body[snake__body.length - 1].getAttribute("posY");
                 snake__body.push(document.querySelector('[posX = "' + a + '"][posY = "' + b + '"]'));
@@ -273,7 +279,7 @@
 
               }
 
-              if (snake__body[0].classList.contains("field-snake__body")) {
+              if (snake__body[0].classList.contains("my-snake__body")) {
                 document.querySelector(".snake__button").style.display = "block";
                 input.classList.add("snake__game-over");
                 clearInterval(interval);
@@ -282,9 +288,9 @@
 
               }
 
-              snake__body[0].classList.add("field-snake__head");
+              snake__body[0].classList.add("my-snake__head");
               for (var i = 0; i < snake__body.length; i++) {
-                snake__body[i].classList.add("field-snake__body");
+                snake__body[i].classList.add("my-snake__body");
               }
 
               steps = true;
@@ -315,34 +321,34 @@
             });
 
             $(".snake-driver__button--up").click(function () {
-              if(direction != "down") {
-              direction = "up";
-              steps = false;
-              return false;
+              if (direction != "down") {
+                direction = "up";
+                steps = false;
+                return false;
               }
             });
 
             $(".snake-driver__button--right").click(function () {
-              if(direction != "left") {
-              direction = "right";
-              steps = false;
-              return false;
+              if (direction != "left") {
+                direction = "right";
+                steps = false;
+                return false;
               }
             });
 
             $(".snake-driver__button--down").click(function () {
-              if(direction != "up") {
-              direction = "down";
-              steps = false;
-              return false;
+              if (direction != "up") {
+                direction = "down";
+                steps = false;
+                return false;
               }
             });
 
             $(".snake-driver__button--left").click(function () {
-              if(direction != "right") {
-              direction = "left";
-              steps = false;
-              return false;
+              if (direction != "right") {
+                direction = "left";
+                steps = false;
+                return false;
               }
             });
           };
@@ -350,7 +356,7 @@
           my_snke();
 
           $(".snake__button").click(function () {
-            var exel = document.querySelector(".field-snake");
+            var exel = document.querySelector(".my-snake");
             exel.remove();
             document.querySelector("#snake__score").classList.remove("snake__game-over");
             document.querySelector("#snake__img").style.display = "none";
