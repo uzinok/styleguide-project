@@ -27,6 +27,12 @@ body {
 
 main {
   position: relative;
+  // FOR TABLET DESCTOP
+  &.page-main--aside {
+    @media (min-width: @min-width-tablet) {
+      display: flex;
+    }
+  }
 }
 
 .hidden {
