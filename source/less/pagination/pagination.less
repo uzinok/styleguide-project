@@ -1,0 +1,31 @@
+.pagination {
+  display: flex;
+  justify-content: center;
+  font-family: "Roboto Condensed", "Arial", sans-serif;
+  width: 100%;
+  
+  & * {
+    display: inline-block;
+    position: relative;
+    padding: 0 10px;
+    font-size: 18px;
+    font-weight: 300;
+    text-decoration: none;
+  }
+  
+    & a::after {
+      content: "";
+      display: block;
+      width: 100%;
+      position: absolute;
+      left: 0;
+      bottom: -3px;
+      height: 2px;
+      background-color: @text-border-color;
+    }
+
+    & span {
+      font-weight: normal;
+    }
+
+}
