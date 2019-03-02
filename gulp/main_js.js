@@ -11,7 +11,15 @@ gulp.task("js", function () {
     .pipe(gulp.dest("build/js"));
 });
 
+gulp.task("home_js", function () {
+  return gulp.src(["source/js/jquery.min.js", "source/js/home_js.js"])
+    .pipe(concat("home_js.js", {
+      newLine: ";"
+    }))
+    .pipe(gulp.dest("build/js"));
+});
+
 gulp.task("js_copy", function () {
-  return gulp.src(["source/js/home_js.js", "source/js/authorisation.js"])
+  return gulp.src("source/js/authorisation.js")
     .pipe(gulp.dest("build/js"));
 });
