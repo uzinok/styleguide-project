@@ -12,7 +12,7 @@ gulp.task("js", function () {
 });
 
 gulp.task("home_js", function () {
-  return gulp.src(["source/js/jquery.min.js", "source/js/TweenMax.min.js", "source/js/home_js.js"])
+  return gulp.src(["source/js/jquery.min.js", "source/js/home_js.js"])
     .pipe(concat("home_js.js", {
       newLine: ";"
     }))

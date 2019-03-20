@@ -134,10 +134,10 @@ $(document).ready(function () {
   };
   // END SLIDER
   // SCROLL
-  $("[data-goto]").on("click", function (e) {
+  $("#header_paralax a").on("click", function (e) {
     e.preventDefault();
 
-    var that = $(this).data("goto");
+    var that = $(this).attr("href");
 
     $("html, body").animate({
       scrollTop: $(that).offset().top - -1
