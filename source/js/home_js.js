@@ -18,7 +18,7 @@ $(document).ready(function () {
     var form_data = $(this).serialize();
     $.ajax({
       type: "POST",
-      url: "php/ajax_feedback.php",
+      url: "http://uzinok.ru/wp-content/themes/wp_uzinok_theme/assets/php/ajax_feedback.php",
       data: form_data,
       success: function (response) {
         result = jQuery.parseJSON(response);
