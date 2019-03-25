@@ -4,3 +4,29 @@
     max-width: 250px;
   }
 }
+
+aside ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: myCounter;
+
+  & li {
+    position: relative;
+    padding-left: 1em;
+  }
+
+  & li::before {
+    counter-increment: myCounter;
+    content:counter(myCounter);
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+}
+
+.tag-cloud-link {
+  white-space: nowrap;
+  display: inline-block;
+  padding: 0 5px 0 0;
+}
