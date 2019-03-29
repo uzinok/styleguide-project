@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <include src="source/templates/head.html"></include>
+  <title>Таймер</title>
+  <script src="js/main.js"></script>
+</head>
+
+<body>
+
+  <div style="display: none;">
+    <include src="build/img/sprite.svg"></include>
+  </div>
+
+  <include src="source/templates/header.html"></include>
+
+  <div class="page-title">
+    <div class="container">
+      <h1 class="page-title__text">Таймер</h1>
+      <p class="page-title__subtitle">Пригодиться</p>
+    </div>
+  </div>
+
+  <main class="page-main">
+
+    <section class="container">
+
+      <div id="clock"></div>
+
+      <style>
+        #clock {
+          display: flex;
+          flex-wrap: wrap;
+          width: 580px;
+          margin: 0 auto;
+        }
+
+        #clock .exel {
+          /* 203 блока */
+          width: 20px;
+          height: 20px;
+          box-sizing: border-box;
+          position: relative;
+          border-radius: 4px;
+        }
+
+        #clock .exel::before {
+          content: "";
+          display: block;
+          width: 16px;
+          height: 16px;
+          margin-top: 1px;
+          margin-left: 1px;
+          border: 1px solid #efefef
+        }
+
+        #clock .num {
+          background-color: #580590;
+        }
+
+        #clock .set {
+          background-color: #580590;
+        }
+
+        #clock .num::before,
+        #clock .set::before {
+          display: none;
+        }
+
+      </style>
+
+      <script>
+        $(document).ready(function () {
+
+          function clock() {
+            // получили елемент
+            var field_clock = document.getElementById("clock");
+
+            // создали клетки для определения координат
+            for (var i = 0; i < 203; i++) {
+              var exel = document.createElement("div");
+              field_clock.appendChild(exel);
+              exel.classList.add("exel");
+            }
+
+            // расставляем атрибуты - координаты клеток
+            var x = 1,
+              y = 7,
+              exel = document.getElementsByClassName("exel");
+
+            for (var i = 0; i < exel.length; i++) {
+              if (x > 29) {
+                x = 1;
+                y--;
+              }
+              exel[i].setAttribute("posX", x);
+              exel[i].setAttribute("posY", y);
+              x++;
+            }
+
+            // расставляем разделители
+            var set = [
+              document.querySelector('[posX="10"][posY="3"]'),
+              document.querySelector('[posX="10"][posY="5"]'),
+              document.querySelector('[posX="20"][posY="3"]'),
+              document.querySelector('[posX="20"][posY="5"]')
+            ];
+            for (var i = 0; i < set.length; i++) {
+              set[i].classList.add("set");
+            }
+
+            // массивы с координатами для каждой цифры
+            var arr_num = [
+              // для чиски поля цифры
+              [
+                [
+                  [1],
+                  [1]
+                ],
+                [
+                  [2],
+                  [1]
+                ],
+                [
+                  [3],
+                  [1]
+                ],
+                [
+                  [1],
+                  [2]
+                ],
+                [
+                  [2],
+                  [2]
+                ],
+                [
+                  [3],
+                  [2]
+                ],
+                [
+                  [1],
+                  [3]
+                ],
+                [
+                  [2],
+                  [3]
+                ],
+                [
+                  [3],
+                  [3]
+                ],
+                [
+                  [1],
+                  [4]
+                ],
+                [
+                  [2],
+                  [4]
+                ],
+                [
+                  [3],
+                  [4]
+                ],
+                [
+                  [1],
+                  [5]
+                ],
+                [
+                  [2],
+                  [5]
+                ],
+                [
+                  [3],
+                  [5]
+                ]
+              ],
+              // еденица
+              [
+                [3, 1],
+                [3, 2],
+                [3, 3],
+                [2, 4],
+                [3, 4],
+                [3, 5]
+              ],
+              //   двойка 
+              [
+                [1, 1],
+                [2, 1],
+                [3, 1],
+                [1, 2],
+                [1, 3],
+                [2, 3],
+                [3, 3],
+                [3, 4],
+                [1, 5],
+                [2, 5],
+                [3, 5]
+              ],
+              //   тройка
+              [
+                [1, 1],
+                [2, 1],
+                [3, 1],
+                [3, 2],
+                [2, 3],
+                [3, 3],
+                [3, 4],
+                [1, 5],
+                [2, 5],
+                [3, 5]
+              ],
+              //   четверка
+              [
+                [3, 1],
+                [3, 2],
+                [1, 3],
+                [2, 3],
+                [3, 3],
+                [1, 4],
+                [3, 4],
+                [1, 5],
+                [3, 5]
+              ],
+              //   пятерка
+              [
+                [1, 1],
+                [2, 1],
+                [3, 1],
+                [3, 2],
+                [1, 3],
+                [2, 3],
+                [3, 3],
+                [1, 4],
+                [1, 5],
+                [2, 5],
+                [3, 5]
+              ],
+              //   шестерка
+              [
+                [1, 1],
+                [2, 1],
+                [3, 1],
+                [1, 2],
+                [3, 2],
+                [1, 1],
+                [2, 1],
+                [3, 1],
+                [1, 3],
+                [1, 1],
+                [2, 1],
+                [3, 1],
+              ],
+              //   семерка
+              [
+                [3, 1],
+                [3, 2],
+                [3, 3],
+                [3, 4],
+                [1, 5],
+                [2, 5],
+                [3, 5]
+              ],
+              //   восьмерка
+              [
+                [[1], [1]],
+                [[2], [1]],
+                [[3], [1]],
+                [[1], [2]],
+                [[3], [2]],
+                [[1], [3]],
+                [[2], [3]],
+                [[3], [3]],
+                [[1], [4]],
+                [[3], [4]],
+                [[1], [5]],
+                [[2], [5]],
+                [[3], [5]]
+              ],
+              //   девятка
+              [
+                [1, 1],
+                [3, 1],
+                [1, 2],
+                [3, 2],
+                [1, 3],
+                [2, 3],
+                [3, 3],
+                [1, 4],
+                [3, 4],
+                [1, 5],
+                [2, 5],
+                [3, 5]
+              ],
+              //   ноль
+              [
+                [1, 1],
+                [2, 1],
+                [3, 1],
+                [1, 2],
+                [3, 2],
+                [1, 3],
+                [3, 3],
+                [1, 4],
+                [3, 4],
+                [1, 5],
+                [2, 5],
+                [3, 5]
+              ]
+            ];
+
+            // вывод цифры
+            var posX = 0,
+              posY = 8,
+              num = 2;
+
+
+            function create_number(posX, pozY, num) {
+              // очищаем квадрат в котором будет меняться цифра
+              for (var i = 0; i < arr_num[0].length; i++) {
+
+                // получаем координаты и блок для очистки
+                var x = posX + +arr_num[0][i][0],
+                  y = posY - +arr_num[0][i][1],
+                  my_var = document.querySelector('[posX="' + x + '"][posY="' + y + '"]');
+
+                if (my_var.classList.contains("num")) {
+                  // очистка
+                  my_var.classList.remove("num");
+                }
+              }
+
+              //   arr_num[num];
+              // пишем цифру
+              for(var i = 0; i < arr_num[num].length; i++) {
+                // получаем нужную координату и добавляем сласс
+                var x = posX + +arr_num[num][i][0],
+                y = posY + +arr_num[num][i][1] - 7,
+                my_var = document.querySelector('[posX="' + x + '"][posY="' + y + '"]');
+                my_var.classList.add("num");
+              }
+            }
+
+            create_number(posX, posY, num);
+            $("body").click(function(){create_number(posX, posY, 3);})
+
+          }
+
+          clock();
+        });
+
+      </script>
+
+    </section>
+
+  </main>
+
+  <include src="source/templates/footer.html"></include>
+
+</body>
+
+</html>
