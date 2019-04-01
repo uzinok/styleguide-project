@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <include src="source/templates/head.html"></include>
+  <title>Таймер</title>
+  <script src="js/main.js"></script>
+</head>
+
+<body>
+
+  <div style="display: none;">
+    <include src="build/img/sprite.svg"></include>
+  </div>
+
+  <include src="source/templates/header.html"></include>
+
+  <div class="page-title">
+    <div class="container">
+      <h1 class="page-title__text">Таймер</h1>
+      <p class="page-title__subtitle">Пригодиться</p>
+    </div>
+  </div>
+
+  <main class="page-main">
+
+    <section class="container">
+
+      <div id="timer"></div>
+
+      <style>
+        #timer {
+          display: flex;
+          flex-wrap: wrap;
+          width: 290px;
+          margin: 0 auto;
+        }
+
+        #timer .exel {
+          /* 203 блока */
+          width: 10px;
+          height: 10px;
+          box-sizing: border-box;
+          position: relative;
+          border-radius: 3px;
+        }
+
+        #timer .exel::before {
+          content: "";
+          display: block;
+          width: 6px;
+          height: 6px;
+          margin-top: 1px;
+          margin-left: 1px;
+          border: 1px solid #efefef
+        }
+
+        #timer .num {
+          background-color: #580590;
+        }
+
+        #timer .set {
+          background-color: #580590;
+        }
+
+        #timer .num::before,
+        #timer .set::before {
+          display: none;
+        }
+
+      </style>
+
+      <script>
+        $(document).ready(function () {
+
+          function timer() {
+            // получили елемент
+            var field_timer = document.getElementById("timer");
+
+            // создали клетки для определения координат
+            for (var i = 0; i < 203; i++) {
+              var exel = document.createElement("div");
+              field_timer.appendChild(exel);
+              exel.classList.add("exel");
+            }
+
+            // расставляем атрибуты - координаты клеток
+            var x = 1,
+              y = 7,
+              exel = document.getElementsByClassName("exel");
+
+            for (var i = 0; i < exel.length; i++) {
+              if (x > 29) {
+                x = 1;
+                y--;
+              }
+              exel[i].setAttribute("posX", x);
+              exel[i].setAttribute("posY", y);
+              x++;
+            }
+
+            // расставляем разделители
+            var set = [
+              document.querySelector('[posX="10"][posY="3"]'),
+              document.querySelector('[posX="10"][posY="5"]'),
+              document.querySelector('[posX="20"][posY="3"]'),
+              document.querySelector('[posX="20"][posY="5"]')
+            ];
+            for (var i = 0; i < set.length; i++) {
+              set[i].classList.add("set");
+            }
+
+// массивы с координатами для каждой цифры
+var arr_num = [
+  // ноль
+  [
+    [1, 1],
+    [2, 1],
+    [3, 1],
+    [1, 2],
+    [3, 2],
+    [1, 3],
+    [3, 3],
+    [1, 4],
+    [3, 4],
+    [1, 5],
+    [2, 5],
+    [3, 5]
+  ], [ [3, 1], [3, 2], [3, 3], [2, 4], [3, 4], [3, 5] ], [ [1, 1], [2, 1], [3, 1], [1, 2], [1, 3], [2, 3], [3, 3], [3, 4], [1, 5], [2, 5], [3, 5] ], [ [1, 1], [2, 1], [3, 1], [3, 2], [2, 3], [3, 3], [3, 4], [1, 5], [2, 5], [3, 5] ], [ [3, 1], [3, 2], [1, 3], [2, 3], [3, 3], [1, 4], [3, 4], [1, 5], [3, 5] ], [ [1, 1], [2, 1], [3, 1], [3, 2], [1, 3], [2, 3], [3, 3], [1, 4], [1, 5], [2, 5], [3, 5] ], [ [1, 1], [2, 1], [3, 1], [1, 2], [3, 2], [1, 3], [2, 3], [3, 3], [1, 4], [1, 5], [2, 5], [3, 5] ], [ [3, 1], [3, 2], [3, 3], [3, 4], [1, 5], [2, 5], [3, 5] ], [ [1, 1], [2, 1], [3, 1], [1, 2], [3, 2], [1, 3], [2, 3], [3, 3], [1, 4], [3, 4], [1, 5], [2, 5], [3, 5] ], [ [1, 1], [2, 1], [3, 1], [3, 2], [1, 3], [2, 3], [3, 3], [1, 4], [3, 4], [1, 5], [2, 5], [3, 5] ],
+  // для чиски поля цифры
+  [
+    [1, 1],
+    [2, 1],
+    [3, 1],
+    [1, 2],
+    [2, 2],
+    [3, 2],
+    [1, 3],
+    [2, 3],
+    [3, 3],
+    [1, 4],
+    [2, 4],
+    [3, 4],
+    [1, 5],
+    [2, 5],
+    [3, 5],
+    [1, 6],
+    [2, 6],
+    [3, 6]
+  ]
+];
+
+            // вывод цифры
+            var
+              posY = 8, // для всех цифр
+              posX_h_1 = 1, // первая цифра часа
+              posX_h_2 = 5, // вторая цифра часа
+              posX_m_1 = 11, // первая цифра минуты
+              posX_m_2 = 15, // вторая цифра минуты
+              posX_s_1 = 21, // первая цифра секунды
+              posX_s_2 = 25; // вторая цифра секунды
+
+
+function create_number(posX, pozY, num) {
+  // очищаем квадрат в котором будет меняться цифра
+  for (var i = 0; i < 15; i++) {
+
+    // получаем координаты и блок для очистки
+    var
+      x = posX + +arr_num[10][i][0],
+      y = posY - +arr_num[10][i][1] - 1,
+      my_var = document.querySelector('[posX="' + x + '"][posY="' + y + '"]');
+
+    if (my_var.classList.contains("num")) {
+      // очистка
+      my_var.classList.remove("num");
+    }
+  }
+
+  // пишем цифру
+  for (var i = 0; i < arr_num[num].length; i++) {
+    // получаем нужную координату и добавляем сласс
+    var x = posX + +arr_num[num][i][0],
+      y = posY + +arr_num[num][i][1] - 7,
+      my_var = document.querySelector('[posX="' + x + '"][posY="' + y + '"]');
+    my_var.classList.add("num");
+  }
+
+}
+
+var
+  h1 = 1,
+  h2 = 1,
+  m1 = 1,
+  m2 = 1,
+  s1 = 1,
+  s2 = 1;
+
+create_number(posX_h_1, posY, h1);
+create_number(posX_h_2, posY, h2);
+create_number(posX_m_1, posY, m1);
+create_number(posX_m_2, posY, m2);
+create_number(posX_s_1, posY, s1);
+create_number(posX_s_2, posY, s2);
+
+function create_timer() {
+
+  if (s2 == -1) {
+    s2 = 9;
+    s1--;
+
+    if (s1 == -1) {
+      s1 = 5;
+      m2--;
+
+      if (m2 == -1) {
+        m2 = 9;
+        m1--;
+
+        if (m1 == -1) {
+          m1 = 5;
+          h2--;
+
+          if(h2 == -1) {
+            h2 = 9;
+            h1--;
+
+            if(h1 == -1) {
+              clearInterval(interval);
+              alert("Таймер остановился");
+            }
+            create_number(posX_h_1, posY, h1);
+          }
+          create_number(posX_h_2, posY, h2);
+        }
+        create_number(posX_m_1, posY, m1);
+      }
+      create_number(posX_m_2, posY, m2);
+    }
+    create_number(posX_s_1, posY, s1);
+  }
+  create_number(posX_s_2, +posY, s2);
+
+  s2--;
+  var interval = setTimeout(create_timer, 1000);
+
+
+}
+
+create_timer();
+
+          }
+
+          timer();
+        });
+
+      </script>
+
+    </section>
+
+  </main>
+
+  <include src="source/templates/footer.html"></include>
+
+</body>
+
+</html>
