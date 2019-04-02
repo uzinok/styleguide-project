@@ -247,7 +247,7 @@
         // меняем время
         function create_time() {
 
-          // анимируем точку
+          // // анимируем точку
           var
             path = Snap.select("#set_start"),
             path_out = Snap.select("#set_out").attr("d"),
@@ -255,13 +255,17 @@
             svg_u = $("#set");
 
           if (Seconds % 2 == 0) {
+          setTimeout(function(){
             path.animate({
-              d: path_to
+            d: path_to
             }, 150, mina.linear);
+          }, 490);
           } else {
+            setTimeout(function(){
             path.animate({
               d: path_out
             }, 150, mina.linear);
+            }, 490);
           }
 
           console.log(num_h_1 + num_h_2 + ":" + num_m_1 + num_m_2 + ":" + Seconds);
@@ -274,13 +278,21 @@
               num_m_2 = 0;
               num_m_1++;
 
-              if (num_m_1 == 7) {
+              if (num_m_1 == 6) {
                 num_m_1 = 0;
                 num_h_2++;
+
+                  if(num_h_1 == 3 || num_h_2 == 4) {
+                    num_h_1 = 0;
+                    num_h_2 = 0;
+                    create_nmber(num_h_1, h_1);
+                    create_nmber(num_h_2, h_2);
+                  }
 
                 if (num_h_2 == 9) {
                   num_h_2 = 0;
                   num_h_1++;
+
 
                   if (num_h_1 == 3) num_h_1 = 0;
 
