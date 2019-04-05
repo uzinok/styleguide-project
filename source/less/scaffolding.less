@@ -30,11 +30,12 @@ body {
 }
 
 main {
-    display: block;
-    position: relative;
-    width: 100%;
-    max-width: 1318px;
-    margin: 0 auto;
+  display: block;
+  position: relative;
+  width: 100%;
+  max-width: 1318px;
+  margin: 0 auto;
+
   // FOR TABLET DESCTOP
   &.page-main--aside {
     @media (min-width: @min-width-tablet) {
@@ -79,9 +80,11 @@ a {
     opacity: 0.7;
   }
 }
+
 .container-content {
   width: 100%;
 }
+
 .section-header {
   margin: 0;
   padding: 40px 0 20px;
@@ -119,4 +122,16 @@ a {
 .cite {
   font-size: 14px;
   font-style: italic;
+}
+
+// графика
+figure {
+  display: flex!important;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+figcaption {
+  color: @text-color-light!important;
 }
