@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <include src="source/templates/head.html"></include>
+  <title>Breakout</title>
+  <script src="js/main.js"></script>
+</head>
+
+<body>
+
+  <div style="display: none;">
+    <include src="build/img/sprite.svg"></include>
+  </div>
+
+  <include src="source/templates/header.html"></include>
+
+  <div class="page-title">
+    <div class="container">
+      <h1 class="page-title__text">Breakout</h1>
+      <p class="page-title__subtitle">Пробую создать игру breakout на JS</p>
+    </div>
+  </div>
+
+  <main class="page-main">
+
+    <section class="container">
+      <h2 class="section-header">Сначала на JS, а позже попробую на canvas.</h2>
+
+      <div id="breakout" class="breakout"></div>
+      <style>
+        .breakout {
+          width: 75vmin;
+          height: 57vmin;
+          border: 1px solid #7e7e7e;
+          margin: 0 auto;
+          background-color: #250542;
+          display: flex;
+          flex-wrap: wrap;
+        }
+
+        .exel {
+          width: 3vmin;
+          height: 3vmin;
+          box-shadow: 0 0 1vmin rgba(68, 48, 86, 0.5) inset;
+          color: rgba(255, 255, 255, 0.05);
+          text-shadow: 0 0 1px rgba(0, 0, 0, 0.1);
+          font-size: 10px;
+          padding: 0.5vmin;
+          box-sizing: border-box;
+        }
+
+        .ball,
+        .figure,
+        .blackboard {
+          background-color: #fff;
+        }
+
+        .ball {
+          border-radius: 50%;
+          background-color: #f00;
+        }
+
+      </style>
+      <script>
+        $(document).ready(function () {
+
+          //   получим поле для создания игры
+          var breakout = document.getElementById("breakout");
+
+          // создали клетки для определения координат
+          for (var i = 0; i < 475; i++) {
+            var exel = document.createElement("div");
+            breakout.appendChild(exel);
+            exel.classList.add("exel");
+            exel.innerHTML = i;
+          }
+
+          // расставляем атрибуты - координаты клеток
+          var x = 1,
+            y = 1,
+            exel = document.getElementsByClassName("exel");
+
+          for (var i = 0; i < exel.length; i++) {
+            if (x > 25) {
+              x = 1;
+              y++;
+            }
+            exel[i].setAttribute("posX", x);
+            exel[i].setAttribute("posY", y);
+            x++;
+          }
+
+          //   создаем 24 фигуры
+          var
+            // координаты первой фигуры
+            pos_x_figure = "2",
+            pos_y_figure = "2",
+            // количество фигур
+            count_figure = 24,
+
+            elem_figure = "";
+
+          for (var i = 0; i < count_figure; i++) {
+
+            if (pos_x_figure > 25) {
+              pos_x_figure = 2;
+              pos_y_figure = +pos_y_figure + 2;
+            }
+
+            // первый елемент
+            elem_figure = document.querySelector('[posX="' + pos_x_figure + '"][posY="' + pos_y_figure + '"]');
+            elem_figure.classList.add("figure");
+            pos_x_figure++;
+
+            // второй элемент
+            elem_figure = document.querySelector('[posX="' + pos_x_figure + '"][posY="' + pos_y_figure + '"]');
+            elem_figure.classList.add("figure");
+            pos_x_figure++;
+
+            // третий елемент
+            elem_figure = document.querySelector('[posX="' + pos_x_figure + '"][posY="' + pos_y_figure + '"]');
+            elem_figure.classList.add("figure");
+
+            // отступ перед следующей фигурой
+            pos_x_figure += 2;
+          }
+
+          //   доска
+          var
+            pos_x_blackboard = 12,
+            pos_y_blackboard = 19;
+
+          // первый елемент
+          elem_blackboard = document.querySelector('[posX="' + pos_x_blackboard + '"][posY="' + pos_y_blackboard +
+            '"]');
+          elem_blackboard.classList.add("figure", "one");
+          pos_x_blackboard++;
+
+          // второй элемент
+          elem_blackboard = document.querySelector('[posX="' + pos_x_blackboard + '"][posY="' + pos_y_blackboard +
+            '"]');
+          elem_blackboard.classList.add("figure", "two");
+          pos_x_blackboard++;
+
+          // третий елемент
+          elem_blackboard = document.querySelector('[posX="' + pos_x_blackboard + '"][posY="' + pos_y_blackboard +
+            '"]');
+          elem_blackboard.classList.add("figure", "tree");
+
+          //   рисуем шарик
+          elem_ball = document.querySelector('[posX="13"][posY="18"]');
+          elem_ball.classList.add("ball");
+
+        });
+
+        // двигаем доской влево - вправо
+        window.addEventListener("keydown", function (e) {
+          if (e.keyCode == 39) {
+            console.log("right");
+          }
+          if (e.keyCode == 37) {
+            console.log("left");
+          }
+        });
+
+      </script>
+    </section>
+
+  </main>
+
+  <include src="source/templates/footer.html"></include>
+
+</body>
+
+</html>
